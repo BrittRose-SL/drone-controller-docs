@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wearer HUD - Drone Controller System</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Drone Controller System</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Wearer HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../owner-hud/index.html" class="nav-link">Owner HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../programmer-station/index.html" class="nav-link">Programmer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../charging-pad/index.html" class="nav-link">Charging Pad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../rlv-reference/index.html" class="nav-link">RLV Reference</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="doc-header">
+                <h1>Wearer HUD Documentation</h1>
+                <p>Personal interface for drone wearers with status monitoring, emergency controls, and customization options.</p>
+            </header>
+
+            <nav class="doc-navigation">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#interface">Interface Guide</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </nav>
+
+            <section id="overview" class="doc-section">
+                <h2>Overview</h2>
+                <p>The Wearer HUD is the primary interface for individuals using the drone controller system. It provides essential monitoring, control, and safety features while maintaining an intuitive user experience.</p>
+                
+                <div class="info">
+                    <strong>Important:</strong> The Wearer HUD requires RLV/RLVa to be enabled in your viewer for full functionality. Most features will work without RLV, but some advanced controls require it.
+                </div>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Status Monitoring:</strong> Real-time display of drone status, battery level, and connection status</li>
+                    <li><strong>Emergency Controls:</strong> Immediate access to safeword and emergency stop functions</li>
+                    <li><strong>Customization:</strong> Personalize colors, sounds, and interface preferences</li>
+                    <li><strong>Communication:</strong> Built-in chat and notification system</li>
+                    <li><strong>Session Management:</strong> Start, pause, and end drone sessions</li>
+                </ul>
+            </section>
+
+            <section id="installation" class="doc-section">
+                <h2>Installation</h2>
+                
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>Second Life viewer with RLV/RLVa support (recommended: Firestorm)</li>
+                    <li>RLV enabled in viewer preferences</li>
+                    <li>Script permissions enabled for the drone controller system</li>
+                    <li>Sufficient available memory for script attachment</li>
+                </ul>
+
+                <h3>Installation Steps</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Download Scripts</h4>
+                            <p>Download the latest Wearer HUD scripts from the <a href="https://github.com/yourusername/drone-controller-scripts" target="_blank">GitHub repository</a>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Create HUD Object</h4>
+                            <p>Rez a primitive object and shape it according to your preferences. The recommended size is 0.5m x 0.3m x 0.05m for optimal HUD appearance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Add Scripts</h4>
+                            <p>Copy the following scripts into your HUD object:</p>
+                            <ul>
+                                <li><code>wearer_hud_main.lsl</code> - Main HUD functionality</li>
+                                <li><code>wearer_hud_interface.lsl</code> - User interface management</li>
+                                <li><code>wearer_hud_rlv.lsl</code> - RLV integration</li>
+                                <li><code>wearer_hud_communication.lsl</code> - Communication system</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Configure Settings</h4>
+                            <p>Use the configuration notecard to set your initial preferences:</p>
+                            <pre><code># Wearer HUD Configuration
+# Version: 1.0.0
+
+# Display Settings
+hud_color = "0.2, 0.4, 0.8"
+transparency = 0.1
+font_size = 12
+
+# Safety Settings
+safeword = "EMERGENCY"
+auto_logout_time = 3600
+emergency_tp_point = "128, 128, 24"
+
+# Communication Settings
+owner_notifications = TRUE
+status_broadcasts = TRUE
+chat_relay = TRUE
+
+# RLV Settings
+rlv_enabled = TRUE
+auto_accept_tp = FALSE
+movement_restrictions = TRUE</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Attach and Test</h4>
+                            <p>Attach the HUD to your screen (recommended position: Top Right) and verify all functions are working correctly.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="interface" class="doc-section">
+                <h2>Interface Guide</h2>
+                
+                <h3>HUD Layout</h3>
+                <p>The Wearer HUD features a compact, efficient design with clearly labeled sections:</p>
+                
+                <div class="interface-grid">
+                    <div class="interface-section">
+                        <h4>Status Display</h4>
+                        <ul>
+                            <li><strong>Power Level:</strong> Current battery/energy status (0-100%)</li>
+                            <li><strong>Connection:</strong> Link status with Owner HUD or Programmer Station</li>
+                            <li><strong>Mode:</strong> Current operational mode (Standby, Active, Maintenance)</li>
+                            <li><strong>Restrictions:</strong> Active RLV restrictions summary</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interface-section">
+                        <h4>Control Buttons</h4>
+                        <ul>
+                            <li><strong>Power:</strong> Toggle HUD on/off</li>
+                            <li><strong>Emergency:</strong> Immediate safeword activation</li>
+                            <li><strong>Settings:</strong> Access configuration menu</li>
+                            <li><strong>Help:</strong> Quick help and status information</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Status Indicators</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indicator</th>
+                            <th>Color</th>
+                            <th>Meaning</th>
+                            <th>Action Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Power Level</td>
+                            <td class="status-online">Green</td>
+                            <td>High (80-100%)</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>Power Level</td>
+                            <td class="status-warning">Yellow</td>
+                            <td>Medium (30-79%)</td>
+                            <td>Consider charging soon</td>
+                        </tr>
+                        <tr>
+                            <td>Power Level</td>
+                            <td class="status-error">Red</td>
+                            <td>Low (0-29%)</td>
+                            <td>Charge immediately</td>
+                        </tr>
+                        <tr>
+                            <td>Connection</td>
+                            <td class="status-online">Green</td>
+                            <td>Connected</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>Connection</td>
+                            <td class="status-offline">Gray</td>
+                            <td>Disconnected</td>
+                            <td>Check Owner HUD proximity</td>
+                        </tr>
+                        <tr>
+                            <td>RLV Status</td>
+                            <td class="status-online">Green</td>
+                            <td>Active and responding</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>RLV Status</td>
+                            <td class="status-error">Red</td>
+                            <td>Not enabled or error</td>
+                            <td>Enable RLV in viewer</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="features" class="doc-section">
+                <h2>Features</h2>
+                
+                <h3>Emergency Systems</h3>
+                <p>The Wearer HUD includes multiple layers of safety features:</p>
+                
+                <h4>Safeword System</h4>
+                <ul>
+                    <li><strong>Instant Access:</strong> Large, always-visible emergency button</li>
+                    <li><strong>Chat Command:</strong> Type your configured safeword in local chat</li>
+                    <li><strong>Gesture Support:</strong> Assign safeword to viewer gesture for quick access</li>
+                    <li><strong>Auto-Release:</strong> Automatic restriction removal on safeword use</li>
+                </ul>
+                
+                <h4>Session Timeouts</h4>
+                <ul>
+                    <li><strong>Maximum Session Length:</strong> Configurable automatic logout</li>
+                    <li><strong>Idle Detection:</strong> Automatic pause after period of inactivity</li>
+                    <li><strong>Connection Loss:</strong> Auto-release if Owner HUD disconnects</li>
+                </ul>
+
+                <h3>Communication Features</h3>
+                
+                <h4>Status Broadcasting</h4>
+                <ul>
+                    <li><strong>Health Monitoring:</strong> Regular status updates to Owner HUD</li>
+                    <li><strong>Location Sharing:</strong> Optional position reporting</li>
+                    <li><strong>Activity Logging:</strong> Session duration and activity tracking</li>
+                </ul>
+                
+                <h4>Chat Integration</h4>
+                <ul>
+                    <li><strong>Filtered Chat:</strong> Selective message relay to owner</li>
+                    <li><strong>Silent Mode:</strong> Reduced notification options</li>
+                    <li><strong>Emergency Broadcast:</strong> Alert system for immediate attention</li>
+                </ul>
+
+                <h3>Customization Options</h3>
+                
+                <h4>Visual Customization</h4>
+                <ul>
+                    <li><strong>Color Themes:</strong> Multiple pre-set color schemes</li>
+                    <li><strong>Transparency:</strong> Adjustable HUD opacity</li>
+                    <li><strong>Size Scaling:</strong> Resize HUD elements</li>
+                    <li><strong>Position:</strong> Flexible attachment point options</li>
+                </ul>
+                
+                <h4>Audio Settings</h4>
+                <ul>
+                    <li><strong>Sound Effects:</strong> Notification sounds for different events</li>
+                    <li><strong>Volume Control:</strong> Individual volume levels</li>
+                    <li><strong>Silent Mode:</strong> Disable all audio feedback</li>
+                </ul>
+            </section>
+
+            <section id="settings" class="doc-section">
+                <h2>Settings Configuration</h2>
+                
+                <h3>Accessing Settings</h3>
+                <p>Click the "Settings" button on your HUD to access the configuration menu. Settings are organized into categories for easy navigation.</p>
+                
+                <h3>Safety Settings</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Safeword</td>
+                            <td>"EMERGENCY"</td>
+                            <td>Word that immediately stops all restrictions</td>
+                        </tr>
+                        <tr>
+                            <td>Max Session Time</td>
+                            <td>60 minutes</td>
+                            <td>Automatic logout after this duration</td>
+                        </tr>
+                        <tr>
+                            <td>Connection Timeout</td>
+                            <td>5 minutes</td>
+                            <td>Auto-release if owner disconnects</td>
+                        </tr>
+                        <tr>
+                            <td>Emergency TP Point</td>
+                            <td>None</td>
+                            <td>Safe teleport destination for emergencies</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Interface Settings</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HUD Color</td>
+                            <td>Blue</td>
+                            <td>Primary color scheme for HUD elements</td>
+                        </tr>
+                        <tr>
+                            <td>Transparency</td>
+                            <td>10%</td>
+                            <td>Background opacity level</td>
+                        </tr>
+                        <tr>
+                            <td>Font Size</td>
+                            <td>Medium</td>
+                            <td>Text size for HUD elements</td>
+                        </tr>
+                        <tr>
+                            <td>Compact Mode</td>
+                            <td>Disabled</td>
+                            <td>Reduced HUD size for minimal screen space</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Communication Settings</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Status Updates</td>
+                            <td>Every 5 min</td>
+                            <td>Frequency of automatic status reports</td>
+                        </tr>
+                        <tr>
+                            <td>Chat Relay</td>
+                            <td>Enabled</td>
+                            <td>Forward local chat to owner</td>
+                        </tr>
+                        <tr>
+                            <td>Location Sharing</td>
+                            <td>Enabled</td>
+                            <td>Share position information with owner</td>
+                        </tr>
+                        <tr>
+                            <td>Silent Mode</td>
+                            <td>Disabled</td>
+                            <td>Minimize notifications and sounds</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="troubleshooting" class="doc-section">
+                <h2>Troubleshooting</h2>
+                
+                <h3>Common Issues</h3>
+                
+                <h4>HUD Not Responding</h4>
+                <div class="troubleshoot-item">
+                    <p><strong>Symptoms:</strong> Buttons don't work, no status updates, HUD appears frozen</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Detach and re-attach the HUD</li>
+                        <li>Check script memory usage (should be under 64KB per script)</li>
+                        <li>Verify all required scripts are present and running</li>
+                        <li>Reset scripts by touching the HUD while holding Ctrl+Shift</li>
+                        <li>Check for script errors in the viewer's script error window</li>
+                    </ul>
+                </div>
+                
+                <h4>Connection Issues</h4>
+                <div class="troubleshoot-item">
+                    <p><strong>Symptoms:</strong> Cannot connect to Owner HUD, status shows "Disconnected"</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Ensure you're within 20 meters of the Owner HUD</li>
+                        <li>Verify both HUDs are using the same communication channel</li>
+                        <li>Check that scripts are running on both devices</li>
+                        <li>Try resetting both HUDs simultaneously</li>
+                        <li>Ensure no conflicting attachments are interfering</li>
+                    </ul>
+                </div>
+                
+                <h4>RLV Not Working</h4>
+                <div class="troubleshoot-item">
+                    <p><strong>Symptoms:</strong> Commands fail, restrictions don't apply, RLV status shows red</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Enable RLV in your viewer preferences (Firestorm: Preferences → RLV)</li>
+                        <li>Restart your viewer after enabling RLV</li>
+                        <li>Check that RLV relay is properly configured</li>
+                        <li>Verify the HUD has permission to control your avatar</li>
+                        <li>Try using RLV test commands to verify functionality</li>
+                    </ul>
+                </div>
+                
+                <h4>Emergency Functions Not Working</h4>
+                <div class="troubleshoot-item">
+                    <p><strong>Symptoms:</strong> Safeword doesn't trigger, emergency button unresponsive</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Verify safeword is correctly configured in settings</li>
+                        <li>Try using chat command: type "/1 [safeword]" in local chat</li>
+                        <li>Use the manual detach method: Right-click HUD → Detach</li>
+                        <li>Check for script lag affecting response times</li>
+                        <li>Contact your owner or administrator immediately if issues persist</li>
+                    </ul>
+                </div>
+
+                <h3>Performance Optimization</h3>
+                
+                <h4>Reducing Memory Usage</h4>
+                <ul>
+                    <li>Close unnecessary inventory windows</li>
+                    <li>Reduce script-heavy attachments</li>
+                    <li>Clear cache regularly</li>
+                    <li>Use compact mode for reduced resource usage</li>
+                </ul>
+                
+                <h4>Improving Response Time</h4>
+                <ul>
+                    <li>Stay within recommended range of Owner HUD</li>
+                    <li>Reduce graphics settings if experiencing lag</li>
+                    <li>Use a stable internet connection</li>
+                    <li>Avoid overcrowded areas when possible</li>
+                </ul>
+
+                <h3>Error Codes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>E001</td>
+                            <td>Script initialization failed</td>
+                            <td>Reset HUD scripts</td>
+                        </tr>
+                        <tr>
+                            <td>E002</td>
+                            <td>RLV communication error</td>
+                            <td>Check RLV settings in viewer</td>
+                        </tr>
+                        <tr>
+                            <td>E003</td>
+                            <td>Memory allocation failure</td>
+                            <td>Reduce script load or restart viewer</td>
+                        </tr>
+                        <tr>
+                            <td>E004</td>
+                            <td>Configuration file corrupted</td>
+                            <td>Reset to default settings</td>
+                        </tr>
+                        <tr>
+                            <td>E005</td>
+                            <td>Connection timeout</td>
+                            <td>Move closer to Owner HUD</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Getting Help</h3>
+                <p>If you continue to experience issues after trying these solutions:</p>
+                <ul>
+                    <li>Check the <a href="../faq/index.html">FAQ section</a> for additional solutions</li>
+                    <li>Review the <a href="../rlv-reference/index.html">RLV Reference</a> for RLV-specific issues</li>
+                    <li>Contact your session owner or system administrator</li>
+                    <li>Visit our <a href="https://github.com/yourusername/drone-controller-scripts/issues" target="_blank">GitHub Issues</a> page to report bugs</li>
+                </ul>
+                
+                <div class="warning">
+                    <strong>Safety Reminder:</strong> If you experience any safety concerns or cannot access emergency functions, immediately detach the HUD manually by right-clicking it and selecting "Detach". Your safety is the highest priority.
+                </div>
+            </section>
+
+            <div class="doc-footer">
+                <p><strong>Next Steps:</strong></p>
+                <ul>
+                    <li><a href="setup.html">Complete Setup Guide</a> - Detailed configuration walkthrough</li>
+                    <li><a href="advanced.html">Advanced Features</a> - Power user options and customization</li>
+                    <li><a href="../owner-hud/index.html">Owner HUD Documentation</a> - For controllers and administrators</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Wearer HUD</h3>
+                    <ul>
+                        <li><a href="setup.html">Setup Guide</a></li>
+                        <li><a href="features.html">Feature Details</a></li>
+                        <li><a href="customization.html">Customization</a></li>
+                        <li><a href="safety.html">Safety Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="../troubleshooting/index.html">Troubleshooting</a></li>
+                        <li><a href="../faq/index.html">FAQ</a></li>
+                        <li><a href="../contact/index.html">Contact Support</a></li>
+                        <li><a href="../updates/index.html">Updates & News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="../owner-hud/index.html">Owner HUD</a></li>
+                        <li><a href="../programmer-station/index.html">Programmer Station</a></li>
+                        <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                        <li><a href="../api/index.html">API Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Drone Controller System. Documentation licensed under MIT License.</p>
+                <p>Wearer HUD Version 1.0.0 | Last updated: <span id="last-updated"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
