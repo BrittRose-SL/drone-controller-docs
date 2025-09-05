@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wearer HUD Customization - Drone Controller System</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Drone Controller System</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Wearer HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../owner-hud/index.html" class="nav-link">Owner HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../programmer-station/index.html" class="nav-link">Programmer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../charging-pad/index.html" class="nav-link">Charging Pad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../rlv-reference/index.html" class="nav-link">RLV Reference</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="doc-header">
+                <h1>Wearer HUD Customization</h1>
+                <p>Complete guide to personalizing your Wearer HUD's appearance, behavior, and functionality to match your preferences and needs.</p>
+            </header>
+
+            <nav class="doc-navigation">
+                <ul>
+                    <li><a href="#overview">Customization Overview</a></li>
+                    <li><a href="#visual">Visual Customization</a></li>
+                    <li><a href="#interface">Interface Layout</a></li>
+                    <li><a href="#behavior">Behavioral Settings</a></li>
+                    <li><a href="#audio">Audio & Notifications</a></li>
+                    <li><a href="#advanced">Advanced Customization</a></li>
+                    <li><a href="#themes">Pre-made Themes</a></li>
+                </ul>
+            </nav>
+
+            <section id="overview" class="doc-section">
+                <h2>Customization Overview</h2>
+                
+                <p>The Wearer HUD offers extensive customization options to help you create a personalized experience that matches your preferences, role-playing scenarios, and technical requirements.</p>
+
+                <h3>Customization Categories</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>🎨 Visual Appearance</h4>
+                        <p>Colors, transparency, textures, and overall visual design</p>
+                        <ul>
+                            <li>Color schemes and themes</li>
+                            <li>Transparency and opacity</li>
+                            <li>Custom textures and materials</li>
+                            <li>Text fonts and sizes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>📐 Interface Layout</h4>
+                        <p>Button arrangement, size, and positioning options</p>
+                        <ul>
+                            <li>Button placement and sizing</li>
+                            <li>Information display arrangement</li>
+                            <li>Compact vs. expanded modes</li>
+                            <li>Screen position optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>⚙️ Behavioral Settings</h4>
+                        <p>How the HUD responds and interacts</p>
+                        <ul>
+                            <li>Automation preferences</li>
+                            <li>Response timing and sensitivity</li>
+                            <li>Communication preferences</li>
+                            <li>Safety and security settings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>🔊 Audio & Alerts</h4>
+                        <p>Sound effects, notifications, and alert customization</p>
+                        <ul>
+                            <li>Sound effect selection</li>
+                            <li>Volume and timing controls</li>
+                            <li>Notification preferences</li>
+                            <li>Audio accessibility options</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Accessing Customization Settings</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Settings Menu</h4>
+                            <p>Click the "Settings" button on your HUD to access the main customization menu.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Configuration Categories</h4>
+                            <p>Navigate through different customization categories using the tabbed interface.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Live Preview</h4>
+                            <p>Most changes are applied immediately, allowing you to see the results in real-time.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Save and Apply</h4>
+                            <p>Confirm your changes and save them to your configuration profile.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <strong>Backup Tip:</strong> Before making extensive customizations, save your current configuration as a backup. This allows you to easily revert changes if needed.
+                </div>
+            </section>
+
+            <section id="visual" class="doc-section">
+                <h2>Visual Customization</h2>
+                
+                <h3>Color Schemes and Themes</h3>
+                
+                <h4>Built-in Color Themes</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Theme Name</th>
+                            <th>Primary Color</th>
+                            <th>Secondary Color</th>
+                            <th>Best For</th>
+                            <th>Accessibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Professional Blue</td>
+                            <td>#2563eb (Blue)</td>
+                            <td>#64748b (Gray)</td>
+                            <td>General use, professional settings</td>
+                            <td>High contrast, colorblind-safe</td>
+                        </tr>
+                        <tr>
+                            <td>Safety Orange</td>
+                            <td>#f97316 (Orange)</td>
+                            <td>#374151 (Dark gray)</td>
+                            <td>High visibility, emergency training</td>
+                            <td>Maximum visibility</td>
+                        </tr>
+                        <tr>
+                            <td>Stealth Gray</td>
+                            <td>#6b7280 (Gray)</td>
+                            <td>#1f2937 (Dark gray)</td>
+                            <td>Minimal interface, role-play</td>
+                            <td>Low contrast option</td>
+                        </tr>
+                        <tr>
+                            <td>Cyber Green</td>
+                            <td>#10b981 (Green)</td>
+                            <td>#065f46 (Dark green)</td>
+                            <td>Futuristic themes, sci-fi RP</td>
+                            <td>Good contrast</td>
+                        </tr>
+                        <tr>
+                            <td>Neon Pink</td>
+                            <td>#ec4899 (Pink)</td>
+                            <td>#7c2d12 (Brown)</td>
+                            <td>Vibrant themes, fashion</td>
+                            <td>High contrast</td>
+                        </tr>
+                        <tr>
+                            <td>Deep Purple</td>
+                            <td>#7c3aed (Purple)</td>
+                            <td>#374151 (Gray)</td>
+                            <td>Elegant themes, luxury RP</td>
+                            <td>Good contrast</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Custom Color Configuration</h4>
+                <p>Create your own color scheme using RGB values or HSL color picker:</p>
+                
+                <pre><code># Custom Color Configuration Example
+# RGB values from 0.0 to 1.0
+
+# Primary interface color
+primary_color = "0.15, 0.4, 0.9"    # Custom blue
+
+# Secondary/accent color  
+secondary_color = "0.6, 0.6, 0.6"   # Light gray
+
+# Text color
+text_color = "1.0, 1.0, 1.0"        # White
+
+# Background color
+background_color = "0.1, 0.1, 0.1"  # Dark gray
+
+# Warning/alert color
+warning_color = "1.0, 0.6, 0.0"     # Orange
+
+# Emergency/critical color
+emergency_color = "1.0, 0.2, 0.2"   # Red
+
+# Success/confirmation color
+success_color = "0.2, 0.8, 0.2"     # Green</code></pre>
+
+                <h3>Transparency and Opacity</h3>
+                
+                <h4>Transparency Settings</h4>
+                <ul>
+                    <li><strong>Background Transparency:</strong> 0% (solid) to 90% (nearly invisible)</li>
+                    <li><strong>Button Transparency:</strong> Independent control for interactive elements</li>
+                    <li><strong>Text Background:</strong> Ensure text readability with background opacity</li>
+                    <li><strong>Status Indicators:</strong> Maintain visibility for critical information</li>
+                </ul>
+                
+                <h4>Recommended Transparency Levels</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Use Case</th>
+                            <th>Background</th>
+                            <th>Buttons</th>
+                            <th>Text Areas</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>General Use</td>
+                            <td>10-20%</td>
+                            <td>5-15%</td>
+                            <td>20-30%</td>
+                            <td>Good balance of visibility and transparency</td>
+                        </tr>
+                        <tr>
+                            <td>Photography/Building</td>
+                            <td>40-60%</td>
+                            <td>20-30%</td>
+                            <td>30-40%</td>
+                            <td>Minimal interface interference</td>
+                        </tr>
+                        <tr>
+                            <td>High Visibility</td>
+                            <td>0-5%</td>
+                            <td>0%</td>
+                            <td>0-10%</td>
+                            <td>Maximum visibility for accessibility</td>
+                        </tr>
+                        <tr>
+                            <td>Stealth Mode</td>
+                            <td>70-85%</td>
+                            <td>50-70%</td>
+                            <td>60-80%</td>
+                            <td>Nearly invisible, emergency button remains visible</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Textures and Materials</h3>
+                
+                <h4>Texture Options</h4>
+                <ul>
+                    <li><strong>Solid Colors:</strong> Clean, professional appearance</li>
+                    <li><strong>Gradients:</strong> Smooth color transitions for modern look</li>
+                    <li><strong>Patterns:</strong> Geometric or tech-inspired designs</li>
+                    <li><strong>Custom Textures:</strong> Upload your own texture images</li>
+                    <li><strong>Animated Textures:</strong> Subtle animations for dynamic appearance</li>
+                </ul>
+                
+                <h4>Material Effects</h4>
+                <ul>
+                    <li><strong>Glow:</strong> Subtle illumination for sci-fi themes</li>
+                    <li><strong>Metallic:</strong> Reflective surface for industrial appearance</li>
+                    <li><strong>Glass:</strong> Transparent, reflective surface effect</li>
+                    <li><strong>Holographic:</strong> Color-shifting, futuristic appearance</li>
+                </ul>
+
+                <h3>Typography Customization</h3>
+                
+                <h4>Font Settings</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Text Element</th>
+                            <th>Default Size</th>
+                            <th>Size Range</th>
+                            <th>Font Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Status Text</td>
+                            <td>12px</td>
+                            <td>8-18px</td>
+                            <td>Sans-serif, Monospace</td>
+                        </tr>
+                        <tr>
+                            <td>Button Labels</td>
+                            <td>10px</td>
+                            <td>6-14px</td>
+                            <td>Sans-serif, Bold</td>
+                        </tr>
+                        <tr>
+                            <td>Timer Display</td>
+                            <td>14px</td>
+                            <td>10-20px</td>
+                            <td>Monospace only</td>
+                        </tr>
+                        <tr>
+                            <td>Alert Messages</td>
+                            <td>11px</td>
+                            <td>8-16px</td>
+                            <td>Sans-serif, Bold option</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Text Styling Options</h4>
+                <ul>
+                    <li><strong>Font Weight:</strong> Normal, bold, light variations</li>
+                    <li><strong>Text Shadow:</strong> Improve readability over backgrounds</li>
+                    <li><strong>Outline:</strong> Text outline for high contrast</li>
+                    <li><strong>Color:</strong> Independent color control for each text type</li>
+                </ul>
+            </section>
+
+            <section id="interface" class="doc-section">
+                <h2>Interface Layout</h2>
+                
+                <h3>Layout Modes</h3>
+                
+                <h4>Standard Layout Options</h4>
+                <div class="layout-options">
+                    <div class="layout-option">
+                        <h5>📱 Compact Vertical</h5>
+                        <p><strong>Best for:</strong> Side screen attachment, mobile viewers</p>
+                        <ul>
+                            <li>Narrow profile (0.3m wide x 0.8m tall)</li>
+                            <li>Vertically stacked buttons</li>
+                            <li>Essential information only</li>
+                            <li>Touch-optimized button sizes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="layout-option">
+                        <h5>🖥️ Wide Horizontal</h5>
+                        <p><strong>Best for:</strong> Bottom screen attachment, desktop use</p>
+                        <ul>
+                            <li>Wide profile (0.8m wide x 0.3m tall)</li>
+                            <li>Horizontally arranged controls</li>
+                            <li>Full information display</li>
+                            <li>All features accessible</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="layout-option">
+                        <h5>⚡ Minimal Strip</h5>
+                        <p><strong>Best for:</strong> Maximum screen space, experienced users</p>
+                        <ul>
+                            <li>Ultra-compact (0.6m x 0.1m)</li>
+                            <li>Essential controls only</li>
+                            <li>Hover/click for detailed info</li>
+                            <li>Emergency button always visible</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="layout-option">
+                        <h5>🔲 Grid Layout</h5>
+                        <p><strong>Best for:</strong> Balanced interface, customization</p>
+                        <ul>
+                            <li>Square format (0.5m x 0.5m)</li>
+                            <li>Organized in sections</li>
+                            <li>Modular component arrangement</li>
+                            <li>Customizable grid positions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Button Customization</h3>
+                
+                <h4>Button Arrangement</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Button Type</th>
+                            <th>Priority Level</th>
+                            <th>Size Options</th>
+                            <th>Position Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Emergency Stop</td>
+                            <td>Critical (Always visible)</td>
+                            <td>Large, Extra Large</td>
+                            <td>Top, Bottom, Side - user choice</td>
+                        </tr>
+                        <tr>
+                            <td>Power Toggle</td>
+                            <td>High</td>
+                            <td>Medium, Large</td>
+                            <td>Prominent position, easily accessible</td>
+                        </tr>
+                        <tr>
+                            <td>Settings Menu</td>
+                            <td>Medium</td>
+                            <td>Small, Medium</td>
+                            <td>Secondary position</td>
+                        </tr>
+                        <tr>
+                            <td>Status Info</td>
+                            <td>Medium</td>
+                            <td>Small, Medium</td>
+                            <td>Information area</td>
+                        </tr>
+                        <tr>
+                            <td>Communication</td>
+                            <td>Low-Medium</td>
+                            <td>Small</td>
+                            <td>Optional, can be hidden</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Custom Button Configuration</h4>
+                <pre><code># Button Customization Example
+# Position format: x, y, z (relative to HUD center)
+
+[emergency_button]
+size = "large"           # small, medium, large, extra_large
+position = "0.0, 0.2, 0.0"  # Top center
+color = "1.0, 0.2, 0.2"     # Red
+label = "EMERGENCY"
+always_visible = true
+
+[power_button]
+size = "medium"
+position = "-0.15, 0.0, 0.0"  # Left center
+color = "0.2, 0.8, 0.2"      # Green
+label = "PWR"
+show_status_light = true
+
+[settings_button]
+size = "small"
+position = "0.15, -0.1, 0.0"  # Bottom right
+color = "0.6, 0.6, 0.6"      # Gray
+label = "SET"
+quick_access = false</code></pre>
+
+                <h3>Information Display Areas</h3>
+                
+                <h4>Status Panel Configuration</h4>
+                <ul>
+                    <li><strong>Battery Display:</strong> Numerical, bar, or icon representation</li>
+                    <li><strong>Connection Status:</strong> Text, color-coded, or signal strength bars</li>
+                    <li><strong>Timer Format:</strong> Digital clock, progress bar, or countdown</li>
+                    <li><strong>Mode Indicator:</strong> Text label, icon, or color coding</li>
+                </ul>
+                
+                <h4>Information Priority Levels</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Information Type</th>
+                            <th>Compact Mode</th>
+                            <th>Standard Mode</th>
+                            <th>Full Mode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Emergency Status</td>
+                            <td>Always shown</td>
+                            <td>Always shown</td>
+                            <td>Always shown</td>
+                        </tr>
+                        <tr>
+                            <td>Power Level</td>
+                            <td>Icon only</td>
+                            <td>Icon + percentage</td>
+                            <td>Bar + percentage + time</td>
+                        </tr>
+                        <tr>
+                            <td>Connection Status</td>
+                            <td>Color indicator</td>
+                            <td>Icon + status</td>
+                            <td>Signal strength + details</td>
+                        </tr>
+                        <tr>
+                            <td>Session Timer</td>
+                            <td>Hidden/minimal</td>
+                            <td>Time display</td>
+                            <td>Time + progress + remaining</td>
+                        </tr>
+                        <tr>
+                            <td>Active Restrictions</td>
+                            <td>Count only</td>
+                            <td>Summary</td>
+                            <td>Detailed list</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Screen Position Optimization</h3>
+                
+                <h4>Attachment Point Recommendations</h4>
+                <div class="attachment-points">
+                    <div class="attachment-point">
+                        <h5>📍 Top Right (Recommended)</h5>
+                        <ul>
+                            <li>Always visible, doesn't block main view</li>
+                            <li>Easy access for right-handed users</li>
+                            <li>Compatible with most other HUDs</li>
+                            <li>Good for horizontal layouts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="attachment-point">
+                        <h5>📍 Top Left</h5>
+                        <ul>
+                            <li>Alternative for left-handed users</li>
+                            <li>Good separation from other HUDs</li>
+                            <li>May conflict with some UI elements</li>
+                            <li>Suitable for vertical layouts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="attachment-point">
+                        <h5>📍 Bottom Center</h5>
+                        <ul>
+                            <li>Excellent for wide horizontal layouts</li>
+                            <li>Easy access, doesn't block skybox</li>
+                            <li>May conflict with chat bar</li>
+                            <li>Good for minimal layouts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="attachment-point">
+                        <h5>📍 Right Center</h5>
+                        <ul>
+                            <li>Perfect for tall vertical layouts</li>
+                            <li>Doesn't interfere with camera movement</li>
+                            <li>Always accessible</li>
+                            <li>Good for compact modes</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="behavior" class="doc-section">
+                <h2>Behavioral Settings</h2>
+                
+                <h3>Automation Preferences</h3>
+                
+                <h4>Auto-Response Settings</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Options</th>
+                            <th>Default</th>
+                            <th>Recommended Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Status Updates</td>
+                            <td>1-30 minutes, Manual only</td>
+                            <td>5 minutes</td>
+                            <td>Regular monitoring</td>
+                        </tr>
+                        <tr>
+                            <td>Health Checks</td>
+                            <td>30 seconds - 10 minutes</td>
+                            <td>2 minutes</td>
+                            <td>System reliability</td>
+                        </tr>
+                        <tr>
+                            <td>Connection Monitoring</td>
+                            <td>Continuous, Periodic, Manual</td>
+                            <td>Continuous</td>
+                            <td>Safety assurance</td>
+                        </tr>
+                        <tr>
+                            <td>Auto-Save Settings</td>
+                            <td>Every change, Hourly, Manual</td>
+                            <td>Every change</td>
+                            <td>Configuration safety</td>
+                        </tr>
+                        <tr>
+                            <td>Log Rotation</td>
+                            <td>Daily, Weekly, Size-based</td>
+                            <td>Daily</td>
+                            <td>Performance maintenance</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Response Timing Configuration</h4>
+                <pre><code># Behavioral Response Configuration
+
+[response_timing]
+# Command acknowledgment delay (0-5 seconds)
+command_ack_delay = 0.5
+
+# Status update frequency (60-1800 seconds)  
+status_interval = 300
+
+# Health check frequency (30-600 seconds)
+health_check_interval = 120
+
+# Emergency response time (immediate, 1-10 seconds)
+emergency_response_delay = 0
+
+# Connection timeout before auto-release (60-3600 seconds)
+connection_timeout = 300
+
+[automation_level]
+# Low, Medium, High, Custom
+automation_mode = "Medium"
+
+# Auto-accept routine controller commands
+auto_accept_routine = true
+
+# Auto-report status changes
+auto_report_changes = true
+
+# Auto-optimize performance settings
+auto_optimize = false
+
+# Auto-update preferences based on usage
+adaptive_learning = false</code></pre>
+
+                <h3>Communication Behavior</h3>
+                
+                <h4>Chat and Messaging Settings</h4>
+                <ul>
+                    <li><strong>Chat Relay Mode:</strong>
+                        <ul>
+                            <li>All messages - Forward everything to controller</li>
+                            <li>Filtered - Only specific types or keywords</li>
+                            <li>Manual - Only when specifically requested</li>
+                            <li>None - No chat forwarding</li>
+                        </ul>
+                    </li>
+                    <li><strong>Message Filtering:</strong>
+                        <ul>
+                            <li>System messages (exclude/include)</li>
+                            <li>Object messages (exclude/include)</li>
+                            <li>Group chat (exclude/include)</li>
+                            <li>Keyword filtering (custom lists)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Response Automation:</strong>
+                        <ul>
+                            <li>Auto-acknowledge commands</li>
+                            <li>Confirm receipt of instructions</li>
+                            <li>Report completion of tasks</li>
+                            <li>Send periodic "still here" messages</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h4>Privacy and Discretion Settings</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Privacy Feature</th>
+                            <th>Options</th>
+                            <th>Impact</th>
+                            <th>Recommended For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Location Sharing</td>
+                            <td>Always, Session only, Never</td>
+                            <td>Controller can track your position</td>
+                            <td>Trusted relationships</td>
+                        </tr>
+                        <tr>
+                            <td>Online Status</td>
+                            <td>Visible, Hidden, Session only</td>
+                            <td>Shows when you're available</td>
+                            <td>Regular sessions</td>
+                        </tr>
+                        <tr>
+                            <td>Activity Logging</td>
+                            <td>Full, Basic, None</td>
+                            <td>What information is recorded</td>
+                            <td>Safety and learning</td>
+                        </tr>
+                        <tr>
+                            <td>Data Retention</td>
+                            <td>1-90 days, Forever</td>
+                            <td>How long logs are kept</td>
+                            <td>Privacy balance</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Safety and Security Behavior</h3>
+                
+                <h4>Emergency Response Configuration</h4>
+                <ul>
+                    <li><strong>Safeword Sensitivity:</strong>
+                        <ul>
+                            <li>Exact match only</li>
+                            <li>Case insensitive</li>
+                            <li>Partial matches accepted</li>
+                            <li>Multiple safeword options</li>
+                        </ul>
+                    </li>
+                    <li><strong>Auto-Emergency Triggers:</strong>
+                        <ul>
+                            <li>Extended silence from controller</li>
+                            <li>System health degradation</li>
+                            <li>Unexpected restriction patterns</li>
+                            <li>Connection quality issues</li>
+                        </ul>
+                    </li>
+                    <li><strong>Emergency Actions:</strong>
+                        <ul>
+                            <li>Immediate restriction release</li>
+                            <li>Notification to emergency contact</li>
+                            <li>Auto-teleport to safe location</li>
+                            <li>System lockdown and logging</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h4>Security Behavior Settings</h4>
+                <pre><code># Security Configuration
+
+[authentication]
+# Controller verification method
+auth_method = "uuid_and_token"  # uuid_only, uuid_and_token, enhanced
+# Session token expiration (seconds)
+token_expiry = 3600
+# Require re-authentication after idle time
+reauth_idle_time = 1800
+
+[access_control]
+# Allow multiple simultaneous controllers
+multi_controller = false
+# Controller priority system
+priority_system = true
+# Auto-reject unknown controllers
+reject_unknown = true
+
+[session_security]
+# Encrypt all communications
+encryption_enabled = true
+# Log security events
+security_logging = true
+# Alert on suspicious activity
+suspicious_activity_alerts = true</code></pre>
+            </section>
+
+            <section id="audio" class="doc-section">
+                <h2>Audio & Notifications</h2>
+                
+                <h3>Sound Effect Customization</h3>
+                
+                <h4>Built-in Sound Categories</h4>
+                <div class="sound-categories">
+                    <div class="sound-category">
+                        <h5>🔔 System Sounds</h5>
+                        <ul>
+                            <li><strong>Startup:</strong> HUD initialization complete</li>
+                            <li><strong>Shutdown:</strong> HUD powering down</li>
+                            <li><strong>Connection:</strong> Controller link established</li>
+                            <li><strong>Disconnection:</strong> Controller link lost</li>
+                            <li><strong>Error:</strong> System error or malfunction</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sound-category">
+                        <h5>📨 Communication Sounds</h5>
+                        <ul>
+                            <li><strong>Message Received:</strong> New message from controller</li>
+                            <li><strong>Command Received:</strong> New RLV command</li>
+                            <li><strong>Status Request:</strong> Controller requesting status</li>
+                            <li><strong>Emergency Contact:</strong> Emergency communication</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sound-category">
+                        <h5>⚠️ Alert Sounds</h5>
+                        <ul>
+                            <li><strong>Low Battery:</strong> Power level warning</li>
+                            <li><strong>Session Warning:</strong> Time limit approaching</li>
+                            <li><strong>Health Warning:</strong> System performance issue</li>
+                            <li><strong>Security Alert:</strong> Unauthorized access attempt</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sound-category">
+                        <h5>🚨 Emergency Sounds</h5>
+                        <ul>
+                            <li><strong>Safeword Activated:</strong> Emergency stop triggered</li>
+                            <li><strong>Critical Error:</strong> System failure</li>
+                            <li><strong>Auto-Release:</strong> Automatic safety activation</li>
+                            <li><strong>Manual Override:</strong> Manual safety intervention</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Sound Selection Options</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sound Theme</th>
+                            <th>Style</th>
+                            <th>Volume Range</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Professional</td>
+                            <td>Subtle beeps and chimes</td>
+                            <td>0.1 - 0.5</td>
+                            <td>Business/professional settings</td>
+                        </tr>
+                        <tr>
+                            <td>Sci-Fi</td>
+                            <td>Electronic, futuristic sounds</td>
+                            <td>0.2 - 0.7</td>
+                            <td>Role-play, immersive themes</td>
+                        </tr>
+                        <tr>
+                            <td>Minimalist</td>
+                            <td>Simple tones, very subtle</td>
+                            <td>0.1 - 0.3</td>
+                            <td>Quiet environments</td>
+                        </tr>
+                        <tr>
+                            <td>Alert-focused</td>
+                            <td>Clear, attention-getting sounds</td>
+                            <td>0.3 - 1.0</td>
+                            <td>Safety-critical situations</td>
+                        </tr>
+                        <tr>
+                            <td>Silent</td>
+                            <td>No sounds, visual only</td>
+                            <td>0.0</td>
+                            <td>Completely quiet operation</td>
+                        </tr>
+                        <tr>
+                            <td>Custom</td>
+                            <td>User-uploaded sounds</td>
+                            <td>0.1 - 1.0</td>
+                            <td>Personal preference</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Notification Preferences</h3>
+                
+                <h4>Notification Delivery Methods</h4>
+                <ul>
+                    <li><strong>HUD Display:</strong> Visual notifications on the HUD interface</li>
+                    <li><strong>Chat Messages:</strong> Text notifications in local chat</li>
+                    <li><strong>IM Messages:</strong> Direct instant messages</li>
+                    <li><strong>Audio Alerts:</strong> Sound notifications</li>
+                    <li><strong>Visual Effects:</strong> HUD color changes, flashing, or animations</li>
+                    <li><strong>Haptic Feedback:</strong> Controller vibration (where supported)</li>
+                </ul>
+                
+                <h4>Notification Priority Levels</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Priority</th>
+                            <th>Delivery Methods</th>
+                            <th>Persistence</th>
+                            <th>Override Settings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Critical</td>
+                            <td>All available methods</td>
+                            <td>Until acknowledged</td>
+                            <td>Cannot be disabled</td>
+                        </tr>
+                        <tr>
+                            <td>High</td>
+                            <td>Visual + Audio + Chat</td>
+                            <td>5-10 seconds</td>
+                            <td>Can be muted but not disabled</td>
+                        </tr>
+                        <tr>
+                            <td>Medium</td>
+                            <td>Visual + Audio OR Chat</td>
+                            <td>3-5 seconds</td>
+                            <td>Fully customizable</td>
+                        </tr>
+                        <tr>
+                            <td>Low</td>
+                            <td>Visual only (default)</td>
+                            <td>1-2 seconds</td>
+                            <td>Can be completely disabled</td>
+                        </tr>
+                        <tr>
+                            <td>Info</td>
+                            <td>HUD display only</td>
+                            <td>Brief flash</td>
+                            <td>Optional, can be hidden</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Audio Accessibility Features</h3>
+                
+                <h4>Hearing Accessibility</h4>
+                <ul>
+                    <li><strong>Visual Sound Indicators:</strong> Screen flashes or color changes for audio alerts</li>
+                    <li><strong>Vibration Alerts:</strong> Controller vibration for important notifications</li>
+                    <li><strong>Text Descriptions:</strong> Written descriptions of audio events</li>
+                    <li><strong>Enhanced Visual Cues:</strong> Larger, more prominent visual notifications</li>
+                </ul>
+                
+                <h4>Audio Sensitivity Options</h4>
+                <ul>
+                    <li><strong>Volume Limiting:</strong> Maximum volume caps to prevent startling</li>
+                    <li><strong>Gradual Alerts:</strong> Sounds that start quiet and increase gradually</li>
+                    <li><strong>Frequency Filtering:</strong> Avoid frequencies that may cause discomfort</li>
+                    <li><strong>Alert Spacing:</strong> Minimum time between audio notifications</li>
+                </ul>
+
+                <h3>Custom Audio Configuration</h3>
+                
+                <h4>Upload Custom Sounds</h4>
+                <pre><code># Custom Audio Configuration
+
+[custom_sounds]
+# Upload custom sound files (10-second limit)
+startup_sound = "custom_startup.wav"
+message_sound = "custom_message.wav"
+alert_sound = "custom_alert.wav"
+emergency_sound = "custom_emergency.wav"
+
+[volume_settings]
+# Individual volume controls (0.0 - 1.0)
+master_volume = 0.5
+system_volume = 0.4
+communication_volume = 0.6
+alert_volume = 0.8
+emergency_volume = 1.0
+
+[timing_settings]
+# Audio timing preferences
+notification_delay = 0.5      # Delay before playing notification
+max_notification_length = 3.0 # Maximum duration for notifications
+silence_between_alerts = 2.0  # Minimum gap between alerts
+emergency_override = true     # Emergency sounds bypass all limits</code></pre>
+            </section>
+
+            <section id="advanced" class="doc-section">
+                <h2>Advanced Customization</h2>
+                
+                <h3>Script-Level Customization</h3>
+                
+                <h4>Custom Variables and Constants</h4>
+                <p>Advanced users can modify script constants for deeper customization:</p>
+                
+                <pre><code>// Advanced Customization Constants
+// Edit these in the main script for specialized behavior
+
+// Interface timing
+float STATUS_UPDATE_RATE = 1.0;        // Status refresh rate (seconds)
+float BUTTON_RESPONSE_TIME = 0.1;      // Button click response delay
+float ANIMATION_SPEED = 0.5;           // Interface animation speed
+
+// Communication settings  
+integer COMM_CHANNEL_BASE = 42000;     // Base communication channel
+integer MAX_MESSAGE_LENGTH = 1000;     // Maximum message size
+float HEARTBEAT_INTERVAL = 30.0;       // Connection heartbeat rate
+
+// Safety parameters
+float EMERGENCY_RESPONSE_TIME = 0.0;   // Emergency action delay
+integer MAX_SESSION_WARNINGS = 3;      // Warnings before auto-end
+float CONNECTION_GRACE_PERIOD = 60.0;  // Grace period before auto-release
+
+// Performance tuning
+integer MAX_LOG_ENTRIES = 100;         // Log history size
+float MEMORY_CLEANUP_INTERVAL = 300.0; // Memory cleanup frequency
+integer MAX_CONCURRENT_TASKS = 5;      // Task processing limit</code></pre>
+
+                <h3>Plugin and Extension Support</h3>
+                
+                <h4>Available Plugin Categories</h4>
+                <div class="plugin-categories">
+                    <div class="plugin-category">
+                        <h5>🎨 Interface Plugins</h5>
+                        <ul>
+                            <li>Custom button layouts and designs</li>
+                            <li>Alternative information displays</li>
+                            <li>Animated interface elements</li>
+                            <li>Theme and skin systems</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plugin-category">
+                        <h5>🔧 Functionality Extensions</h5>
+                        <ul>
+                            <li>Enhanced communication protocols</li>
+                            <li>Advanced automation scripts</li>
+                            <li>Integration with third-party systems</li>
+                            <li>Custom command processors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plugin-category">
+                        <h5>📊 Analytics and Reporting</h5>
+                        <ul>
+                            <li>Advanced logging and statistics</li>
+                            <li>Performance monitoring tools</li>
+                            <li>Usage pattern analysis</li>
+                            <li>Custom report generation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plugin-category">
+                        <h5>🛡️ Security Enhancements</h5>
+                        <ul>
+                            <li>Advanced encryption methods</li>
+                            <li>Multi-factor authentication</li>
+                            <li>Intrusion detection systems</li>
+                            <li>Audit trail enhancements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Integration Customization</h3>
+                
+                <h4>Third-Party System Integration</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>System Type</th>
+                            <th>Integration Method</th>
+                            <th>Customization Options</th>
+                            <th>Configuration Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RLV Relays</td>
+                            <td>Standard RLV protocol</td>
+                            <td>Relay priority, filtering rules</td>
+                            <td>Relay detection settings</td>
+                        </tr>
+                        <tr>
+                            <td>Animation Systems</td>
+                            <td>Animation UUID triggers</td>
+                            <td>Animation preferences, timing</td>
+                            <td>Animation library references</td>
+                        </tr>
+                        <tr>
+                            <td>RP Systems</td>
+                            <td>HTTP requests or chat commands</td>
+                            <td>RP mode behaviors, stat sharing</td>
+                            <td>System-specific protocols</td>
+                        </tr>
+                        <tr>
+                            <td>Group Tools</td>
+                            <td>Group communication channels</td>
+                            <td>Group-specific behaviors</td>
+                            <td>Group keys and permissions</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Performance Customization</h3>
+                
+                <h4>Resource Optimization Settings</h4>
+                <ul>
+                    <li><strong>Script Memory Management:</strong>
+                        <ul>
+                            <li>Automatic garbage collection frequency</li>
+                            <li>Memory usage thresholds and warnings</li>
+                            <li>Data compression for logs and history</li>
+                            <li>Cache size limits and cleanup policies</li>
+                        </ul>
+                    </li>
+                    <li><strong>Network Optimization:</strong>
+                        <ul>
+                            <li>Message batching and compression</li>
+                            <li>Communication retry policies</li>
+                            <li>Bandwidth usage limits</li>
+                            <li>Priority-based message queuing</li>
+                        </ul>
+                    </li>
+                    <li><strong>Processing Optimization:</strong>
+                        <ul>
+                            <li>Task scheduling and prioritization</li>
+                            <li>Background processing limits</li>
+                            <li>Event queue management</li>
+                            <li>CPU usage monitoring and throttling</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Performance Mode Profiles</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Performance Mode</th>
+                            <th>Features</th>
+                            <th>Resource Usage</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maximum Performance</td>
+                            <td>All features enabled</td>
+                            <td>High CPU, High memory</td>
+                            <td>Powerful systems, complex sessions</td>
+                        </tr>
+                        <tr>
+                            <td>Balanced</td>
+                            <td>Standard feature set</td>
+                            <td>Medium CPU, Medium memory</td>
+                            <td>Most users, general purpose</td>
+                        </tr>
+                        <tr>
+                            <td>Efficiency</td>
+                            <td>Essential features only</td>
+                            <td>Low CPU, Low memory</td>
+                            <td>Older systems, minimal impact</td>
+                        </tr>
+                        <tr>
+                            <td>Battery Saver</td>
+                            <td>Minimal processing</td>
+                            <td>Very low CPU, Minimal memory</td>
+                            <td>Long sessions, resource conservation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="themes" class="doc-section">
+                <h2>Pre-made Themes</h2>
+                
+                <h3>Complete Theme Packages</h3>
+                
+                <h4>Professional Themes</h4>
+                <div class="theme-showcase">
+                    <div class="theme-card">
+                        <h5>🏢 Corporate Professional</h5>
+                        <p><strong>Colors:</strong> Navy blue, light gray, white</p>
+                        <p><strong>Style:</strong> Clean, minimal, high readability</p>
+                        <p><strong>Audio:</strong> Subtle notification chimes</p>
+                        <p><strong>Layout:</strong> Compact horizontal, essential controls</p>
+                        <p><strong>Best for:</strong> Business environments, professional use</p>
+                    </div>
+                    
+                    <div class="theme-card">
+                        <h5>🔬 Medical/Clinical</h5>
+                        <p><strong>Colors:</strong> White, soft blue, red accents</p>
+                        <p><strong>Style:</strong> High contrast, clear indicators</p>
+                        <p><strong>Audio:</strong> Medical equipment-style beeps</p>
+                        <p><strong>Layout:</strong> Full information display, large emergency button</p>
+                        <p><strong>Best for:</strong> Medical role-play, clinical themes</p>
+                    </div>
+                </div>
+
+                <h4>Role-Play Themes</h4>
+                <div class="theme-showcase">
+                    <div class="theme-card">
+                        <h5>🤖 Cyberpunk Drone</h5>
+                        <p><strong>Colors:</strong> Neon green, dark gray, electric blue</p>
+                        <p><strong>Style:</strong> Glowing effects, futuristic fonts</p>
+                        <p><strong>Audio:</strong> Electronic, synthetic sounds</p>
+                        <p><strong>Layout:</strong> Grid layout with animated elements</p>
+                        <p><strong>Best for:</strong> Cyberpunk RP, sci-fi themes</p>
+                    </div>
+                    
+                    <div class="theme-card">
+                        <h5>⚙️ Industrial/Steam</h5>
+                        <p><strong>Colors:</strong> Bronze, rust brown, brass accents</p>
+                        <p><strong>Style:</strong> Metallic textures, industrial fonts</p>
+                        <p><strong>Audio:</strong> Mechanical clicks and steam sounds</p>
+                        <p><strong>Layout:</strong> Compact with mechanical-style buttons</p>
+                        <p><strong>Best for:</strong> Steampunk RP, industrial themes</p>
+                    </div>
+                    
+                    <div class="theme-card">
+                        <h5>🌌 Space/Military</h5>
+                        <p><strong>Colors:</strong> Dark blue, silver, amber alerts</p>
+                        <p><strong>Style:</strong> Sharp edges, military-style indicators</p>
+                        <p><strong>Audio:</strong> Military comm sounds, radar beeps</p>
+                        <p><strong>Layout:</strong> Command console style interface</p>
+                        <p><strong>Best for:</strong> Military RP, space themes</p>
+                    </div>
+                </div>
+
+                <h4>Accessibility Themes</h4>
+                <div class="theme-showcase">
+                    <div class="theme-card">
+                        <h5>👁️ High Contrast</h5>
+                        <p><strong>Colors:</strong> Black, white, bright yellow accents</p>
+                        <p><strong>Style:</strong> Maximum contrast, large text</p>
+                        <p><strong>Audio:</strong> Clear, distinct notification sounds</p>
+                        <p><strong>Layout:</strong> Large buttons, simplified interface</p>
+                        <p><strong>Best for:</strong> Visual accessibility, clarity</p>
+                    </div>
+                    
+                    <div class="theme-card">
+                        <h5>🔇 Silent Operation</h5>
+                        <p><strong>Colors:</strong> Soft colors, subtle animations</p>
+                        <p><strong>Style:</strong> Visual-only notifications</p>
+                        <p><strong>Audio:</strong> Completely silent operation</p>
+                        <p><strong>Layout:</strong> Enhanced visual feedback systems</p>
+                        <p><strong>Best for:</strong> Hearing accessibility, quiet environments</p>
+                    </div>
+                </div>
+
+                <h3>Theme Installation and Management</h3>
+                
+                <h4>Installing Pre-made Themes</h4>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Download Theme Package</h4>
+                            <p>Download the theme configuration file from the <a href="https://github.com/BrittRose-SL/drone-controller-scripts/themes" target="_blank">themes repository</a>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Import Theme</h4>
+                            <p>Use the HUD's "Import Theme" function in the customization menu to load the theme file.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Preview and Apply</h4>
+                            <p>Preview the theme changes and confirm application. You can always revert to previous settings.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Creating and Sharing Custom Themes</h4>
+                <ul>
+                    <li><strong>Export Current Settings:</strong> Save your customizations as a theme package</li>
+                    <li><strong>Theme Documentation:</strong> Include descriptions and recommended use cases</li>
+                    <li><strong>Community Sharing:</strong> Share themes with the community through the repository</li>
+                    <li><strong>Version Control:</strong> Track theme updates and compatibility</li>
+                </ul>
+
+                <h3>Theme Configuration Format</h3>
+                
+                <h4>Sample Theme Configuration</h4>
+                <pre><code># Cyberpunk Drone Theme
+# Version: 1.0
+# Author: [Your Name]
+# Description: Futuristic cyberpunk-inspired theme
+
+[theme_info]
+name = "Cyberpunk Drone"
+version = "1.0"
+author = "Theme Creator"
+description = "Neon-lit futuristic interface"
+category = "Role-Play"
+
+[colors]
+primary = "0.0, 1.0, 0.4"      # Neon green
+secondary = "0.2, 0.2, 0.2"    # Dark gray
+accent = "0.0, 0.8, 1.0"       # Electric blue
+text = "1.0, 1.0, 1.0"         # White
+background = "0.1, 0.1, 0.1"   # Near black
+warning = "1.0, 0.5, 0.0"      # Orange
+emergency = "1.0, 0.0, 0.4"    # Hot pink
+
+[interface]
+transparency = 0.15
+layout_mode = "grid"
+button_style = "rounded_glow"
+font_family = "futuristic"
+font_size = 11
+glow_intensity = 0.3
+
+[audio]
+theme = "sci_fi"
+master_volume = 0.6
+notification_style = "electronic"
+
+[effects]
+enable_glow = true
+enable_animations = true
+animation_speed = 0.7
+particle_effects = true</code></pre>
+            </section>
+
+            <div class="doc-footer">
+                <p><strong>Customization Resources:</strong></p>
+                <ul>
+                    <li><a href="safety.html">Safety Features</a> - Learn about safety customization options</li>
+                    <li><a href="../rlv-reference/index.html">RLV Reference</a> - Understanding RLV customization</li>
+                    <li><a href="https://github.com/BrittRose-SL/drone-controller-scripts/themes" target="_blank">Theme Repository</a> - Download and share themes</li>
+                    <li><a href="../api/index.html">API Documentation</a> - Advanced customization programming</li>
+                </ul>
+                
+                <div class="success">
+                    <strong>Personalization Complete:</strong> Your Wearer HUD can now be customized to perfectly match your preferences, style, and functional needs. Remember to backup your configurations!
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Customization Guide</h3>
+                    <ul>
+                        <li><a href="#visual">Visual Customization</a></li>
+                        <li><a href="#interface">Interface Layout</a></li>
+                        <li><a href="#behavior">Behavioral Settings</a></li>
+                        <li><a href="#themes">Pre-made Themes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Related Documentation</h3>
+                    <ul>
+                        <li><a href="setup.html">Setup Guide</a></li>
+                        <li><a href="features.html">Feature Overview</a></li>
+                        <li><a href="safety.html">Safety Features</a></li>
+                        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="https://github.com/BrittRose-SL/drone-controller-scripts/themes" target="_blank">Theme Repository</a></li>
+                        <li><a href="../community/index.html">User Community</a></li>
+                        <li><a href="../contributing/index.html">Contribute</a></li>
+                        <li><a href="../contact/index.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Drone Controller System. Documentation licensed under MIT License.</p>
+                <p>Customization Guide Version 1.0.0 | Last updated: <span id="last-updated"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
