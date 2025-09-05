@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RLV Reference - Drone Controller System</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Drone Controller System</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../wearer-hud/index.html" class="nav-link">Wearer HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../owner-hud/index.html" class="nav-link">Owner HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../programmer-station/index.html" class="nav-link">Programmer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../charging-pad/index.html" class="nav-link">Charging Pad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">RLV Reference</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="doc-header">
+                <h1>RLV/RLVa Reference</h1>
+                <p>Complete reference for Restrained Love Viewer commands and functionality used in the Drone Controller System.</p>
+            </header>
+
+            <nav class="doc-navigation">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#setup">RLV Setup</a></li>
+                    <li><a href="#commands">Command Reference</a></li>
+                    <li><a href="#restrictions">Restriction Types</a></li>
+                    <li><a href="#relay">RLV Relay</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </nav>
+
+            <section id="overview" class="doc-section">
+                <h2>RLV Overview</h2>
+                <p>Restrained Love Viewer (RLV) is a set of extensions to Second Life viewers that allows scripted objects to control various aspects of an avatar's viewer interface and behavior.</p>
+                
+                <h3>What is RLV?</h3>
+                <ul>
+                    <li><strong>Protocol:</strong> Standardized command set for avatar control</li>
+                    <li><strong>Viewer Support:</strong> Integrated into most modern SL viewers</li>
+                    <li><strong>Consent-Based:</strong> User must explicitly enable RLV functionality</li>
+                    <li><strong>Safety-First:</strong> Includes multiple escape mechanisms</li>
+                </ul>
+
+                <h3>RLVa vs RLV</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>RLV</th>
+                            <th>RLVa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Viewer Support</td>
+                            <td>Original RLV viewer only</td>
+                            <td>Firestorm, Singularity, others</td>
+                        </tr>
+                        <tr>
+                            <td>Command Set</td>
+                            <td>Full original command set</td>
+                            <td>Extended command set</td>
+                        </tr>
+                        <tr>
+                            <td>Performance</td>
+                            <td>Optimized for RLV</td>
+                            <td>Optimized for modern viewers</td>
+                        </tr>
+                        <tr>
+                            <td>Compatibility</td>
+                            <td>100% with RLV scripts</td>
+                            <td>99%+ with backwards compatibility</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="setup" class="doc-section">
+                <h2>RLV Setup Guide</h2>
+                
+                <h3>Enabling RLV in Firestorm</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Access Preferences</h4>
+                            <p>Open Firestorm preferences: Avatar menu → Preferences → RLVa</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Enable RLVa</h4>
+                            <p>Check "Enable Restrained Love API (RLVa)" and restart viewer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Configure Settings</h4>
+                            <p>Recommended settings for drone controller system:</p>
+                            <ul>
+                                <li>✅ Allow wearable exceptions</li>
+                                <li>✅ Show debug messages</li>
+                                <li>✅ Enable legacy naming</li>
+                                <li>❌ Automatically accept tp requests</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Testing RLV Functionality</h3>
+                <p>Use these test commands to verify RLV is working:</p>
+                <pre><code># In local chat, type:
+@version
+# Should return RLV version info
+
+@sit=n
+# Should prevent sitting
+
+@sit=y  
+# Should restore sitting ability</code></pre>
+            </section>
+
+            <section id="commands" class="doc-section">
+                <h2>Command Reference</h2>
+                
+                <h3>Command Syntax</h3>
+                <p>RLV commands follow a specific syntax pattern:</p>
+                <pre><code>@[behaviour][:option]=[parameter]
+
+Examples:
+@tplm=n                    # Simple restriction
+@sendchat=0/Hello world    # Command with parameter
+@sit:UUID=force            # Command with object UUID</code></pre>
+
+                <h3>Core Command Categories</h3>
+                
+                <h4>Movement Commands</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@tplm</td>
+                            <td>y/n</td>
+                            <td>Allow/prevent teleport to landmarks</td>
+                            <td>@tplm=n</td>
+                        </tr>
+                        <tr>
+                            <td>@tploc</td>
+                            <td>y/n</td>
+                            <td>Allow/prevent teleport to locations</td>
+                            <td>@tploc=n</td>
+                        </tr>
+                        <tr>
+                            <td>@tpto</td>
+                            <td>y/n</td>
+                            <td>Allow/prevent teleport to people</td>
+                            <td>@tpto=n</td>
+                        </tr>
+                        <tr>
+                            <td>@sittp</td>
+                            <td>coordinates, force</td>
+                            <td>Force teleport and sit</td>
+                            <td>@sittp:128/128/24=force</td>
+                        </tr>
+                        <tr>
+                            <td>@fly</td>
+                            <td>y/n</td>
+                            <td>Allow/prevent flying</td>
+                            <td>@fly=n</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Communication Commands</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Parameters</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@sendchat</td>
+                            <td>channel/message</td>
+                            <td>Send chat message</td>
+                            <td>@sendchat=0/Hello</td>
+                        </tr>
+                        <tr>
+                            <td>@redirchat</td>
+                            <td>channel</td>
+                            <td>Redirect chat to channel</td>
+                            <td>@redirchat=1</td>
+                        </tr>
+                        <tr>
+                            <td>@chatnormal</td>
+                            <td>y/n</td>
+                            <td>Allow/prevent normal chat</td>
+                            <td>@chatnormal=n</td>
+                        </tr>
+                        <tr>
+                            <td>@
