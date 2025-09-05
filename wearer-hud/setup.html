@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wearer HUD Setup - Drone Controller System</title>
+    <title>Getting Started - Drone Controller Wearer HUD</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 </head>
@@ -44,26 +44,81 @@
     <main class="main-content">
         <div class="container">
             <header class="doc-header">
-                <h1>Wearer HUD Setup Guide</h1>
-                <p>Complete step-by-step instructions for installing, configuring, and testing your Wearer HUD for the first time.</p>
+                <h1>Getting Started with Your Wearer HUD</h1>
+                <p>Complete guide to setting up and using your Drone Controller Wearer HUD for the first time. Your HUD comes pre-configured and ready to use!</p>
             </header>
 
             <nav class="doc-navigation">
                 <ul>
-                    <li><a href="#prerequisites">Prerequisites</a></li>
-                    <li><a href="#download">Download & Preparation</a></li>
-                    <li><a href="#installation">Installation Process</a></li>
+                    <li><a href="#unboxing">Unboxing & First Steps</a></li>
+                    <li><a href="#prerequisites">Before You Begin</a></li>
+                    <li><a href="#attachment">Attaching Your HUD</a></li>
                     <li><a href="#configuration">Initial Configuration</a></li>
-                    <li><a href="#testing">Testing & Verification</a></li>
-                    <li><a href="#first-use">First Use Guide</a></li>
+                    <li><a href="#safety-setup">Safety Setup</a></li>
+                    <li><a href="#first-session">Your First Session</a></li>
                 </ul>
             </nav>
 
+            <section id="unboxing" class="doc-section">
+                <h2>Unboxing & First Steps</h2>
+                
+                <div class="success">
+                    <strong>Welcome!</strong> Your Drone Controller Wearer HUD comes fully assembled and pre-configured with all essential safety features. You can start using it right away with minimal setup required.
+                </div>
+
+                <h3>What's Included</h3>
+                <div class="package-contents">
+                    <div class="package-item">
+                        <h4>📱 Wearer HUD Device</h4>
+                        <ul>
+                            <li>Pre-built HUD object with all scripts installed</li>
+                            <li>Default professional blue theme applied</li>
+                            <li>All safety systems pre-configured and active</li>
+                            <li>Standard layout optimized for most users</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="package-item">
+                        <h4>📋 Quick Reference Card</h4>
+                        <ul>
+                            <li>Essential button functions and shortcuts</li>
+                            <li>Emergency procedures summary</li>
+                            <li>Basic troubleshooting steps</li>
+                            <li>Links to full documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="package-item">
+                        <h4>🎨 Theme Pack (Optional)</h4>
+                        <ul>
+                            <li>Additional color themes and layouts</li>
+                            <li>Role-play specific configurations</li>
+                            <li>Accessibility-focused options</li>
+                            <li>Custom sound effect collections</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Package Verification</h3>
+                <p>Before proceeding, verify your package contains all components and check the HUD for any obvious damage. If anything is missing or damaged, contact support immediately.</p>
+                
+                <div class="checklist">
+                    <h4>Verification Checklist</h4>
+                    <ul>
+                        <li>□ HUD object is present and undamaged</li>
+                        <li>□ HUD shows as "scripted" when examined</li>
+                        <li>□ Quick reference card is included</li>
+                        <li>□ Theme pack (if ordered) is present</li>
+                        <li>□ No error messages when touching the HUD</li>
+                    </ul>
+                </div>
+            </section>
+
             <section id="prerequisites" class="doc-section">
-                <h2>Prerequisites</h2>
+                <h2>Before You Begin</h2>
                 
                 <div class="warning">
-                    <strong>Important:</strong> Please read through this entire setup guide before beginning installation. Understanding the process and safety requirements is essential for proper operation.
+                    <strong>Important Safety Notice:</strong> The Drone Controller system is designed for consensual adult activities. Please read all safety information before use and ensure you understand emergency procedures.
                 </div>
 
                 <h3>System Requirements</h3>
@@ -72,548 +127,429 @@
                         <tr>
                             <th>Component</th>
                             <th>Requirement</th>
-                            <th>Notes</th>
+                            <th>How to Check</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Second Life Viewer</td>
-                            <td>Current version (recommended: Firestorm)</td>
-                            <td>Must support RLV/RLVa</td>
+                            <td>Current version (Firestorm recommended)</td>
+                            <td>Help → About in viewer menu</td>
+                            <td>□ Verified</td>
                         </tr>
                         <tr>
-                            <td>RLV Status</td>
+                            <td>RLV/RLVa Support</td>
                             <td>Enabled and functional</td>
-                            <td>Required for full functionality</td>
+                            <td>Type "@version" in local chat</td>
+                            <td>□ Verified</td>
                         </tr>
                         <tr>
-                            <td>Script Memory</td>
-                            <td>Minimum 128KB available</td>
-                            <td>For all HUD scripts combined</td>
+                            <td>Script Permissions</td>
+                            <td>Enabled for objects</td>
+                            <td>Preferences → Privacy → Objects</td>
+                            <td>□ Verified</td>
                         </tr>
                         <tr>
-                            <td>Attachment Points</td>
-                            <td>1 free HUD attachment point</td>
-                            <td>Recommended: Top Right or Bottom</td>
-                        </tr>
-                        <tr>
-                            <td>Permissions</td>
-                            <td>Script permissions enabled</td>
-                            <td>Debit, Attach, Animation, RLV</td>
+                            <td>Available Memory</td>
+                            <td>At least 64KB free</td>
+                            <td>Check with other attachments</td>
+                            <td>□ Verified</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h3>Knowledge Requirements</h3>
-                <ul>
-                    <li><strong>Basic SL Skills:</strong> Comfortable with inventory, attachments, and basic scripting concepts</li>
-                    <li><strong>RLV Understanding:</strong> Familiar with RLV/RLVa and its safety implications</li>
-                    <li><strong>Safety Awareness:</strong> Understanding of safewords and emergency procedures</li>
-                    <li><strong>Communication:</strong> Ability to communicate clearly with potential controllers</li>
-                </ul>
-
-                <h3>Safety Preparation</h3>
-                <div class="info">
-                    <strong>Before You Begin:</strong> The Wearer HUD is designed with multiple safety systems, but you should always ensure you have a trusted controller and understand all safety procedures before use.
-                </div>
-                
-                <h4>Essential Safety Steps</h4>
-                <ol>
-                    <li><strong>Choose Your Safeword:</strong> Select a memorable word that will immediately stop all restrictions</li>
-                    <li><strong>Set Emergency Contact:</strong> Have backup communication method with trusted friend</li>
-                    <li><strong>Know Your Limits:</strong> Decide on maximum session duration and restriction levels</li>
-                    <li><strong>Test Environment:</strong> Use private area for initial testing</li>
-                    <li><strong>Trusted Controller:</strong> Only work with experienced, trusted operators</li>
-                </ol>
-            </section>
-
-            <section id="download" class="doc-section">
-                <h2>Download & Preparation</h2>
-                
-                <h3>Getting the Scripts</h3>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4>Access the Repository</h4>
-                            <p>Visit the official script repository: <a href="https://github.com/BrittRose-SL/drone-controller-scripts" target="_blank">https://github.com/BrittRose-SL/drone-controller-scripts</a></p>
-                        </div>
+                <h3>Knowledge Prerequisites</h3>
+                <div class="knowledge-check">
+                    <h4>Essential Knowledge Check</h4>
+                    <p>Please confirm you understand these concepts before proceeding:</p>
+                    
+                    <div class="knowledge-item">
+                        <h5>□ RLV/RLVa Basics</h5>
+                        <p>I understand what RLV is and how it can control my avatar's actions and interface.</p>
+                        <details>
+                            <summary>Need a refresher?</summary>
+                            <p>RLV (Restrained Love Viewer) allows scripted objects to control various aspects of your Second Life experience, including movement, communication, and interface access. <a href="../rlv-reference/index.html">Learn more about RLV</a>.</p>
+                        </details>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h4>Download Latest Release</h4>
-                            <p>Click on "Releases" and download the latest stable version. Look for files marked "wearer-hud" in the release assets.</p>
-                        </div>
+                    <div class="knowledge-item">
+                        <h5>□ Safety Concepts</h5>
+                        <p>I understand the importance of safewords and emergency procedures.</p>
+                        <details>
+                            <summary>Safety reminder</summary>
+                            <p>Your HUD includes multiple safety mechanisms including safewords, emergency buttons, and automatic timeouts. You should always have a way to immediately stop any session. <a href="safety.html">Review safety features</a>.</p>
+                        </details>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4>Extract Files</h4>
-                            <p>Extract the downloaded archive. You should have the following Wearer HUD files:</p>
-                            <ul>
-                                <li><code>wearer_hud_main.lsl</code> - Core HUD functionality</li>
-                                <li><code>wearer_hud_interface.lsl</code> - User interface management</li>
-                                <li><code>wearer_hud_rlv.lsl</code> - RLV integration handler</li>
-                                <li><code>wearer_hud_communication.lsl</code> - Communication system</li>
-                                <li><code>wearer_hud_safety.lsl</code> - Emergency and safety systems</li>
-                                <li><code>wearer_hud_config.txt</code> - Configuration notecard template</li>
-                            </ul>
-                        </div>
+                    <div class="knowledge-item">
+                        <h5>□ Consent and Communication</h5>
+                        <p>I understand this system is for consensual activities and requires clear communication.</p>
+                        <details>
+                            <summary>Important note</summary>
+                            <p>All drone controller activities should be consensual, with clear boundaries and ongoing communication between all participants.</p>
+                        </details>
                     </div>
-                </div>
-
-                <h3>Preparing Your Inventory</h3>
-                <ol>
-                    <li><strong>Create Folder:</strong> Make a new folder in your inventory called "Drone Controller - Wearer HUD"</li>
-                    <li><strong>Import Scripts:</strong> Copy all LSL files into Second Life using your preferred method</li>
-                    <li><strong>Organize Assets:</strong> Place all scripts and configuration files in your new folder</li>
-                    <li><strong>Backup:</strong> Make a backup copy of all files before modification</li>
-                </ol>
-
-                <div class="info">
-                    <strong>Tip:</strong> You can import LSL files by copying the text and pasting into new scripts in SL, or by using import tools if your viewer supports them.
                 </div>
             </section>
 
-            <section id="installation" class="doc-section">
-                <h2>Installation Process</h2>
+            <section id="attachment" class="doc-section">
+                <h2>Attaching Your HUD</h2>
                 
-                <h3>Creating the HUD Object</h3>
+                <h3>First-Time Attachment</h3>
                 <div class="steps">
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h4>Rez a Primitive</h4>
-                            <p>In a sandbox or area where you have build rights:</p>
-                            <ul>
-                                <li>Right-click on the ground and select "Create"</li>
-                                <li>Create a cube primitive</li>
-                                <li>Resize it to approximately 0.5m x 0.3m x 0.05m for optimal HUD appearance</li>
-                            </ul>
+                            <h4>Locate Your HUD</h4>
+                            <p>Find the Wearer HUD object in your inventory. It should be in the folder where you received it, typically named "Drone Controller - Wearer HUD".</p>
                         </div>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h4>Shape and Texture the HUD</h4>
-                            <p>Customize the appearance:</p>
-                            <ul>
-                                <li>Set transparency to about 10-20% for visibility without obstruction</li>
-                                <li>Choose a color scheme that works with your preferences</li>
-                                <li>Add any desired textures or materials</li>
-                                <li>Consider adding text or symbols for button identification</li>
-                            </ul>
+                            <h4>Attach to HUD</h4>
+                            <p>Right-click the HUD object and select "Attach To" → "Attach to HUD" → "Top Right" (recommended). You can change the position later if needed.</p>
                         </div>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h4>Prepare for Scripts</h4>
-                            <p>Set up the object for scripting:</p>
-                            <ul>
-                                <li>Right-click the object and select "Edit"</li>
-                                <li>Go to the "Contents" tab</li>
-                                <li>Ensure "Running Scripts" is checked</li>
-                                <li>Clear any default scripts if present</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Installing Scripts</h3>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4>Add Main Script First</h4>
-                            <p>Drag <code>wearer_hud_main.lsl</code> from your inventory into the object's Contents tab. This script manages communication between all other components.</p>
+                            <h4>Wait for Initialization</h4>
+                            <p>The HUD will automatically start up and initialize its systems. You should see status messages in local chat and the HUD interface will become active.</p>
                         </div>
                     </div>
                     
                     <div class="step">
-                        <div class="step-number">2</div>
+                        <div class="step-number">4</div>
                         <div class="step-content">
-                            <h4>Add Support Scripts</h4>
-                            <p>Add the remaining scripts in this order:</p>
-                            <ol>
-                                <li><code>wearer_hud_safety.lsl</code> (highest priority)</li>
-                                <li><code>wearer_hud_rlv.lsl</code></li>
-                                <li><code>wearer_hud_communication.lsl</code></li>
-                                <li><code>wearer_hud_interface.lsl</code> (last)</li>
-                            </ol>
-                        </div>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4>Add Configuration</h4>
-                            <p>Create a new notecard called "config" and paste the contents of <code>wearer_hud_config.txt</code> into it, then drag it into the object's Contents.</p>
+                            <h4>Verify Basic Function</h4>
+                            <p>Check that all status indicators are showing and the HUD responds to touches. The power indicator should show green and connection status should show "Standby".</p>
                         </div>
                     </div>
                 </div>
 
-                <h3>Script Compilation and Verification</h3>
+                <h3>Understanding Your HUD Interface</h3>
+                <div class="interface-tour">
+                    <div class="interface-section">
+                        <h4>Status Display Area</h4>
+                        <ul>
+                            <li><strong>Power Level:</strong> Shows system energy/battery status</li>
+                            <li><strong>Connection:</strong> Link status with controllers</li>
+                            <li><strong>Mode:</strong> Current operational state</li>
+                            <li><strong>Timer:</strong> Session duration when active</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interface-section">
+                        <h4>Control Buttons</h4>
+                        <ul>
+                            <li><strong>EMERGENCY (Red):</strong> Immediate safety stop - always accessible</li>
+                            <li><strong>Power (Green):</strong> Turn HUD on/off</li>
+                            <li><strong>Settings (Gray):</strong> Access configuration menu</li>
+                            <li><strong>Info (Blue):</strong> Status information and help</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>HUD Position Adjustment</h3>
+                <p>If you need to change your HUD's position:</p>
                 <ol>
-                    <li><strong>Check Compilation:</strong> Ensure all scripts compile successfully without errors</li>
-                    <li><strong>Monitor Memory:</strong> Total memory usage should be under 128KB</li>
-                    <li><strong>Test Communication:</strong> Scripts should establish inter-communication automatically</li>
-                    <li><strong>Watch Chat:</strong> Look for initialization messages in local chat</li>
+                    <li>Right-click the HUD and select "Detach"</li>
+                    <li>Right-click the HUD object in inventory again</li>
+                    <li>Choose "Attach To" → "Attach to HUD" → select your preferred position</li>
+                    <li>Common positions: Top Right, Top Left, Bottom Center, Right Center</li>
                 </ol>
 
-                <div class="warning">
-                    <strong>Troubleshooting:</strong> If any scripts show compilation errors, double-check that you copied the complete script code. Missing functions or syntax errors will prevent proper operation.
+                <div class="info">
+                    <strong>Tip:</strong> Top Right is recommended as it doesn't interfere with most other HUDs and provides easy access to all controls.
                 </div>
             </section>
 
             <section id="configuration" class="doc-section">
                 <h2>Initial Configuration</h2>
                 
-                <h3>Basic Configuration Settings</h3>
-                <p>Edit the "config" notecard to customize your HUD. Here's the basic configuration structure:</p>
+                <h3>Accessing Settings</h3>
+                <p>Click the "Settings" button on your HUD to open the configuration menu. Your HUD comes with safe defaults, but you should customize key personal settings.</p>
+
+                <h3>Essential Settings to Configure</h3>
                 
-                <pre><code># Wearer HUD Configuration
-# Version: 1.0.0
-# User: [Your Avatar Name]
-# Date: [Current Date]
+                <h4>Personal Information</h4>
+                <div class="config-section">
+                    <h5>Display Name</h5>
+                    <p>Set how you want to be identified in logs and communications. This can be your SL display name or a preferred identifier.</p>
+                    
+                    <h5>Emergency Contact</h5>
+                    <p>Provide the name or UUID of a trusted person who can be contacted in emergencies. This should be someone who knows about your drone activities.</p>
+                </div>
 
-# === SAFETY SETTINGS ===
-# Primary safeword - NEVER forget this!
-safeword = "EMERGENCY"
-
-# Maximum session duration in seconds (7200 = 2 hours)
-max_session_time = 7200
-
-# Auto-logout if no owner communication (seconds)
-connection_timeout = 300
-
-# Emergency teleport coordinates (your safe location)
-emergency_tp_point = "128, 128, 24"
-
-# === DISPLAY SETTINGS ===
-# HUD color (RGB values 0.0 to 1.0)
-hud_color = "0.2, 0.4, 0.8"
-
-# Background transparency (0.0 = invisible, 1.0 = opaque)
-transparency = 0.1
-
-# Font size for text elements
-font_size = 12
-
-# Compact mode for smaller screens
-compact_mode = FALSE
-
-# === COMMUNICATION SETTINGS ===
-# Send status updates to owner
-owner_notifications = TRUE
-
-# Frequency of status updates (seconds)
-status_interval = 300
-
-# Relay local chat to owner
-chat_relay = TRUE
-
-# Share location information
-location_sharing = TRUE
-
-# === RLV SETTINGS ===
-# Enable RLV functionality
-rlv_enabled = TRUE
-
-# Auto-accept teleport requests from owner
-auto_accept_tp = FALSE
-
-# Enable movement restrictions
-movement_restrictions = TRUE
-
-# Enable attachment controls
-attachment_controls = TRUE
-
-# === AUDIO SETTINGS ===
-# Enable sound effects
-sound_enabled = TRUE
-
-# Sound volume (0.0 to 1.0)
-sound_volume = 0.5
-
-# Notification sounds
-notification_sounds = TRUE
-
-# === ADVANCED SETTINGS ===
-# Debug mode (shows additional information)
-debug_mode = FALSE
-
-# Log all activities
-activity_logging = TRUE
-
-# Encryption key for secure communication (leave blank for auto-generation)
-encryption_key = ""</code></pre>
-
-                <h3>Customizing Your Settings</h3>
-                
                 <h4>Safety Configuration</h4>
-                <ul>
-                    <li><strong>Safeword:</strong> Choose something memorable but not commonly used in conversation</li>
-                    <li><strong>Session Time:</strong> Start with shorter durations (30-60 minutes) until experienced</li>
-                    <li><strong>Emergency TP:</strong> Set to a private, safe location you own or have access to</li>
-                    <li><strong>Connection Timeout:</strong> Recommended 5-10 minutes for safety</li>
-                </ul>
-                
-                <h4>Interface Customization</h4>
-                <ul>
-                    <li><strong>Colors:</strong> Choose colors that are visible but not distracting</li>
-                    <li><strong>Transparency:</strong> Balance visibility with screen space</li>
-                    <li><strong>Compact Mode:</strong> Use for smaller screens or minimal interface</li>
-                    <li><strong>Font Size:</strong> Adjust for readability at your screen resolution</li>
-                </ul>
-                
-                <h4>Communication Preferences</h4>
-                <ul>
-                    <li><strong>Status Updates:</strong> Enable for safety monitoring</li>
-                    <li><strong>Chat Relay:</strong> Consider privacy implications</li>
-                    <li><strong>Location Sharing:</strong> Required for some features</li>
-                    <li><strong>Notifications:</strong> Balance information with distraction</li>
-                </ul>
+                <div class="config-section">
+                    <h5>Safeword Setup</h5>
+                    <p><strong>Critical:</strong> Choose your personal safeword. Default is "EMERGENCY" but you should pick something memorable and unique to you.</p>
+                    <pre><code>Safeword: [YOUR_SAFEWORD_HERE]</code></pre>
+                    
+                    <h5>Session Limits</h5>
+                    <ul>
+                        <li><strong>Maximum Session Duration:</strong> Start with 60-90 minutes for first sessions</li>
+                        <li><strong>Connection Timeout:</strong> Recommended 5-10 minutes</li>
+                        <li><strong>Emergency Teleport Location:</strong> Set to a safe, private location you control</li>
+                    </ul>
+                </div>
 
-                <div class="info">
-                    <strong>Security Note:</strong> The encryption key field can be left blank for automatic generation, or you can specify a custom key for enhanced security with specific controllers.
+                <h4>Communication Preferences</h4>
+                <div class="config-section">
+                    <h5>Status Updates</h5>
+                    <ul>
+                        <li><strong>Update Frequency:</strong> Every 5 minutes (recommended for beginners)</li>
+                        <li><strong>Include Location:</strong> Enable for safety monitoring</li>
+                        <li><strong>Chat Relay:</strong> Consider carefully - this forwards your chat to controllers</li>
+                    </ul>
+                    
+                    <h5>Notification Preferences</h5>
+                    <ul>
+                        <li><strong>Audio Alerts:</strong> Enable for important notifications</li>
+                        <li><strong>Visual Notifications:</strong> Enable for status changes</li>
+                        <li><strong>Silent Mode:</strong> Available for quiet operation</li>
+                    </ul>
+                </div>
+
+                <h3>Quick Configuration Wizard</h3>
+                <p>For first-time users, the HUD includes a configuration wizard. Click "Run Setup Wizard" in the settings menu to be guided through essential settings.</p>
+                
+                <div class="wizard-steps">
+                    <div class="wizard-step">
+                        <strong>Step 1:</strong> Personal safety information (safeword, emergency contact)
+                    </div>
+                    <div class="wizard-step">
+                        <strong>Step 2:</strong> Session preferences (time limits, communication settings)
+                    </div>
+                    <div class="wizard-step">
+                        <strong>Step 3:</strong> Interface customization (colors, layout, audio)
+                    </div>
+                    <div class="wizard-step">
+                        <strong>Step 4:</strong> Testing and verification of all systems
+                    </div>
                 </div>
             </section>
 
-            <section id="testing" class="doc-section">
-                <h2>Testing & Verification</h2>
+            <section id="safety-setup" class="doc-section">
+                <h2>Safety Setup</h2>
                 
-                <h3>Pre-Attachment Testing</h3>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4>Script Status Check</h4>
-                            <p>Before attaching, verify all systems are operational:</p>
-                            <ul>
-                                <li>Touch the HUD object to trigger initialization</li>
-                                <li>Check local chat for status messages</li>
-                                <li>Verify all scripts show "Running" status</li>
-                                <li>Look for any error messages or warnings</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h4>Configuration Validation</h4>
-                            <p>Confirm settings are loaded correctly:</p>
-                            <ul>
-                                <li>Touch and hold for 3 seconds to access debug info</li>
-                                <li>Verify safeword is set correctly</li>
-                                <li>Check that emergency coordinates are valid</li>
-                                <li>Confirm RLV status is detected properly</li>
-                            </ul>
-                        </div>
-                    </div>
+                <h3>Mandatory Safety Configuration</h3>
+                
+                <div class="warning">
+                    <strong>Critical:</strong> Do not skip this section. Proper safety setup is essential for safe operation.
                 </div>
 
-                <h3>Attachment and Interface Testing</h3>
+                <h4>Safeword Testing</h4>
                 <div class="steps">
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h4>Attach the HUD</h4>
-                            <p>Right-click the object and select "Attach To" → "Attach to HUD" → Choose your preferred position (Top Right recommended).</p>
+                            <h4>Test Chat Safeword</h4>
+                            <p>Type your safeword in local chat. The HUD should immediately respond with "Emergency safeword activated" and show emergency status.</p>
                         </div>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h4>Interface Verification</h4>
-                            <p>Test all interface elements:</p>
-                            <ul>
-                                <li><strong>Power Button:</strong> Should toggle HUD on/off</li>
-                                <li><strong>Emergency Button:</strong> Should be clearly visible and responsive</li>
-                                <li><strong>Status Display:</strong> Should show current status information</li>
-                                <li><strong>Settings Access:</strong> Should open configuration menu</li>
-                            </ul>
+                            <h4>Test Emergency Button</h4>
+                            <p>Click the red EMERGENCY button. It should have the same effect as the safeword and be easily accessible at all times.</p>
                         </div>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h4>RLV Integration Test</h4>
-                            <p>Verify RLV functionality (if enabled):</p>
-                            <ul>
-                                <li>HUD should detect RLV status automatically</li>
-                                <li>RLV indicator should show green if working</li>
-                                <li>Test basic RLV command response</li>
-                                <li>Verify safeword triggers RLV release</li>
-                            </ul>
+                            <h4>Test Manual Detach</h4>
+                            <p>Practice manually detaching the HUD: right-click → "Detach". This is your ultimate backup if other systems fail.</p>
                         </div>
                     </div>
                 </div>
 
-                <h3>Safety System Testing</h3>
-                
-                <h4>Emergency Functions Test</h4>
+                <h4>RLV Safety Check</h4>
+                <p>If you have RLV enabled, test the safety systems:</p>
                 <ol>
-                    <li><strong>Safeword Test:</strong> Type your safeword in local chat - HUD should respond immediately</li>
-                    <li><strong>Emergency Button:</strong> Click the emergency button - should trigger immediate safety response</li>
-                    <li><strong>Manual Detach:</strong> Practice detaching the HUD manually if needed</li>
-                    <li><strong>Timeout Test:</strong> Verify connection timeout works if owner disconnects</li>
-                </ol>
-                
-                <h4>Communication Testing</h4>
-                <ol>
-                    <li><strong>Status Updates:</strong> Verify regular status messages are generated</li>
-                    <li><strong>Chat Relay:</strong> Test if local chat is properly relayed (if enabled)</li>
-                    <li><strong>Location Updates:</strong> Confirm position information is accurate</li>
-                    <li><strong>System Messages:</strong> Check that important events generate notifications</li>
+                    <li>Have the HUD apply a simple restriction (like preventing flying)</li>
+                    <li>Use your safeword to remove all restrictions</li>
+                    <li>Verify that restrictions are completely cleared</li>
+                    <li>Test that you can move and act normally</li>
                 </ol>
 
-                <div class="success">
-                    <strong>Testing Complete:</strong> If all tests pass successfully, your Wearer HUD is ready for use! Save the configured object to your inventory for future use.
+                <h3>Emergency Procedures</h3>
+                
+                <h4>Emergency Response Priority</h4>
+                <div class="emergency-steps">
+                    <div class="emergency-step critical">
+                        <h5>🚨 First Priority: Immediate Safety</h5>
+                        <ol>
+                            <li>Use your safeword in local chat</li>
+                            <li>Click the emergency button on your HUD</li>
+                            <li>Manually detach HUD if needed</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="emergency-step high">
+                        <h5>⚠️ Second Priority: Get Help</h5>
+                        <ol>
+                            <li>Contact your emergency contact person</li>
+                            <li>Move to a safe location if possible</li>
+                            <li>Document what happened for future safety</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="emergency-step medium">
+                        <h5>ℹ️ Third Priority: System Recovery</h5>
+                        <ol>
+                            <li>Check that all restrictions are cleared</li>
+                            <li>Verify your avatar is responding normally</li>
+                            <li>Reset or restart systems if needed</li>
+                        </ol>
+                    </div>
                 </div>
+
+                <h3>Safety Best Practices</h3>
+                <ul>
+                    <li><strong>Start Slowly:</strong> Begin with short, simple sessions with trusted partners</li>
+                    <li><strong>Clear Communication:</strong> Establish clear signals and check-ins with controllers</li>
+                    <li><strong>Know Your Limits:</strong> Set and communicate personal boundaries</li>
+                    <li><strong>Safe Environment:</strong> Use private areas for sessions</li>
+                    <li><strong>Regular Practice:</strong> Periodically test emergency procedures</li>
+                    <li><strong>Stay Informed:</strong> Keep up with system updates and safety improvements</li>
+                </ul>
             </section>
 
-            <section id="first-use" class="doc-section">
-                <h2>First Use Guide</h2>
+            <section id="first-session" class="doc-section">
+                <h2>Your First Session</h2>
                 
-                <h3>Before Your First Session</h3>
+                <h3>Pre-Session Preparation</h3>
                 
-                <h4>Final Preparation Checklist</h4>
-                <ul>
-                    <li>✅ HUD tested and functioning properly</li>
-                    <li>✅ Safeword memorized and tested</li>
-                    <li>✅ Emergency procedures understood</li>
-                    <li>✅ Session limits decided and configured</li>
-                    <li>✅ Trusted controller identified and briefed</li>
-                    <li>✅ Private, safe environment secured</li>
-                    <li>✅ Backup communication method established</li>
-                </ul>
+                <h4>Final Checklist Before First Use</h4>
+                <div class="pre-session-checklist">
+                    <h5>Technical Preparation</h5>
+                    <ul>
+                        <li>□ HUD is attached and responding normally</li>
+                        <li>□ All safety systems tested and working</li>
+                        <li>□ Personal settings configured (safeword, limits, contacts)</li>
+                        <li>□ Emergency procedures understood and practiced</li>
+                        <li>□ Backup communication method established with controller</li>
+                    </ul>
+                    
+                    <h5>Personal Preparation</h5>
+                    <ul>
+                        <li>□ Comfortable, private environment secured</li>
+                        <li>□ Trusted, experienced controller identified</li>
+                        <li>□ Session goals and limits discussed</li>
+                        <li>□ Aftercare plan established</li>
+                        <li>□ Emergency contact informed (if appropriate)</li>
+                    </ul>
+                </div>
 
                 <h3>Starting Your First Session</h3>
                 <div class="steps">
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h4>Pre-Session Communication</h4>
-                            <p>Before beginning, communicate with your controller:</p>
-                            <ul>
-                                <li>Confirm safeword and emergency procedures</li>
-                                <li>Discuss session goals and limits</li>
-                                <li>Verify both HUDs are operational</li>
-                                <li>Agree on session duration</li>
-                            </ul>
+                            <h4>Controller Connection</h4>
+                            <p>Work with your controller to establish the connection between your HUDs. You should see your connection status change from "Standby" to "Connected".</p>
                         </div>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h4>HUD Activation</h4>
-                            <p>Activate your Wearer HUD:</p>
-                            <ul>
-                                <li>Click the power button to turn on the HUD</li>
-                                <li>Verify connection with Owner HUD</li>
-                                <li>Confirm all status indicators are green</li>
-                                <li>Check that emergency functions are accessible</li>
-                            </ul>
+                            <h4>Initial Communication Test</h4>
+                            <p>Verify two-way communication is working. Your controller should be able to send messages and receive your status updates.</p>
                         </div>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h4>Session Initiation</h4>
-                            <p>When ready to begin:</p>
-                            <ul>
-                                <li>Give final consent to your controller</li>
-                                <li>Watch for initial commands and restrictions</li>
-                                <li>Verify that restrictions are applied correctly</li>
-                                <li>Maintain communication as requested</li>
-                            </ul>
+                            <h4>Simple Test Commands</h4>
+                            <p>Start with very simple, non-restrictive commands to verify the system is working correctly. For example, a simple message or status request.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Gradual Introduction</h4>
+                            <p>If using RLV restrictions, start with very mild limitations and gradually increase complexity as comfort and trust develop.</p>
                         </div>
                     </div>
                 </div>
 
-                <h3>During Your Session</h3>
+                <h3>What to Expect</h3>
                 
-                <h4>Monitoring Your Status</h4>
+                <h4>During Your Session</h4>
                 <ul>
-                    <li><strong>Status Display:</strong> Keep an eye on battery level and connection status</li>
-                    <li><strong>Health Indicators:</strong> Watch for any warning signs or errors</li>
-                    <li><strong>Communication:</strong> Maintain regular check-ins as agreed</li>
-                    <li><strong>Comfort Level:</strong> Monitor your physical and emotional comfort</li>
+                    <li><strong>Regular Check-ins:</strong> Expect frequent status questions, especially during first sessions</li>
+                    <li><strong>Clear Instructions:</strong> Good controllers will explain what they're doing and why</li>
+                    <li><strong>Respect for Limits:</strong> Your stated boundaries should always be honored</li>
+                    <li><strong>System Monitoring:</strong> Watch your HUD for any warnings or alerts</li>
+                    <li><strong>Open Communication:</strong> Feel free to ask questions or express concerns</li>
                 </ul>
                 
-                <h4>What to Expect</h4>
-                <ul>
-                    <li><strong>Gradual Progression:</strong> Good controllers will start slowly and build up</li>
-                    <li><strong>Regular Check-ins:</strong> Expect frequent status questions, especially initially</li>
-                    <li><strong>Clear Communication:</strong> Commands should be clear and restrictions explained</li>
-                    <li><strong>Respect for Limits:</strong> Your stated limits should be honored</li>
-                </ul>
+                <h4>Warning Signs to Watch For</h4>
+                <div class="warning-signs">
+                    <div class="warning-sign critical">
+                        <h5>🚨 Immediate Concern - Use Safeword</h5>
+                        <ul>
+                            <li>Commands or restrictions you didn't agree to</li>
+                            <li>Loss of communication with controller</li>
+                            <li>System errors or malfunctions</li>
+                            <li>Any feeling of being unsafe or uncomfortable</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warning-sign high">
+                        <h5>⚠️ Caution - Communicate Immediately</h5>
+                        <ul>
+                            <li>Restrictions lasting longer than agreed</li>
+                            <li>Unexpected behavior from the system</li>
+                            <li>Controller not responding to questions</li>
+                            <li>Approaching session time limits</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <h3>Ending Your Session</h3>
                 
                 <h4>Normal Session End</h4>
                 <ol>
-                    <li>Controller initiates session termination sequence</li>
-                    <li>All restrictions are gradually removed</li>
-                    <li>HUD returns to standby mode</li>
-                    <li>Final status check and debrief</li>
-                    <li>HUD can be powered down or detached</li>
+                    <li><strong>Session Conclusion:</strong> Controller initiates proper session end sequence</li>
+                    <li><strong>Restriction Removal:</strong> All limitations are gradually and completely removed</li>
+                    <li><strong>System Verification:</strong> Confirm your HUD shows normal, unrestricted status</li>
+                    <li><strong>Debrief:</strong> Discuss the experience with your controller</li>
+                    <li><strong>Aftercare:</strong> Take time for personal care and processing</li>
                 </ol>
                 
-                <h4>Emergency Session End</h4>
-                <ol>
-                    <li>Use safeword immediately if needed</li>
-                    <li>Click emergency button if safeword fails</li>
-                    <li>Manually detach HUD if systems fail</li>
-                    <li>Contact emergency support if needed</li>
-                    <li>Document any issues for future safety</li>
-                </ol>
-
-                <div class="warning">
-                    <strong>Remember:</strong> Your safety and wellbeing are the highest priority. Never hesitate to use your safeword or emergency systems if you feel uncomfortable or unsafe.
-                </div>
-
-                <h3>Post-Session Care</h3>
-                
-                <h4>Immediate Aftercare</h4>
+                <h4>Post-Session Care</h4>
                 <ul>
-                    <li><strong>Status Check:</strong> Ensure you feel physically and emotionally well</li>
-                    <li><strong>Hydration:</strong> Drink water and take care of basic needs</li>
-                    <li><strong>Decompression:</strong> Take time to process the experience</li>
-                    <li><strong>Communication:</strong> Discuss the session with your controller</li>
-                </ul>
-                
-                <h4>System Maintenance</h4>
-                <ul>
-                    <li><strong>HUD Status:</strong> Verify HUD returned to normal operation</li>
-                    <li><strong>Settings Review:</strong> Update any preferences based on experience</li>
-                    <li><strong>Log Review:</strong> Check activity logs for any issues</li>
-                    <li><strong>Backup:</strong> Save current HUD configuration</li>
+                    <li><strong>Physical Check:</strong> Ensure you feel physically comfortable and well</li>
+                    <li><strong>Emotional Processing:</strong> Take time to process the experience</li>
+                    <li><strong>System Status:</strong> Verify your HUD returned to normal operation</li>
+                    <li><strong>Hydration and Rest:</strong> Take care of basic physical needs</li>
+                    <li><strong>Communication:</strong> Stay in contact with controller for immediate aftercare</li>
                 </ul>
             </section>
 
             <div class="doc-footer">
                 <p><strong>Next Steps:</strong></p>
                 <ul>
-                    <li><a href="features.html">Explore Advanced Features</a> - Discover all HUD capabilities</li>
+                    <li><a href="features.html">Explore HUD Features</a> - Learn about all available capabilities</li>
                     <li><a href="customization.html">Customize Your HUD</a> - Personalize appearance and behavior</li>
-                    <li><a href="safety.html">Safety Features Guide</a> - Learn about all safety systems</li>
-                    <li><a href="../owner-hud/index.html">Owner HUD Documentation</a> - Information for controllers</li>
+                    <li><a href="safety.html">Advanced Safety Guide</a> - Comprehensive safety features and procedures</li>
+                    <li><a href="../owner-hud/index.html">Owner HUD Guide</a> - Information for controllers and partners</li>
                 </ul>
                 
                 <div class="success">
-                    <strong>Congratulations!</strong> You've successfully set up your Wearer HUD. Remember to always prioritize safety and communicate clearly with your controllers.
+                    <strong>Welcome to the Community!</strong> You're now ready to begin using your Drone Controller Wearer HUD safely and effectively. Remember: safety first, communication always, and enjoy your journey!
                 </div>
             </div>
         </div>
@@ -623,39 +559,39 @@ encryption_key = ""</code></pre>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Setup Guide</h3>
+                    <h3>Getting Started</h3>
                     <ul>
-                        <li><a href="#prerequisites">Prerequisites</a></li>
-                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#unboxing">Unboxing</a></li>
+                        <li><a href="#attachment">HUD Attachment</a></li>
                         <li><a href="#configuration">Configuration</a></li>
-                        <li><a href="#testing">Testing</a></li>
+                        <li><a href="#safety-setup">Safety Setup</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Related Documentation</h3>
+                    <h3>Next Steps</h3>
                     <ul>
-                        <li><a href="index.html">Wearer HUD Overview</a></li>
-                        <li><a href="features.html">Feature Guide</a></li>
-                        <li><a href="safety.html">Safety Features</a></li>
-                        <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                        <li><a href="features.html">Feature Overview</a></li>
+                        <li><a href="customization.html">Customization</a></li>
+                        <li><a href="safety.html">Safety Guide</a></li>
+                        <li><a href="troubleshooting.html">Troubleshooting</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Support</h3>
                     <ul>
-                        <li><a href="../troubleshooting/index.html">Troubleshooting</a></li>
                         <li><a href="../faq/index.html">FAQ</a></li>
                         <li><a href="../contact/index.html">Get Help</a></li>
-                        <li><a href="https://github.com/BrittRose-SL/drone-controller-scripts" target="_blank">GitHub Repository</a></li>
+                        <li><a href="../community/index.html">User Community</a></li>
+                        <li><a href="https://github.com/BrittRose-SL/drone-controller-scripts" target="_blank">Documentation Source</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2025 Drone Controller System. Documentation licensed under MIT License.</p>
-                <p>Setup Guide Version 1.0.0 | Last updated: <span id="last-updated"></span></p>
+                <p>Getting Started Guide Version 1.0.0 | Last updated: <span id="last-updated"></span></p>
             </div>
         </div>
     </footer>
