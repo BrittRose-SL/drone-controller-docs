@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wearer HUD Features - Drone Controller System</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Drone Controller System</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Wearer HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../owner-hud/index.html" class="nav-link">Owner HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../programmer-station/index.html" class="nav-link">Programmer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../charging-pad/index.html" class="nav-link">Charging Pad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../rlv-reference/index.html" class="nav-link">RLV Reference</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="doc-header">
+                <h1>Wearer HUD Features</h1>
+                <p>Comprehensive guide to all features and capabilities of the Drone Controller Wearer HUD.</p>
+            </header>
+
+            <nav class="doc-navigation">
+                <ul>
+                    <li><a href="#overview">Feature Overview</a></li>
+                    <li><a href="#interface">Interface Features</a></li>
+                    <li><a href="#safety">Safety Systems</a></li>
+                    <li><a href="#communication">Communication</a></li>
+                    <li><a href="#monitoring">Status Monitoring</a></li>
+                    <li><a href="#rlv-integration">RLV Integration</a></li>
+                    <li><a href="#advanced">Advanced Features</a></li>
+                </ul>
+            </nav>
+
+            <section id="overview" class="doc-section">
+                <h2>Feature Overview</h2>
+                
+                <p>The Wearer HUD provides a comprehensive set of features designed to ensure safe, efficient, and customizable drone operation. All features are built with safety as the primary concern while maintaining ease of use and functionality.</p>
+
+                <h3>Core Feature Categories</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>🛡️ Safety Systems</h4>
+                        <p>Multi-layered safety features including emergency stops, safewords, automatic timeouts, and connection monitoring.</p>
+                        <ul>
+                            <li>Emergency safeword activation</li>
+                            <li>Automatic session timeouts</li>
+                            <li>Connection loss protection</li>
+                            <li>Manual override capabilities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>💬 Communication Hub</h4>
+                        <p>Comprehensive communication system for interaction with controllers and status reporting.</p>
+                        <ul>
+                            <li>Real-time status updates</li>
+                            <li>Chat relay and filtering</li>
+                            <li>Emergency broadcast system</li>
+                            <li>Location sharing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>📊 Status Monitoring</h4>
+                        <p>Continuous monitoring of system health, connection quality, and operational status.</p>
+                        <ul>
+                            <li>Battery/power level tracking</li>
+                            <li>Connection quality monitoring</li>
+                            <li>RLV status verification</li>
+                            <li>Performance metrics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h4>🎨 Customization</h4>
+                        <p>Extensive customization options for appearance, behavior, and user preferences.</p>
+                        <ul>
+                            <li>Visual theme customization</li>
+                            <li>Audio and notification settings</li>
+                            <li>Interface layout options</li>
+                            <li>Behavioral preferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="interface" class="doc-section">
+                <h2>Interface Features</h2>
+                
+                <h3>Main HUD Display</h3>
+                <p>The Wearer HUD interface is designed for clarity and quick access to essential functions:</p>
+                
+                <h4>Status Display Panel</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Function</th>
+                            <th>Visual Indicators</th>
+                            <th>Update Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Power Level</td>
+                            <td>Shows current system energy/battery status</td>
+                            <td>Green (80-100%), Yellow (30-79%), Red (0-29%)</td>
+                            <td>Every 60 seconds</td>
+                        </tr>
+                        <tr>
+                            <td>Connection Status</td>
+                            <td>Displays link quality with Owner HUD</td>
+                            <td>Green (connected), Yellow (weak), Red (disconnected)</td>
+                            <td>Real-time</td>
+                        </tr>
+                        <tr>
+                            <td>Session Timer</td>
+                            <td>Shows active session duration</td>
+                            <td>Digital timer format (HH:MM:SS)</td>
+                            <td>Every second</td>
+                        </tr>
+                        <tr>
+                            <td>RLV Status</td>
+                            <td>Indicates RLV functionality status</td>
+                            <td>Green (active), Red (disabled/error)</td>
+                            <td>Continuous monitoring</td>
+                        </tr>
+                        <tr>
+                            <td>Mode Indicator</td>
+                            <td>Current operational mode</td>
+                            <td>Standby, Active, Emergency, Maintenance</td>
+                            <td>State changes</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Control Buttons</h4>
+                <div class="interface-grid">
+                    <div class="interface-section">
+                        <h4>Primary Controls</h4>
+                        <ul>
+                            <li><strong>Power Button:</strong> Main HUD on/off toggle with confirmation</li>
+                            <li><strong>Emergency Stop:</strong> Large, always-accessible emergency button</li>
+                            <li><strong>Status Button:</strong> Quick status report and diagnostics</li>
+                            <li><strong>Settings Menu:</strong> Access to configuration options</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interface-section">
+                        <h4>Secondary Controls</h4>
+                        <ul>
+                            <li><strong>Help/Info:</strong> Quick reference and current status</li>
+                            <li><strong>Communication:</strong> Direct message to controller</li>
+                            <li><strong>Preferences:</strong> Quick access to common settings</li>
+                            <li><strong>Log Viewer:</strong> Recent activity and events</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Interface Modes</h3>
+                
+                <h4>Normal Mode</h4>
+                <ul>
+                    <li><strong>Full Interface:</strong> All controls and status indicators visible</li>
+                    <li><strong>Standard Size:</strong> Optimized for desktop viewing</li>
+                    <li><strong>Complete Information:</strong> Detailed status and diagnostics</li>
+                    <li><strong>All Features Available:</strong> Full functionality accessible</li>
+                </ul>
+                
+                <h4>Compact Mode</h4>
+                <ul>
+                    <li><strong>Reduced Size:</strong> Smaller footprint for limited screen space</li>
+                    <li><strong>Essential Controls Only:</strong> Critical functions prioritized</li>
+                    <li><strong>Simplified Display:</strong> Key information only</li>
+                    <li><strong>Touch-Optimized:</strong> Better for mobile or touch interfaces</li>
+                </ul>
+                
+                <h4>Emergency Mode</h4>
+                <ul>
+                    <li><strong>High Visibility:</strong> Enhanced visual indicators</li>
+                    <li><strong>Simplified Controls:</strong> Only essential emergency functions</li>
+                    <li><strong>Audio Alerts:</strong> Enhanced sound notifications</li>
+                    <li><strong>Fail-Safe Design:</strong> Redundant safety mechanisms</li>
+                </ul>
+
+                <h3>Visual Customization</h3>
+                
+                <h4>Color Themes</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Theme</th>
+                            <th>Primary Color</th>
+                            <th>Use Case</th>
+                            <th>Accessibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default Blue</td>
+                            <td>Professional blue (#2563eb)</td>
+                            <td>General use, professional appearance</td>
+                            <td>High contrast, colorblind-friendly</td>
+                        </tr>
+                        <tr>
+                            <td>Safety Orange</td>
+                            <td>High-visibility orange (#f97316)</td>
+                            <td>High-visibility, emergency situations</td>
+                            <td>Maximum visibility</td>
+                        </tr>
+                        <tr>
+                            <td>Stealth Gray</td>
+                            <td>Neutral gray (#6b7280)</td>
+                            <td>Minimal interface, role-playing</td>
+                            <td>Low contrast option</td>
+                        </tr>
+                        <tr>
+                            <td>Cyber Green</td>
+                            <td>Matrix green (#10b981)</td>
+                            <td>Futuristic aesthetic, sci-fi themes</td>
+                            <td>Good contrast, unique look</td>
+                        </tr>
+                        <tr>
+                            <td>Custom</td>
+                            <td>User-defined RGB values</td>
+                            <td>Personal preference, branding</td>
+                            <td>User-controlled</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Layout Options</h4>
+                <ul>
+                    <li><strong>Horizontal Layout:</strong> Wide format for bottom screen attachment</li>
+                    <li><strong>Vertical Layout:</strong> Tall format for side screen attachment</li>
+                    <li><strong>Grid Layout:</strong> Square format with organized sections</li>
+                    <li><strong>Minimal Layout:</strong> Bare essentials only, maximum screen space</li>
+                </ul>
+            </section>
+
+            <section id="safety" class="doc-section">
+                <h2>Safety Systems</h2>
+                
+                <h3>Emergency Response Features</h3>
+                
+                <h4>Safeword System</h4>
+                <div class="safety-feature">
+                    <h5>Multiple Activation Methods</h5>
+                    <ul>
+                        <li><strong>Chat Command:</strong> Type safeword in local chat for immediate response</li>
+                        <li><strong>Emergency Button:</strong> Large, always-visible button on HUD</li>
+                        <li><strong>Gesture Support:</strong> Assign safeword to viewer gesture</li>
+                        <li><strong>Touch Sequence:</strong> Specific HUD touch pattern as backup</li>
+                    </ul>
+                    
+                    <h5>Safeword Response</h5>
+                    <ul>
+                        <li>Immediate termination of all active restrictions</li>
+                        <li>Notification sent to controller about emergency stop</li>
+                        <li>HUD enters safe mode with enhanced monitoring</li>
+                        <li>Optional emergency teleport to designated safe location</li>
+                        <li>Complete activity log of the emergency event</li>
+                    </ul>
+                </div>
+                
+                <h4>Automatic Safety Systems</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Safety System</th>
+                            <th>Trigger Condition</th>
+                            <th>Response Action</th>
+                            <th>User Override</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Session Timeout</td>
+                            <td>Maximum session duration reached</td>
+                            <td>Gradual restriction removal, session end</td>
+                            <td>Extension request (with limits)</td>
+                        </tr>
+                        <tr>
+                            <td>Connection Loss</td>
+                            <td>No owner communication for set time</td>
+                            <td>Automatic restriction release</td>
+                            <td>Manual reconnection attempt</td>
+                        </tr>
+                        <tr>
+                            <td>Script Error</td>
+                            <td>Critical script failure detected</td>
+                            <td>Safe mode activation, restriction removal</td>
+                            <td>Manual system reset</td>
+                        </tr>
+                        <tr>
+                            <td>Health Check Failure</td>
+                            <td>System health below threshold</td>
+                            <td>Warning alerts, gradual safety measures</td>
+                            <td>Acknowledge and continue</td>
+                        </tr>
+                        <tr>
+                            <td>Rapid Command Sequence</td>
+                            <td>Unusual command pattern detected</td>
+                            <td>Command throttling, safety verification</td>
+                            <td>Confirm intentional rapid commands</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Monitoring and Alerts</h3>
+                
+                <h4>Health Monitoring</h4>
+                <ul>
+                    <li><strong>Script Performance:</strong> Memory usage, execution time, error rates</li>
+                    <li><strong>Connection Quality:</strong> Signal strength, latency, packet loss</li>
+                    <li><strong>Response Time:</strong> HUD responsiveness and command acknowledgment</li>
+                    <li><strong>System Resources:</strong> Available memory, processing capacity</li>
+                    <li><strong>RLV Functionality:</strong> Command execution success rate</li>
+                </ul>
+                
+                <h4>Alert Levels</h4>
+                <div class="alert-levels">
+                    <div class="alert-level info">
+                        <h5>ℹ️ Information</h5>
+                        <p>General status updates and routine notifications</p>
+                        <ul>
+                            <li>Session start/end notifications</li>
+                            <li>Regular status updates</li>
+                            <li>Configuration changes</li>
+                            <li>Non-critical system events</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="alert-level warning">
+                        <h5>⚠️ Warning</h5>
+                        <p>Conditions that require attention but aren't immediately dangerous</p>
+                        <ul>
+                            <li>Low battery/power levels</li>
+                            <li>Weak connection quality</li>
+                            <li>Approaching session time limits</li>
+                            <li>Non-critical script errors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="alert-level error">
+                        <h5>🚨 Critical</h5>
+                        <p>Immediate safety concerns requiring urgent response</p>
+                        <ul>
+                            <li>Connection loss with active restrictions</li>
+                            <li>Critical script failures</li>
+                            <li>Emergency safeword activation</li>
+                            <li>System security breaches</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Backup Safety Measures</h3>
+                
+                <h4>Manual Override Options</h4>
+                <ul>
+                    <li><strong>HUD Detachment:</strong> Manual removal via right-click menu</li>
+                    <li><strong>Script Reset:</strong> Restart all HUD scripts to clear restrictions</li>
+                    <li><strong>RLV Disable:</strong> Turn off RLV in viewer to stop all commands</li>
+                    <li><strong>Viewer Restart:</strong> Complete viewer restart as last resort</li>
+                </ul>
+                
+                <h4>External Safety Contacts</h4>
+                <ul>
+                    <li><strong>Emergency Contact:</strong> Designated person for crisis situations</li>
+                    <li><strong>System Administrator:</strong> Technical support for system issues</li>
+                    <li><strong>Community Support:</strong> User community for assistance</li>
+                    <li><strong>Documentation:</strong> Quick access to safety procedures</li>
+                </ul>
+            </section>
+
+            <section id="communication" class="doc-section">
+                <h2>Communication Features</h2>
+                
+                <h3>Real-Time Communication</h3>
+                
+                <h4>Status Broadcasting</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Information Type</th>
+                            <th>Content</th>
+                            <th>Frequency</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Health Status</td>
+                            <td>Battery, connection, script performance</td>
+                            <td>Every 5 minutes</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>Location Data</td>
+                            <td>Region, coordinates, movement status</td>
+                            <td>Every 2 minutes or on change</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Activity Summary</td>
+                            <td>Session duration, restrictions active</td>
+                            <td>Every 10 minutes</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Emergency Events</td>
+                            <td>Safeword use, critical errors, warnings</td>
+                            <td>Immediate</td>
+                            <td>Critical</td>
+                        </tr>
+                        <tr>
+                            <td>System Changes</td>
+                            <td>Mode changes, configuration updates</td>
+                            <td>As they occur</td>
+                            <td>Low</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Chat Integration</h4>
+                <ul>
+                    <li><strong>Chat Relay:</strong> Forward local chat to controller (configurable)</li>
+                    <li><strong>Message Filtering:</strong> Filter out system messages and spam</li>
+                    <li><strong>Privacy Controls:</strong> Selective chat sharing based on content</li>
+                    <li><strong>Emergency Broadcasting:</strong> Override chat restrictions for emergencies</li>
+                    <li><strong>Silent Mode:</strong> Minimize chat interruptions during sessions</li>
+                </ul>
+
+                <h3>Notification System</h3>
+                
+                <h4>Notification Types</h4>
+                <div class="notification-types">
+                    <div class="notification-type">
+                        <h5>🔔 System Notifications</h5>
+                        <ul>
+                            <li>HUD startup and shutdown</li>
+                            <li>Connection status changes</li>
+                            <li>Configuration updates</li>
+                            <li>Health check results</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="notification-type">
+                        <h5>📋 Session Notifications</h5>
+                        <ul>
+                            <li>Session start and end</li>
+                            <li>Restriction changes</li>
+                            <li>Controller commands</li>
+                            <li>Time limit warnings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="notification-type">
+                        <h5>🚨 Emergency Notifications</h5>
+                        <ul>
+                            <li>Safety system activations</li>
+                            <li>Critical system errors</li>
+                            <li>Connection loss alerts</li>
+                            <li>Manual intervention required</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h4>Delivery Methods</h4>
+                <ul>
+                    <li><strong>HUD Display:</strong> Visual notifications on HUD interface</li>
+                    <li><strong>Local Chat:</strong> Text messages in Second Life chat</li>
+                    <li><strong>Audio Alerts:</strong> Sound notifications for different events</li>
+                    <li><strong>IM Messages:</strong> Direct messages to controller or emergency contact</li>
+                    <li><strong>Visual Effects:</strong> HUD color changes or flashing for urgent alerts</li>
+                </ul>
+
+                <h3>Communication Protocols</h3>
+                
+                <h4>Security and Encryption</h4>
+                <ul>
+                    <li><strong>Message Authentication:</strong> Verify messages are from authorized sources</li>
+                    <li><strong>Encryption Support:</strong> Optional encryption for sensitive communications</li>
+                    <li><strong>Session Tokens:</strong> Unique identifiers for secure session management</li>
+                    <li><strong>Anti-Spoofing:</strong> Protection against impersonation attacks</li>
+                </ul>
+                
+                <h4>Communication Channels</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Channel Type</th>
+                            <th>Purpose</th>
+                            <th>Security Level</th>
+                            <th>Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Control</td>
+                            <td>Main communication with Owner HUD</td>
+                            <td>High security, encrypted</td>
+                            <td>96m (standard SL range)</td>
+                        </tr>
+                        <tr>
+                            <td>Emergency Broadcast</td>
+                            <td>Emergency communications</td>
+                            <td>Authentication only</td>
+                            <td>Unlimited (IM-based)</td>
+                        </tr>
+                        <tr>
+                            <td>Status Updates</td>
+                            <td>Regular health and status reports</td>
+                            <td>Medium security</td>
+                            <td>96m (standard SL range)</td>
+                        </tr>
+                        <tr>
+                            <td>Maintenance</td>
+                            <td>System updates and diagnostics</td>
+                            <td>High security</td>
+                            <td>Direct touch/proximity</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="monitoring" class="doc-section">
+                <h2>Status Monitoring</h2>
+                
+                <h3>System Health Metrics</h3>
+                
+                <h4>Performance Monitoring</h4>
+                <div class="metrics-grid">
+                    <div class="metric-category">
+                        <h5>Script Performance</h5>
+                        <ul>
+                            <li><strong>Memory Usage:</strong> Current and peak memory consumption</li>
+                            <li><strong>Execution Time:</strong> Script processing speed and efficiency</li>
+                            <li><strong>Event Queue:</strong> Number of pending events and processing rate</li>
+                            <li><strong>Error Rate:</strong> Frequency and types of script errors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="metric-category">
+                        <h5>Communication Metrics</h5>
+                        <ul>
+                            <li><strong>Connection Latency:</strong> Response time to controller commands</li>
+                            <li><strong>Message Success Rate:</strong> Percentage of successful transmissions</li>
+                            <li><strong>Signal Strength:</strong> Quality of communication link</li>
+                            <li><strong>Packet Loss:</strong> Lost or corrupted message count</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="metric-category">
+                        <h5>System Resources</h5>
+                        <ul>
+                            <li><strong>Available Memory:</strong> Free script memory remaining</li>
+                            <li><strong>CPU Usage:</strong> Processing load and efficiency</li>
+                            <li><strong>Network Bandwidth:</strong> Communication channel utilization</li>
+                            <li><strong>Storage Space:</strong> Log file and data storage capacity</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Historical Data and Logging</h3>
+                
+                <h4>Activity Logging</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Log Type</th>
+                            <th>Information Captured</th>
+                            <th>Retention Period</th>
+                            <th>Access Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Session Log</td>
+                            <td>Start/end times, duration, participants</td>
+                            <td>30 days</td>
+                            <td>User and authorized controllers</td>
+                        </tr>
+                        <tr>
+                            <td>Command Log</td>
+                            <td>All RLV commands received and executed</td>
+                            <td>7 days</td>
+                            <td>User only (privacy protection)</td>
+                        </tr>
+                        <tr>
+                            <td>System Log</td>
+                            <td>Technical events, errors, performance</td>
+                            <td>14 days</td>
+                            <td>User and technical support</td>
+                        </tr>
+                        <tr>
+                            <td>Safety Log</td>
+                            <td>Emergency events, safeword usage</td>
+                            <td>90 days</td>
+                            <td>User and emergency contacts</td>
+                        </tr>
+                        <tr>
+                            <td>Communication Log</td>
+                            <td>Messages sent and received</td>
+                            <td>24 hours</td>
+                            <td>User only</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Analytics and Reporting</h4>
+                <ul>
+                    <li><strong>Session Statistics:</strong> Average duration, frequency, patterns</li>
+                    <li><strong>Performance Trends:</strong> System health over time</li>
+                    <li><strong>Usage Patterns:</strong> Most used features and settings</li>
+                    <li><strong>Safety Incidents:</strong> Emergency usage and response analysis</li>
+                    <li><strong>Communication Analysis:</strong> Message volume and response times</li>
+                </ul>
+
+                <h3>Diagnostic Tools</h3>
+                
+                <h4>Built-in Diagnostics</h4>
+                <ul>
+                    <li><strong>System Health Check:</strong> Comprehensive system status verification</li>
+                    <li><strong>Connection Test:</strong> Communication link quality assessment</li>
+                    <li><strong>RLV Functionality Test:</strong> Verify RLV commands are working</li>
+                    <li><strong>Script Performance Test:</strong> Memory and execution speed analysis</li>
+                    <li><strong>Safety System Test:</strong> Emergency response system verification</li>
+                </ul>
+                
+                <h4>Troubleshooting Assistance</h4>
+                <ul>
+                    <li><strong>Automated Problem Detection:</strong> Identify common issues automatically</li>
+                    <li><strong>Guided Troubleshooting:</strong> Step-by-step problem resolution</li>
+                    <li><strong>System Reset Options:</strong> Various levels of system restoration</li>
+                    <li><strong>Remote Diagnostics:</strong> Allow authorized support to diagnose issues</li>
+                    <li><strong>Error Report Generation:</strong> Create detailed reports for technical support</li>
+                </ul>
+            </section>
+
+            <section id="rlv-integration" class="doc-section">
+                <h2>RLV Integration</h2>
+                
+                <h3>RLV Command Processing</h3>
+                
+                <h4>Command Categories Supported</h4>
+                <div class="rlv-categories">
+                    <div class="rlv-category">
+                        <h5>Movement Restrictions</h5>
+                        <ul>
+                            <li>Teleport limitations (landmarks, locations, people)</li>
+                            <li>Flying restrictions and controls</li>
+                            <li>Sit/stand enforcement</li>
+                            <li>Movement speed modifications</li>
+                            <li>Region boundary restrictions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rlv-category">
+                        <h5>Communication Control</h5>
+                        <ul>
+                            <li>Chat restrictions (normal, whisper, shout)</li>
+                            <li>Chat redirection and relay</li>
+                            <li>IM restrictions and controls</li>
+                            <li>Voice chat management</li>
+                            <li>Emote and gesture restrictions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rlv-category">
+                        <h5>Attachment Management</h5>
+                        <ul>
+                            <li>Prevent detachment of specific items</li>
+                            <li>Force attachment of objects</li>
+                            <li>Outfit changes and restrictions</li>
+                            <li>Inventory access controls</li>
+                            <li>Appearance modification limits</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rlv-category">
+                        <h5>Interface Restrictions</h5>
+                        <ul>
+                            <li>Inventory window controls</li>
+                            <li>World map access restrictions</li>
+                            <li>Camera movement limitations</li>
+                            <li>Menu and dialog controls</li>
+                            <li>Search and profile restrictions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Command Processing Pipeline</h4>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Command Reception</h4>
+                            <p>RLV commands received from authorized controllers are captured and queued for processing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Authorization Check</h4>
+                            <p>Verify the command source is authorized and has permission for the specific command type.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Safety Validation</h4>
+                            <p>Check command against safety policies, user limits, and current system state.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Command Execution</h4>
+                            <p>Execute the validated command and monitor for successful completion or errors.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Response and Logging</h4>
+                            <p>Send confirmation to controller and log the command execution for audit purposes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>RLV Safety Features</h3>
+                
+                <h4>Command Filtering and Limits</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Safety Feature</th>
+                            <th>Function</th>
+                            <th>Default Setting</th>
+                            <th>User Override</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Command Rate Limiting</td>
+                            <td>Prevents rapid command flooding</td>
+                            <td>Max 10 commands/minute</td>
+                            <td>Adjustable in settings</td>
+                        </tr>
+                        <tr>
+                            <td>Dangerous Command Blocking</td>
+                            <td>Blocks potentially harmful commands</td>
+                            <td>Enabled for high-risk commands</td>
+                            <td>Can be disabled with confirmation</td>
+                        </tr>
+                        <tr>
+                            <td>Session Time Limits</td>
+                            <td>Automatic command expiration</td>
+                            <td>2 hours maximum</td>
+                            <td>Configurable up to 8 hours</td>
+                        </tr>
+                        <tr>
+                            <td>Safe Word Override</td>
+                            <td>Emergency command termination</td>
+                            <td>Always enabled</td>
+                            <td>Cannot be disabled</td>
+                        </tr>
+                        <tr>
+                            <td>Controller Authentication</td>
+                            <td>Verify command source identity</td>
+                            <td>Required for all commands</td>
+                            <td>Enhanced security available</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>RLV Relay Integration</h4>
+                <ul>
+                    <li><strong>Multiple Relay Support:</strong> Compatible with popular relay systems</li>
+                    <li><strong>Relay Priority Management:</strong> Handle commands from multiple sources</li>
+                    <li><strong>Conflict Resolution:</strong> Manage conflicting commands intelligently</li>
+                    <li><strong>Fallback Support:</strong> Direct RLV if relay is unavailable</li>
+                    <li><strong>Custom Relay Protocol:</strong> Enhanced features for drone system</li>
+                </ul>
+
+                <h3>Advanced RLV Features</h3>
+                
+                <h4>Smart Command Grouping</h4>
+                <ul>
+                    <li><strong>Batch Processing:</strong> Execute multiple related commands efficiently</li>
+                    <li><strong>Conditional Commands:</strong> Execute commands based on current state</li>
+                    <li><strong>Command Sequences:</strong> Predefined command chains for common operations</li>
+                    <li><strong>Context-Aware Processing:</strong> Adapt command behavior to current situation</li>
+                </ul>
+                
+                <h4>Custom RLV Extensions</h4>
+                <ul>
+                    <li><strong>Drone-Specific Commands:</strong> Extended command set for drone operations</li>
+                    <li><strong>Enhanced Status Reporting:</strong> Detailed RLV state information</li>
+                    <li><strong>Advanced Restrictions:</strong> Complex restriction combinations</li>
+                    <li><strong>Integration Commands:</strong> Commands for system component interaction</li>
+                </ul>
+            </section>
+
+            <section id="advanced" class="doc-section">
+                <h2>Advanced Features</h2>
+                
+                <h3>Automation and Scripting</h3>
+                
+                <h4>Behavioral Scripts</h4>
+                <div class="automation-features">
+                    <div class="automation-feature">
+                        <h5>📋 Routine Automation</h5>
+                        <ul>
+                            <li>Scheduled status reports</li>
+                            <li>Automatic maintenance tasks</li>
+                            <li>Periodic health checks</li>
+                            <li>Timed restriction adjustments</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="automation-feature">
+                        <h5>🎯 Conditional Responses</h5>
+                        <ul>
+                            <li>Location-based behavior changes</li>
+                            <li>Time-based automatic actions</li>
+                            <li>Event-triggered responses</li>
+                            <li>State-dependent adaptations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="automation-feature">
+                        <h5>🔄 Learning Algorithms</h5>
+                        <ul>
+                            <li>Usage pattern recognition</li>
+                            <li>Preference adaptation</li>
+                            <li>Performance optimization</li>
+                            <li>Predictive maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h4>Custom Protocol Support</h4>
+                <ul>
+                    <li><strong>Protocol Templates:</strong> Pre-defined behavior sets for different scenarios</li>
+                    <li><strong>User-Defined Protocols:</strong> Create custom behavioral patterns</li>
+                    <li><strong>Protocol Sharing:</strong> Import/export protocols between users</li>
+                    <li><strong>Dynamic Protocol Switching:</strong> Change behavior based on context</li>
+                </ul>
+
+                <h3>Integration Features</h3>
+                
+                <h4>System Component Integration</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Integration Type</th>
+                            <th>Data Exchange</th>
+                            <th>Functionality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Owner HUD</td>
+                            <td>Direct Communication</td>
+                            <td>Bidirectional status and commands</td>
+                            <td>Primary control interface</td>
+                        </tr>
+                        <tr>
+                            <td>Programmer Station</td>
+                            <td>Configuration Protocol</td>
+                            <td>Settings and protocol updates</td>
+                            <td>Advanced configuration and updates</td>
+                        </tr>
+                        <tr>
+                            <td>Charging Pad</td>
+                            <td>Proximity Detection</td>
+                            <td>Status sync and maintenance data</td>
+                            <td>Maintenance and system updates</td>
+                        </tr>
+                        <tr>
+                            <td>Other Wearer HUDs</td>
+                            <td>Peer Communication</td>
+                            <td>Status sharing and coordination</td>
+                            <td>Group sessions and coordination</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Third-Party Integration</h4>
+                <ul>
+                    <li><strong>Popular RLV Systems:</strong> Compatibility with existing RLV implementations</li>
+                    <li><strong>Animation Systems:</strong> Integration with pose balls and animation controllers</li>
+                    <li><strong>Role-Play Systems:</strong> Compatibility with RP HUDs and meters</li>
+                    <li><strong>Communication Tools:</strong> Integration with group communication systems</li>
+                </ul>
+
+                <h3>Performance Optimization</h3>
+                
+                <h4>Resource Management</h4>
+                <ul>
+                    <li><strong>Memory Optimization:</strong> Efficient script memory usage and cleanup</li>
+                    <li><strong>CPU Load Balancing:</strong> Distribute processing across multiple scripts</li>
+                    <li><strong>Network Efficiency:</strong> Minimize bandwidth usage for communications</li>
+                    <li><strong>Battery Conservation:</strong> Reduce system resource consumption</li>
+                </ul>
+                
+                <h4>Scalability Features</h4>
+                <ul>
+                    <li><strong>Modular Architecture:</strong> Enable/disable features based on needs</li>
+                    <li><strong>Performance Modes:</strong> Different operation modes for various situations</li>
+                    <li><strong>Resource Scaling:</strong> Adapt resource usage to available capacity</li>
+                    <li><strong>Load Balancing:</strong> Distribute processing load efficiently</li>
+                </ul>
+
+                <h3>Security and Privacy</h3>
+                
+                <h4>Data Protection</h4>
+                <div class="security-features">
+                    <div class="security-feature">
+                        <h5>🔒 Encryption</h5>
+                        <ul>
+                            <li>End-to-end message encryption</li>
+                            <li>Secure key exchange protocols</li>
+                            <li>Data integrity verification</li>
+                            <li>Secure storage for sensitive data</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <h5>🛡️ Access Control</h5>
+                        <ul>
+                            <li>Multi-level authorization system</li>
+                            <li>Time-limited access tokens</li>
+                            <li>Role-based permissions</li>
+                            <li>Audit trail for all access</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <h5>🔐 Privacy Protection</h5>
+                        <ul>
+                            <li>Selective data sharing controls</li>
+                            <li>Anonymous usage statistics</li>
+                            <li>Data retention policies</li>
+                            <li>User consent management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h4>Security Monitoring</h4>
+                <ul>
+                    <li><strong>Intrusion Detection:</strong> Monitor for unauthorized access attempts</li>
+                    <li><strong>Anomaly Detection:</strong> Identify unusual usage patterns</li>
+                    <li><strong>Security Alerts:</strong> Immediate notification of security events</li>
+                    <li><strong>Incident Response:</strong> Automated response to security threats</li>
+                </ul>
+
+                <h3>Extensibility and Customization</h3>
+                
+                <h4>Plugin Architecture</h4>
+                <ul>
+                    <li><strong>Custom Modules:</strong> Add new functionality through plugins</li>
+                    <li><strong>API Access:</strong> Programmatic interface for advanced users</li>
+                    <li><strong>Script Extensions:</strong> Custom LSL scripts for specialized features</li>
+                    <li><strong>Theme System:</strong> Complete visual customization capabilities</li>
+                </ul>
+                
+                <h4>Developer Features</h4>
+                <ul>
+                    <li><strong>Debug Interface:</strong> Advanced debugging and development tools</li>
+                    <li><strong>Testing Framework:</strong> Built-in testing capabilities for modifications</li>
+                    <li><strong>Documentation API:</strong> Self-documenting code and configuration</li>
+                    <li><strong>Version Control:</strong> Track and manage configuration changes</li>
+                </ul>
+            </section>
+
+            <div class="doc-footer">
+                <p><strong>Explore More:</strong></p>
+                <ul>
+                    <li><a href="customization.html">Customization Guide</a> - Personalize your HUD appearance and behavior</li>
+                    <li><a href="safety.html">Complete Safety Guide</a> - Comprehensive safety features and procedures</li>
+                    <li><a href="troubleshooting.html">Troubleshooting</a> - Solutions for common issues and problems</li>
+                    <li><a href="../rlv-reference/index.html">RLV Reference</a> - Complete RLV command documentation</li>
+                </ul>
+                
+                <div class="info">
+                    <strong>Feature Updates:</strong> The Wearer HUD is continuously improved with new features and enhancements. Check the <a href="../changelog/index.html">changelog</a> for the latest updates and improvements.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Feature Categories</h3>
+                    <ul>
+                        <li><a href="#interface">Interface Features</a></li>
+                        <li><a href="#safety">Safety Systems</a></li>
+                        <li><a href="#communication">Communication</a></li>
+                        <li><a href="#advanced">Advanced Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Related Guides</h3>
+                    <ul>
+                        <li><a href="setup.html">Setup Guide</a></li>
+                        <li><a href="customization.html">Customization</a></li>
+                        <li><a href="safety.html">Safety Features</a></li>
+                        <li><a href="../owner-hud/index.html">Owner HUD</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Technical Support</h3>
+                    <ul>
+                        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                        <li><a href="../faq/index.html">FAQ</a></li>
+                        <li><a href="../api/index.html">API Documentation</a></li>
+                        <li><a href="https://github.com/BrittRose-SL/drone-controller-scripts" target="_blank">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Drone Controller System. Documentation licensed under MIT License.</p>
+                <p>Features Guide Version 1.0.0 | Last updated: <span id="last-updated"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
