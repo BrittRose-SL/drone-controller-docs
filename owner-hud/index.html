@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner HUD - Drone Controller System</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Drone Controller System</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../wearer-hud/index.html" class="nav-link">Wearer HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Owner HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../programmer-station/index.html" class="nav-link">Programmer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../charging-pad/index.html" class="nav-link">Charging Pad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../rlv-reference/index.html" class="nav-link">RLV Reference</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="doc-header">
+                <h1>Owner HUD Documentation</h1>
+                <p>Comprehensive control interface for drone operators with command systems, monitoring, and configuration tools.</p>
+            </header>
+
+            <nav class="doc-navigation">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#interface">Interface Guide</a></li>
+                    <li><a href="#commands">Commands</a></li>
+                    <li><a href="#monitoring">Monitoring</a></li>
+                    <li><a href="#safety">Safety Features</a></li>
+                </ul>
+            </nav>
+
+            <section id="overview" class="doc-section">
+                <h2>Overview</h2>
+                <p>The Owner HUD is the command and control center for drone operators. It provides comprehensive tools for managing drone sessions, monitoring status, and ensuring safe operations.</p>
+                
+                <div class="info">
+                    <strong>Responsibility:</strong> As an operator, you are responsible for the safety and wellbeing of drone users. Always prioritize safety and maintain clear communication throughout sessions.
+                </div>
+
+                <h3>Key Capabilities</h3>
+                <ul>
+                    <li><strong>Session Management:</strong> Start, monitor, and end drone sessions safely</li>
+                    <li><strong>Real-time Monitoring:</strong> Live status feeds from connected drones</li>
+                    <li><strong>Command Interface:</strong> Comprehensive RLV command system</li>
+                    <li><strong>Safety Controls:</strong> Emergency stop, safeword override, and automatic safeguards</li>
+                    <li><strong>Multi-drone Support:</strong> Manage multiple drones simultaneously</li>
+                    <li><strong>Activity Logging:</strong> Complete session records and audit trails</li>
+                </ul>
+            </section>
+
+            <section id="installation" class="doc-section">
+                <h2>Installation</h2>
+                
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>Second Life viewer with RLV/RLVa support</li>
+                    <li>Experience with RLV commands and safety protocols</li>
+                    <li>Understanding of drone system safety requirements</li>
+                    <li>Proper training on emergency procedures</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>Important:</strong> Only experienced users should operate the Owner HUD. Improper use can pose safety risks to drone users. Ensure you understand all safety protocols before beginning operations.
+                </div>
+
+                <h3>Installation Steps</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Download Components</h4>
+                            <p>Download the Owner HUD package from the <a href="https://github.com/yourusername/drone-controller-scripts" target="_blank">GitHub repository</a>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Create HUD Object</h4>
+                            <p>Rez a control panel object. Recommended dimensions: 1.0m x 0.8m x 0.1m for optimal control layout.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Install Scripts</h4>
+                            <p>Add the following scripts to your HUD:</p>
+                            <ul>
+                                <li><code>owner_hud_main.lsl</code> - Core functionality</li>
+                                <li><code>owner_hud_interface.lsl</code> - User interface</li>
+                                <li><code>owner_hud_commands.lsl</code> - RLV command processor</li>
+                                <li><code>owner_hud_monitoring.lsl</code> - Status monitoring</li>
+                                <li><code>owner_hud_safety.lsl</code> - Safety systems</li>
+                                <li><code>owner_hud_logging.lsl</code> - Activity logger</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Configure Authorization</h4>
+                            <p>Set up authorized operators in the configuration:</p>
+                            <pre><code># Owner HUD Configuration
+# Version: 1.0.0
+
+# Authorization Settings
+primary_operator = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+authorized_operators = [
+    "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+    "zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+]
+
+# Safety Settings
+max_session_duration = 7200
+auto_safety_checks = TRUE
+emergency_contact = "admin@example.com"
+
+# Monitoring Settings
+status_update_interval = 30
+log_all_commands = TRUE
+audit_trail = TRUE
+
+# Communication Settings
+drone_scan_range = 96
+max_simultaneous_drones = 5
+command_confirmation = TRUE</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Perform Safety Check</h4>
+                            <p>Complete the mandatory safety verification before first use:</p>
+                            <ul>
+                                <li>Test emergency stop functions</li>
+                                <li>Verify safeword override capabilities</li>
+                                <li>Check communication with test Wearer HUD</li>
+                                <li>Confirm logging systems are active</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="interface" class="doc-section">
+                <h2>Interface Guide</h2>
+                
+                <h3>Main Control Panel</h3>
+                <p>The Owner HUD interface is organized into functional sections for efficient operation:</p>
+                
+                <div class="interface-grid">
+                    <div class="interface-section">
+                        <h4>Drone Status Panel</h4>
+                        <ul>
+                            <li><strong>Connected Drones:</strong> List of active drone connections</li>
+                            <li><strong>Status Indicators:</strong> Health, battery, connection quality</li>
+                            <li><strong>Session Timer:</strong> Active session duration</li>
+                            <li><strong>Last Communication:</strong> Time since last status update</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interface-section">
+                        <h4>Command Interface</h4>
+                        <ul>
+                            <li><strong>Quick Commands:</strong> One-click common actions</li>
+                            <li><strong>Custom Commands:</strong> Text input for specific RLV commands</li>
+                            <li><strong>Command History:</strong> Log of recent commands sent</li>
+                            <li><strong>Confirmation:</strong> Safety confirmations for critical commands</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interface-section">
+                        <h4>Safety Controls</h4>
+                        <ul>
+                            <li><strong>Emergency Stop:</strong> Immediate session termination</li>
+                            <li><strong>Safeword Override:</strong> Manual safeword activation</li>
+                            <li><strong>Safety Checks:</strong> Automated safety verification</li>
+                            <li><strong>Session Limits:</strong> Time and activity boundaries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interface-section">
+                        <h4>Session Management</h4>
+                        <ul>
+                            <li><strong>Start/Stop:</strong> Session control buttons</li>
+                            <li><strong>Pause/Resume:</strong> Temporary session suspension</li>
+                            <li><strong>Settings:</strong> Session parameter configuration</li>
+                            <li><strong>Logs:</strong> Access to session activity logs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Status Display Elements</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Information</th>
+                            <th>Update Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Drone Health</td>
+                            <td>Overall system status and responsiveness</td>
+                            <td>Every 30 seconds</td>
+                        </tr>
+                        <tr>
+                            <td>Battery Level</td>
+                            <td>Power/energy status (0-100%)</td>
+                            <td>Every 60 seconds</td>
+                        </tr>
+                        <tr>
+                            <td>Connection Quality</td>
+                            <td>Signal strength and latency</td>
+                            <td>Continuous</td>
+                        </tr>
+                        <tr>
+                            <td>Active Restrictions</td>
+                            <td>Currently applied RLV restrictions</td>
+                            <td>Real-time</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td>Current position and region</td>
+                            <td>Every 2 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>Session Duration</td>
+                            <td>Time since session start</td>
+                            <td>Real-time</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="commands" class="doc-section">
+                <h2>Command System</h2>
+                
+                <h3>Command Categories</h3>
+                <p>Commands are organized by function and safety level:</p>
+                
+                <h4>Movement Commands</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Function</th>
+                            <th>Safety Level</th>
+                            <th>Confirmation Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@tplm</td>
+                            <td>Block teleport to landmarks</td>
+                            <td>Low</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>@tploc</td>
+                            <td>Block teleport to locations</td>
+                            <td>Low</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>@tpto</td>
+                            <td>Block teleport to users</td>
+                            <td>Medium</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>@fly</td>
+                            <td>Restrict flying ability</td>
+                            <td>Medium</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>@sittp</td>
+                            <td>Force teleport and sit</td>
+                            <td>High</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Communication Commands</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Function</th>
+                            <th>Safety Level</th>
+                            <th>Confirmation Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@sendchat</td>
+                            <td>Send chat message as drone</td>
+                            <td>Low</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>@redirchat</td>
+                            <td>Redirect chat to owner</td>
+                            <td>Medium</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>@chatshout</td>
+                            <td>Block shouting in chat</td>
+                            <td>Low</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>@chatnormal</td>
+                            <td>Block normal chat</td>
+                            <td>High</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Attachment Commands</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Function</th>
+                            <th>Safety Level</th>
+                            <th>Confirmation Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@detach</td>
+                            <td>Prevent detaching objects</td>
+                            <td>Medium</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>@addattach</td>
+                            <td>Force attach object</td>
+                            <td>High</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>@remattach</td>
+                            <td>Force detach object</td>
+                            <td>High</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>@addoutfit</td>
+                            <td>Force wear outfit</td>
+                            <td>High</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Quick Command Buttons</h3>
+                <p>Pre-configured buttons for common operations:</p>
+                
+                <div class="command-grid">
+                    <div class="command-group">
+                        <h4>Session Control</h4>
+                        <ul>
+                            <li><strong>Start Session:</strong> Initialize drone connection</li>
+                            <li><strong>Pause Session:</strong> Temporary suspension</li>
+                            <li><strong>Resume Session:</strong> Continue after pause</li>
+                            <li><strong>End Session:</strong> Safe session termination</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="command-group">
+                        <h4>Movement Control</h4>
+                        <ul>
+                            <li><strong>Restrict Movement:</strong> Apply movement limitations</li>
+                            <li><strong>Allow Movement:</strong> Remove movement restrictions</li>
+                            <li><strong>Call Drone:</strong> Teleport drone to your location</li>
+                            <li><strong>Send Home:</strong> Return drone to designated location</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="command-group">
+                        <h4>Communication</h4>
+                        <ul>
+                            <li><strong>Mute Chat:</strong> Disable drone chat</li>
+                            <li><strong>Unmute Chat:</strong> Restore chat ability</li>
+                            <li><strong>Redirect Chat:</strong> Forward chat to owner</li>
+                            <li><strong>Send Message:</strong> Communicate with drone</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Custom Command Input</h3>
+                <p>For advanced operations, use the custom command field:</p>
+                
+                <h4>Command Syntax</h4>
+                <pre><code># Basic command format
+@[command][:[parameter]]=[value]
+
+# Examples
+@tplm=n          # Block landmark teleports
+@fly=n           # Disable flying
+@sendchat=0/Hello, this is a test message
+@sittp:128/128/24=force   # Force teleport and sit</code></pre>
+                
+                <h4>Command Validation</h4>
+                <p>All commands are validated before execution:</p>
+                <ul>
+                    <li><strong>Syntax Check:</strong> Verify proper RLV command format</li>
+                    <li><strong>Safety Review:</strong> Check against safety policies</li>
+                    <li><strong>Authorization:</strong> Confirm operator permissions</li>
+                    <li><strong>Confirmation:</strong> Require acknowledgment for high-risk commands</li>
+                </ul>
+            </section>
+
+            <section id="monitoring" class="doc-section">
+                <h2>Monitoring System</h2>
+                
+                <h3>Real-time Status Monitoring</h3>
+                <p>The monitoring system provides comprehensive oversight of all connected drones:</p>
+                
+                <h4>Health Monitoring</h4>
+                <ul>
+                    <li><strong>Script Performance:</strong> Memory usage and execution time</li>
+                    <li><strong>Connection Quality:</strong> Signal strength and latency metrics</li>
+                    <li><strong>Response Time:</strong> Command acknowledgment speed</li>
+                    <li><strong>Error Detection:</strong> Automatic identification of system issues</li>
+                </ul>
+                
+                <h4>Activity Tracking</h4>
+                <ul>
+                    <li><strong>Movement Patterns:</strong> Location changes and travel distance</li>
+                    <li><strong>Communication Log:</strong> Chat messages and system notifications</li>
+                    <li><strong>Command History:</strong> All executed commands with timestamps</li>
+                    <li><strong>Interaction Events:</strong> Touch, collision, and proximity events</li>
+                </ul>
+
+                <h3>Alert System</h3>
+                <p>Automated alerts for important events and conditions:</p>
+                
+                <h4>Critical Alerts</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Alert Type</th>
+                            <th>Trigger Condition</th>
+                            <th>Response Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="status-error">Connection Lost</td>
+                            <td>No response for 60 seconds</td>
+                            <td>Immediate investigation</td>
+                        </tr>
+                        <tr>
+                            <td class="status-error">Safeword Used</td>
+                            <td>Emergency safeword activated</td>
+                            <td>Immediate session termination</td>
+                        </tr>
+                        <tr>
+                            <td class="status-error">Script Error</td>
+                            <td>Critical script failure detected</td>
+                            <td>System reset or manual intervention</td>
+                        </tr>
+                        <tr>
+                            <td class="status-warning">Low Battery</td>
+                            <td>Power level below 20%</td>
+                            <td>Consider ending session</td>
+                        </tr>
+                        <tr>
+                            <td class="status-warning">Session Timeout</td>
+                            <td>Maximum duration approaching</td>
+                            <td>Prepare for session end</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Session Logging</h3>
+                <p>Comprehensive logging system for safety and audit purposes:</p>
+                
+                <h4>Log Categories</h4>
+                <ul>
+                    <li><strong>Command Log:</strong> All RLV commands sent and received</li>
+                    <li><strong>Status Log:</strong> Regular status updates and system health</li>
+                    <li><strong>Communication Log:</strong> Chat messages and notifications</li>
+                    <li><strong>Safety Log:</strong> Emergency events and safety activations</li>
+                    <li><strong>Session Log:</strong> Start/stop times and session parameters</li>
+                    <li><strong>Error Log:</strong> System errors and diagnostic information</li>
+                </ul>
+                
+                <h4>Log Format</h4>
+                <pre><code># Sample log entries
+[2025-01-15 14:23:15] COMMAND: @tplm=n sent to drone-001
+[2025-01-15 14:23:16] STATUS: drone-001 battery: 85%, connection: good
+[2025-01-15 14:24:01] CHAT: drone-001 -> "Affirmative, restrictions applied"
+[2025-01-15 14:25:30] SAFETY: Auto-check passed for drone-001
+[2025-01-15 14:30:00] SESSION: 15-minute checkpoint reached</code></pre>
+                
+                <h4>Log Retention</h4>
+                <ul>
+                    <li><strong>Active Session:</strong> Real-time display in HUD</li>
+                    <li><strong>Recent History:</strong> Last 24 hours kept in memory</li>
+                    <li><strong>Archive:</strong> Important events saved to notecard</li>
+                    <li><strong>Export:</strong> Full logs can be exported for analysis</li>
+                </ul>
+            </section>
+
+            <section id="safety" class="doc-section">
+                <h2>Safety Features</h2>
+                
+                <h3>Emergency Systems</h3>
+                <p>Multiple layers of safety protection for all participants:</p>
+                
+                <h4>Emergency Stop</h4>
+                <ul>
+                    <li><strong>Immediate Response:</strong> Instant termination of all restrictions</li>
+                    <li><strong>Multiple Triggers:</strong> Button, chat command, or automatic detection</li>
+                    <li><strong>No Confirmation:</strong> Bypasses all safety confirmations</li>
+                    <li><strong>Full Reset:</strong> Returns drone to completely unrestricted state</li>
+                    <li><strong>Audit Trail:</strong> Logs emergency stop reason and timestamp</li>
+                </ul>
+                
+                <h4>Safeword Override</h4>
+                <ul>
+                    <li><strong>Remote Activation:</strong> Owner can trigger drone's safeword</li>
+                    <li><strong>Verification Required:</strong> Double-confirmation for activation</li>
+                    <li><strong>Immediate Effect:</strong> Same result as drone using safeword</li>
+                    <li><strong>Documentation:</strong> Reason must be provided for logs</li>
+                </ul>
+
+                <h3>Automatic Safety Systems</h3>
+                
+                <h4>Session Limits</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Limit Type</th>
+                            <th>Default Value</th>
+                            <th>Warning Threshold</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maximum Session Duration</td>
+                            <td>120 minutes</td>
+                            <td>100 minutes</td>
+                            <td>Automatic session end</td>
+                        </tr>
+                        <tr>
+                            <td>Inactivity Timeout</td>
+                            <td>30 minutes</td>
+                            <td>25 minutes</td>
+                            <td>Pause session</td>
+                        </tr>
+                        <tr>
+                            <td>Connection Timeout</td>
+                            <td>5 minutes</td>
+                            <td>3 minutes</td>
+                            <td>Emergency release</td>
+                        </tr>
+                        <tr>
+                            <td>Command Rate Limit</td>
+                            <td>10/minute</td>
+                            <td>8/minute</td>
+                            <td>Throttle commands</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Health Monitoring</h4>
+                <ul>
+                    <li><strong>Response Monitoring:</strong> Track drone responsiveness</li>
+                    <li><strong>System Health:</strong> Monitor script performance and memory</li>
+                    <li><strong>Connection Quality:</strong> Ensure stable communication</li>
+                    <li><strong>Error Detection:</strong> Identify and respond to system errors</li>
+                </ul>
+
+                <h3>Safety Protocols</h3>
+                
+                <h4>Pre-Session Checklist</h4>
+                <ol>
+                    <li><strong>Verify Identity:</strong> Confirm drone user identity and consent</li>
+                    <li><strong>Check Systems:</strong> Test all HUD functions and connections</li>
+                    <li><strong>Confirm Safeword:</strong> Verify safeword is set and understood</li>
+                    <li><strong>Set Limits:</strong> Configure session duration and restrictions</li>
+                    <li><strong>Emergency Contact:</strong> Ensure emergency contact information is available</li>
+                    <li><strong>Communication Test:</strong> Verify two-way communication</li>
+                </ol>
+                
+                <h4>During Session Monitoring</h4>
+                <ul>
+                    <li><strong>Regular Check-ins:</strong> Periodic status verification</li>
+                    <li><strong>Response Validation:</strong> Ensure drone is responding appropriately</li>
+                    <li><strong>System Monitoring:</strong> Watch for technical issues</li>
+                    <li><strong>Safety Boundaries:</strong> Maintain awareness of limits and restrictions</li>
+                </ul>
+                
+                <h4>Post-Session Procedures</h4>
+                <ol>
+                    <li><strong>Complete Release:</strong> Ensure all restrictions are removed</li>
+                    <li><strong>System Check:</strong> Verify drone HUD is functioning normally</li>
+                    <li><strong>Debrief:</strong> Discuss session experience and any issues</li>
+                    <li><strong>Log Review:</strong> Check logs for any anomalies</li>
+                    <li><strong>Documentation:</strong> Save important session information</li>
+                </ol>
+
+                <h3>Risk Management</h3>
+                
+                <h4>Risk Assessment Matrix</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Risk Level</th>
+                            <th>Commands</th>
+                            <th>Monitoring Required</th>
+                            <th>Safeguards</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="status-online">Low</td>
+                            <td>Chat restrictions, minor movement limits</td>
+                            <td>Standard monitoring</td>
+                            <td>Regular check-ins</td>
+                        </tr>
+                        <tr>
+                            <td class="status-warning">Medium</td>
+                            <td>TP restrictions, attachment controls</td>
+                            <td>Enhanced monitoring</td>
+                            <td>Increased check-ins, time limits</td>
+                        </tr>
+                        <tr>
+                            <td class="status-error">High</td>
+                            <td>Force actions, complete restrictions</td>
+                            <td>Constant monitoring</td>
+                            <td>Continuous communication, strict time limits</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Emergency Procedures</h4>
+                
+                <h5>Communication Loss</h5>
+                <ol>
+                    <li>Attempt to re-establish connection</li>
+                    <li>Use alternative communication methods (IM, group chat)</li>
+                    <li>Activate automatic emergency release if configured</li>
+                    <li>Physically locate drone user if possible</li>
+                    <li>Contact emergency support if unable to reach</li>
+                </ol>
+                
+                <h5>System Malfunction</h5>
+                <ol>
+                    <li>Immediately stop sending new commands</li>
+                    <li>Attempt emergency release through HUD</li>
+                    <li>Instruct drone to manually detach HUD if necessary</li>
+                    <li>Reset and restart system components</li>
+                    <li>Document issue for future prevention</li>
+                </ol>
+                
+                <h5>Drone Distress</h5>
+                <ol>
+                    <li>Immediately activate emergency stop</li>
+                    <li>Provide reassurance and support</li>
+                    <li>Remove all restrictions completely</li>
+                    <li>Check on drone's physical and emotional wellbeing</li>
+                    <li>Provide aftercare as needed</li>
+                </ol>
+
+                <div class="warning">
+                    <strong>Critical Safety Reminder:</strong> Never ignore safety alerts or override safety systems without extreme caution. When in doubt, always err on the side of safety and terminate the session. The wellbeing of the drone user is always the highest priority.
+                </div>
+            </section>
+
+            <div class="doc-footer">
+                <p><strong>Next Steps:</strong></p>
+                <ul>
+                    <li><a href="commands.html">Complete Command Reference</a> - Full RLV command documentation</li>
+                    <li><a href="safety.html">Safety Protocols</a> - Detailed safety procedures and guidelines</li>
+                    <li><a href="troubleshooting.html">Troubleshooting Guide</a> - Common issues and solutions</li>
+                    <li><a href="../programmer-station/index.html">Programmer Station</a> - Advanced system configuration</li>
+                </ul>
+                
+                <div class="info">
+                    <strong>Training Recommendation:</strong> New operators should complete supervised training sessions before operating independently. Contact experienced operators or system administrators for training opportunities.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Owner HUD</h3>
+                    <ul>
+                        <li><a href="commands.html">Command Reference</a></li>
+                        <li><a href="safety.html">Safety Protocols</a></li>
+                        <li><a href="monitoring.html">Monitoring Guide</a></li>
+                        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Training</h3>
+                    <ul>
+                        <li><a href="training/basic.html">Basic Training</a></li>
+                        <li><a href="training/advanced.html">Advanced Techniques</a></li>
+                        <li><a href="training/emergency.html">Emergency Procedures</a></li>
+                        <li><a href="training/certification.html">Certification</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="../troubleshooting/index.html">Technical Support</a></li>
+                        <li><a href="../faq/index.html">FAQ</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                        <li><a href="../community/index.html">Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Drone Controller System. Documentation licensed under MIT License.</p>
+                <p>Owner HUD Version 1.0.0 | Last updated: <span id="last-updated"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
