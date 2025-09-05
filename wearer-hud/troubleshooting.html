@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting - Drone Controller Wearer HUD</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Drone Controller System</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Wearer HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../owner-hud/index.html" class="nav-link">Owner HUD</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../programmer-station/index.html" class="nav-link">Programmer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../charging-pad/index.html" class="nav-link">Charging Pad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../rlv-reference/index.html" class="nav-link">RLV Reference</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="doc-header">
+                <h1>Wearer HUD Troubleshooting</h1>
+                <p>Comprehensive guide to diagnosing and resolving common issues with your Drone Controller Wearer HUD.</p>
+            </header>
+
+            <nav class="doc-navigation">
+                <ul>
+                    <li><a href="#quick-fixes">Quick Fixes</a></li>
+                    <li><a href="#common-issues">Common Issues</a></li>
+                    <li><a href="#rlv-problems">RLV Problems</a></li>
+                    <li><a href="#connection-issues">Connection Issues</a></li>
+                    <li><a href="#performance">Performance Issues</a></li>
+                    <li><a href="#error-codes">Error Codes</a></li>
+                    <li><a href="#advanced">Advanced Troubleshooting</a></li>
+                </ul>
+            </nav>
+
+            <section id="quick-fixes" class="doc-section">
+                <h2>Quick Fixes</h2>
+                
+                <div class="info">
+                    <strong>Start Here:</strong> Most HUD issues can be resolved with these simple solutions. Try these first before proceeding to detailed troubleshooting.
+                </div>
+
+                <h3>Emergency Quick Fixes</h3>
+                <div class="quick-fix-grid">
+                    <div class="quick-fix critical">
+                        <h4>🚨 HUD Completely Unresponsive</h4>
+                        <ol>
+                            <li><strong>Immediate:</strong> Right-click HUD → "Detach"</li>
+                            <li><strong>If that fails:</strong> Use "Replace Outfit" with a saved outfit</li>
+                            <li><strong>Last resort:</strong> Disable RLV in viewer preferences</li>
+                            <li><strong>Then:</strong> Restart viewer and re-attach HUD</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="quick-fix high">
+                        <h4>⚠️ Emergency Functions Not Working</h4>
+                        <ol>
+                            <li><strong>Try safeword:</strong> Type your safeword in local chat</li>
+                            <li><strong>Manual detach:</strong> Right-click HUD → "Detach"</li>
+                            <li><strong>Clear RLV:</strong> Type "@clear" in local chat</li>
+                            <li><strong>Disable RLV:</strong> Viewer preferences → RLV → Uncheck enable</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <h3>Standard Quick Fixes</h3>
+                <div class="quick-fixes-list">
+                    <div class="quick-fix-item">
+                        <h4>🔄 HUD Reset (Most Common Solution)</h4>
+                        <ol>
+                            <li>Right-click the HUD</li>
+                            <li>Select "Detach"</li>
+                            <li>Wait 5 seconds</li>
+                            <li>Re-attach from inventory</li>
+                            <li>Allow 30 seconds for full initialization</li>
+                        </ol>
+                        <p><strong>Fixes:</strong> Most interface issues, script errors, connection problems</p>
+                    </div>
+                    
+                    <div class="quick-fix-item">
+                        <h4>🖥️ Viewer Restart</h4>
+                        <ol>
+                            <li>Detach HUD first</li>
+                            <li>Close Second Life viewer completely</li>
+                            <li>Wait 10 seconds</li>
+                            <li>Restart viewer</li>
+                            <li>Re-attach HUD after login</li>
+                        </ol>
+                        <p><strong>Fixes:</strong> Memory issues, RLV problems, persistent errors</p>
+                    </div>
+                    
+                    <div class="quick-fix-item">
+                        <h4>🧹 Cache Clear</h4>
+                        <ol>
+                            <li>Viewer menu → Preferences → Network & Files</li>
+                            <li>Click "Clear Cache"</li>
+                            <li>Restart viewer when prompted</li>
+                            <li>Re-attach HUD after restart</li>
+                        </ol>
+                        <p><strong>Fixes:</strong> Display issues, texture problems, loading errors</p>
+                    </div>
+                    
+                    <div class="quick-fix-item">
+                        <h4>🔌 Connection Check</h4>
+                        <ol>
+                            <li>Check internet connection stability</li>
+                            <li>Move closer to Owner HUD (within 20 meters)</li>
+                            <li>Ensure both HUDs are in same region</li>
+                            <li>Verify no objects blocking line of sight</li>
+                        </ol>
+                        <p><strong>Fixes:</strong> Communication problems, command delays, status update failures</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="common-issues" class="doc-section">
+                <h2>Common Issues</h2>
+                
+                <h3>Interface Problems</h3>
+                
+                <h4>HUD Not Visible or Partially Missing</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>HUD attached but not visible on screen</li>
+                        <li>Only part of HUD interface showing</li>
+                        <li>HUD appears in wrong location</li>
+                        <li>HUD is too small or too large</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Check HUD visibility:</strong>
+                            <ul>
+                                <li>Press Ctrl+Alt+F1 to toggle HUD visibility</li>
+                                <li>Check viewer menu: View → Show HUD Attachments</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adjust HUD position:</strong>
+                            <ul>
+                                <li>Right-click HUD → Edit</li>
+                                <li>Drag to reposition on screen</li>
+                                <li>Use position coordinates in edit window</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reset HUD size:</strong>
+                            <ul>
+                                <li>Right-click HUD → Edit</li>
+                                <li>Check "Stretch" options in edit window</li>
+                                <li>Reset to default size if needed</li>
+                            </ul>
+                        </li>
+                        <li><strong>Re-attach to different position:</strong>
+                            <ul>
+                                <li>Detach HUD</li>
+                                <li>Right-click in inventory → Attach To → Choose different HUD position</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h4>Buttons Not Responding</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Clicking buttons produces no response</li>
+                        <li>Some buttons work, others don't</li>
+                        <li>Delayed response to button clicks</li>
+                        <li>Button animations not working</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Check script status:</strong>
+                            <ul>
+                                <li>Right-click HUD → Edit → Contents tab</li>
+                                <li>Verify all scripts show "Running"</li>
+                                <li>Look for any scripts showing "Not Running"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Verify click targets:</strong>
+                            <ul>
+                                <li>Ensure you're clicking directly on buttons</li>
+                                <li>Try clicking different parts of non-responsive buttons</li>
+                                <li>Check if transparency is too high</li>
+                            </ul>
+                        </li>
+                        <li><strong>Test with different click types:</strong>
+                            <ul>
+                                <li>Try left-click, right-click, double-click</li>
+                                <li>Test touch and hold for 2-3 seconds</li>
+                                <li>Use touch instead of click if available</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reset HUD scripts:</strong>
+                            <ul>
+                                <li>Right-click HUD → Edit → Contents</li>
+                                <li>Right-click each script → Reset Script</li>
+                                <li>Allow 30 seconds for reinitialization</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Status and Display Issues</h3>
+                
+                <h4>Incorrect Status Information</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Status shows "Disconnected" when controller is present</li>
+                        <li>Battery/power level stuck at same value</li>
+                        <li>Timer not updating or showing wrong time</li>
+                        <li>Mode indicator shows wrong state</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Force status update:</strong>
+                            <ul>
+                                <li>Click the status or info button on HUD</li>
+                                <li>Touch and hold HUD for 3 seconds</li>
+                                <li>Ask controller to send status request</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check communication link:</strong>
+                            <ul>
+                                <li>Verify you're within range of Owner HUD</li>
+                                <li>Ensure both HUDs are using same communication channel</li>
+                                <li>Test with simple communication command</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reset status monitoring:</strong>
+                            <ul>
+                                <li>Access HUD settings menu</li>
+                                <li>Reset monitoring systems</li>
+                                <li>Restart status update cycles</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h4>Text Not Displaying Correctly</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Text appears garbled or corrupted</li>
+                        <li>Missing letters or numbers</li>
+                        <li>Text overlapping or misaligned</li>
+                        <li>Wrong font size or style</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Reset text display:</strong>
+                            <ul>
+                                <li>Access customization settings</li>
+                                <li>Reset font settings to defaults</li>
+                                <li>Clear and reload text displays</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check viewer settings:</strong>
+                            <ul>
+                                <li>Preferences → Graphics → UI Size</li>
+                                <li>Ensure UI scaling is appropriate</li>
+                                <li>Check font rendering options</li>
+                            </ul>
+                        </li>
+                        <li><strong>Clear texture cache:</strong>
+                            <ul>
+                                <li>Some text may be texture-based</li>
+                                <li>Clear cache and restart viewer</li>
+                                <li>Allow textures to reload completely</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="rlv-problems" class="doc-section">
+                <h2>RLV Problems</h2>
+                
+                <h3>RLV Not Working</h3>
+                
+                <h4>RLV Commands Being Ignored</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Commands sent but no restrictions applied</li>
+                        <li>HUD shows RLV status as red or error</li>
+                        <li>@version command produces no response</li>
+                        <li>Manual RLV commands don't work</li>
+                    </ul>
+                    
+                    <h5>Diagnostic Steps:</h5>
+                    <ol>
+                        <li><strong>Test RLV status:</strong>
+                            <ul>
+                                <li>Type "@version" in local chat</li>
+                                <li>Should return RLV version information</li>
+                                <li>If no response, RLV is not functioning</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check viewer RLV settings:</strong>
+                            <ul>
+                                <li>Firestorm: Preferences → RLVa</li>
+                                <li>Ensure "Enable Restrained Love API" is checked</li>
+                                <li>Check that debug messages are enabled</li>
+                            </ul>
+                        </li>
+                        <li><strong>Test simple RLV command:</strong>
+                            <ul>
+                                <li>Type "@sit=n" in local chat (prevents sitting)</li>
+                                <li>Try to sit on something</li>
+                                <li>Type "@sit=y" to restore sitting ability</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Enable RLV in viewer:</strong>
+                            <ul>
+                                <li>Preferences → RLVa → Check "Enable Restrained Love API"</li>
+                                <li>Restart viewer after enabling</li>
+                                <li>Test with @version command</li>
+                            </ul>
+                        </li>
+                        <li><strong>Update viewer:</strong>
+                            <ul>
+                                <li>Ensure you're using current viewer version</li>
+                                <li>Download latest Firestorm or RLV-compatible viewer</li>
+                                <li>Older viewers may have RLV compatibility issues</li>
+                            </ul>
+                        </li>
+                        <li><strong>Clear RLV restrictions:</strong>
+                            <ul>
+                                <li>Type "@clear" to remove all restrictions</li>
+                                <li>Restart viewer if problems persist</li>
+                                <li>Re-test RLV functionality</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h4>Restrictions Not Being Removed</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Restrictions remain after session end</li>
+                        <li>Safeword doesn't clear restrictions</li>
+                        <li>Some restrictions cleared but others remain</li>
+                        <li>Unable to access normal avatar functions</li>
+                    </ul>
+                    
+                    <h5>Emergency Solutions:</h5>
+                    <ol>
+                        <li><strong>Clear all restrictions:</strong>
+                            <ul>
+                                <li>Type "@clear" in local chat</li>
+                                <li>This should remove ALL active restrictions</li>
+                                <li>Test avatar functions after clearing</li>
+                            </ul>
+                        </li>
+                        <li><strong>Check active restrictions:</strong>
+                            <ul>
+                                <li>Type "@getstatusall" in local chat</li>
+                                <li>Lists all currently active restrictions</li>
+                                <li>Manually clear specific restrictions if needed</li>
+                            </ul>
+                        </li>
+                        <li><strong>Disable RLV temporarily:</strong>
+                            <ul>
+                                <li>Preferences → RLVa → Uncheck "Enable Restrained Love API"</li>
+                                <li>Restart viewer</li>
+                                <li>All restrictions will be cleared</li>
+                                <li>Re-enable RLV when ready</li>
+                            </ul>
+                        </li>
+                        <li><strong>Force restriction removal:</strong>
+                            <ul>
+                                <li>Detach all scripted objects</li>
+                                <li>Replace outfit with clean saved outfit</li>
+                                <li>Clear cache and restart viewer</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>RLV Relay Issues</h3>
+                
+                <h4>Relay Not Responding</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Direct RLV works but relay commands don't</li>
+                        <li>Controller can't send commands through relay</li>
+                        <li>Relay shows as offline or unresponsive</li>
+                        <li>Commands work intermittently</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Check relay attachment:</strong>
+                            <ul>
+                                <li>Ensure relay object is attached and active</li>
+                                <li>Look for relay status indicators</li>
+                                <li>Verify relay is receiving commands</li>
+                            </ul>
+                        </li>
+                        <li><strong>Verify relay permissions:</strong>
+                            <ul>
+                                <li>Check that controller is authorized in relay</li>
+                                <li>Verify relay security settings</li>
+                                <li>Ensure relay has permission to control you</li>
+                            </ul>
+                        </li>
+                        <li><strong>Test relay communication:</strong>
+                            <ul>
+                                <li>Have controller send simple test command</li>
+                                <li>Check relay response and acknowledgment</li>
+                                <li>Verify command reaches your HUD</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reset relay system:</strong>
+                            <ul>
+                                <li>Detach and re-attach relay</li>
+                                <li>Reset relay scripts if possible</li>
+                                <li>Re-establish connection with controller</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="connection-issues" class="doc-section">
+                <h2>Connection Issues</h2>
+                
+                <h3>Communication Problems</h3>
+                
+                <h4>Cannot Connect to Owner HUD</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>HUD shows "Searching for Controller"</li>
+                        <li>Connection status remains "Disconnected"</li>
+                        <li>Controller reports unable to find Wearer HUD</li>
+                        <li>Commands sent but not received</li>
+                    </ul>
+                    
+                    <h5>Diagnostic Steps:</h5>
+                    <ol>
+                        <li><strong>Check proximity:</strong>
+                            <ul>
+                                <li>Ensure you're within 96 meters of controller</li>
+                                <li>Both avatars should be in same region</li>
+                                <li>No physical barriers blocking communication</li>
+                            </ul>
+                        </li>
+                        <li><strong>Verify HUD status:</strong>
+                            <ul>
+                                <li>Both HUDs should be attached and active</li>
+                                <li>Check that scripts are running on both</li>
+                                <li>Verify power status on both devices</li>
+                            </ul>
+                        </li>
+                        <li><strong>Test communication channels:</strong>
+                            <ul>
+                                <li>Check if HUDs are using same channel</li>
+                                <li>Look for channel conflicts with other devices</li>
+                                <li>Try switching to different channel</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Reset both HUDs:</strong>
+                            <ul>
+                                <li>Both controller and wearer detach HUDs</li>
+                                <li>Wait 10 seconds</li>
+                                <li>Re-attach both HUDs</li>
+                                <li>Allow 30 seconds for connection establishment</li>
+                            </ul>
+                        </li>
+                        <li><strong>Manual connection:</strong>
+                            <ul>
+                                <li>Access connection settings on both HUDs</li>
+                                <li>Manually specify target UUID</li>
+                                <li>Force connection attempt</li>
+                            </ul>
+                        </li>
+                        <li><strong>Change communication method:</strong>
+                            <ul>
+                                <li>Switch from listen to HTTP communication</li>
+                                <li>Try different channel ranges</li>
+                                <li>Use backup communication protocols</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h4>Intermittent Connection Drops</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Connection works then suddenly drops</li>
+                        <li>Frequent reconnection attempts</li>
+                        <li>Commands sometimes work, sometimes don't</li>
+                        <li>Status updates arrive sporadically</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Check internet stability:</strong>
+                            <ul>
+                                <li>Test internet connection stability</li>
+                                <li>Look for network interference</li>
+                                <li>Consider switching networks if unstable</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reduce communication load:</strong>
+                            <ul>
+                                <li>Decrease status update frequency</li>
+                                <li>Reduce number of simultaneous commands</li>
+                                <li>Simplify communication protocols</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimize HUD performance:</strong>
+                            <ul>
+                                <li>Clear unnecessary data from memory</li>
+                                <li>Reduce visual effects and animations</li>
+                                <li>Close other high-resource applications</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Range and Signal Issues</h3>
+                
+                <h4>Connection Range Problems</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Connection lost when moving away from controller</li>
+                        <li>Commands fail at distance</li>
+                        <li>Signal strength warnings</li>
+                        <li>Reduced functionality at range</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Stay within recommended range:</strong>
+                            <ul>
+                                <li>Standard range: 96 meters (SL chat range)</li>
+                                <li>Optimal range: Within 20 meters</li>
+                                <li>Keep line of sight when possible</li>
+                            </ul>
+                        </li>
+                        <li><strong>Use signal boosters:</strong>
+                            <ul>
+                                <li>Enable signal strength monitoring</li>
+                                <li>Use relay objects to extend range</li>
+                                <li>Consider HTTP-based communication for longer range</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimize for range:</strong>
+                            <ul>
+                                <li>Reduce message frequency at distance</li>
+                                <li>Use essential communications only</li>
+                                <li>Enable automatic reconnection</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="performance" class="doc-section">
+                <h2>Performance Issues</h2>
+                
+                <h3>Slow Response and Lag</h3>
+                
+                <h4>HUD Responding Slowly</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Significant delay between button click and response</li>
+                        <li>Status updates arrive much later than expected</li>
+                        <li>Commands take long time to execute</li>
+                        <li>Interface animations are choppy or slow</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Check script memory usage:</strong>
+                            <ul>
+                                <li>Right-click HUD → Edit → Contents</li>
+                                <li>Check memory usage of each script</li>
+                                <li>Look for scripts using excessive memory</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reduce system load:</strong>
+                            <ul>
+                                <li>Close other attachments with heavy scripts</li>
+                                <li>Reduce graphics settings in viewer</li>
+                                <li>Limit other applications running on computer</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimize HUD settings:</strong>
+                            <ul>
+                                <li>Reduce update frequencies</li>
+                                <li>Disable unnecessary visual effects</li>
+                                <li>Use compact mode if available</li>
+                            </ul>
+                        </li>
+                        <li><strong>Clear and restart:</strong>
+                            <ul>
+                                <li>Clear viewer cache</li>
+                                <li>Restart viewer completely</li>
+                                <li>Re-attach HUD after restart</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h4>Memory-Related Issues</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Scripts showing "Out of Memory" errors</li>
+                        <li>HUD functions randomly stopping</li>
+                        <li>Error messages about memory allocation</li>
+                        <li>Reduced functionality over time</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Identify memory-heavy scripts:</strong>
+                            <ul>
+                                <li>Check script memory usage in Contents tab</li>
+                                <li>Look for scripts using more than 16KB</li>
+                                <li>Identify scripts with growing memory usage</li>
+                            </ul>
+                        </li>
+                        <li><strong>Clear script memory:</strong>
+                            <ul>
+                                <li>Reset individual high-memory scripts</li>
+                                <li>Clear log files and temporary data</li>
+                                <li>Restart HUD to clear all memory</li>
+                            </ul>
+                        </li>
+                        <li><strong>Optimize memory usage:</strong>
+                            <ul>
+                                <li>Reduce log retention periods</li>
+                                <li>Clear old session data</li>
+                                <li>Disable memory-intensive features temporarily</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>Viewer Performance Impact</h3>
+                
+                <h4>HUD Causing Viewer Lag</h4>
+                <div class="troubleshoot-item">
+                    <h5>Symptoms:</h5>
+                    <ul>
+                        <li>Overall viewer becomes sluggish when HUD attached</li>
+                        <li>Frame rate drops significantly</li>
+                        <li>Avatar movement becomes jerky</li>
+                        <li>Interface responsiveness degrades</li>
+                    </ul>
+                    
+                    <h5>Solutions:</h5>
+                    <ol>
+                        <li><strong>Switch to performance mode:</strong>
+                            <ul>
+                                <li>Access HUD performance settings</li>
+                                <li>Enable "Low Resource Mode"</li>
+                                <li>Disable visual effects and animations</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reduce graphics settings:</strong>
+                            <ul>
+                                <li>Lower viewer graphics quality</li>
+                                <li>Reduce draw distance</li>
+                                <li>Disable advanced lighting and shadows</li>
+                            </ul>
+                        </li>
+                        <li><strong>Limit concurrent activities:</strong>
+                            <ul>
