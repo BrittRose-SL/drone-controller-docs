@@ -1,1 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.R.I.A. Controller System Overview | BrittRose-SL Documentation</title>
+    <meta name="description" content="Complete overview of the A.R.I.A. Controller system - Advanced RLV Integration & Administration for Second Life with modular architecture and rich interfaces.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="BrittRose-SL" class="logo">
+                    <span>BrittRose-SL Docs</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">A.R.I.A. System</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Controller Overview</a></li>
+                        <li><a href="setup.html">Quick Start</a></li>
+                        <li><a href="modules.html">Module Reference</a></li>
+                        <li><a href="../wearer-hud/index.html">Wearer HUD</a></li>
+                        <li><a href="../owner-hud/index.html">Owner HUD</a></li>
+                    </ul>
+                </li>
+                <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                <li><a href="../troubleshooting/index.html">Support</a></li>
+                <li><a href="../faq/index.html">FAQ</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>›</span>
+                <span>A.R.I.A. Controller</span>
+            </nav>
+
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>🤖 A.R.I.A. Controller System</h1>
+                    <p class="hero-subtitle">Advanced RLV Integration & Administration</p>
+                    <p class="hero-description">The most sophisticated RLV collar system for Second Life, featuring modular architecture, rich HUD interfaces, and comprehensive security features.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Modules</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">v10.3</span>
+                            <span class="stat-label">Latest Version</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">HUD Interfaces</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Pre-Built</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <a href="setup.html" class="btn btn-primary btn-large">🚀 Quick Start Guide</a>
+                        <a href="modules.html" class="btn btn-outline btn-large">📋 View All Modules</a>
+                        <a href="https://github.com/BrittRose-SL/aria-controller-scripts" class="btn btn-secondary" target="_blank">📥 Download Scripts</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="system-diagram">
+                        <div class="system-component main-controller">
+                            <h4>🤖 Main Controller</h4>
+                            <p>Core collar system with all modules</p>
+                        </div>
+                        <div class="system-component wearer-hud">
+                            <h4>📱 Wearer HUD</h4>
+                            <p>Personal monitoring interface</p>
+                        </div>
+                        <div class="system-component owner-hud">
+                            <h4>🎛️ Owner HUD</h4>
+                            <p>Administrative control panel</p>
+                        </div>
+                        <div class="connection-lines"></div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="overview-section">
+                <h2>System Overview</h2>
+                <p>The A.R.I.A. Controller represents the next generation of RLV collar systems for Second Life. Built from the ground up with modularity, security, and user experience as core principles, it provides a comprehensive platform for RLV interaction management.</p>
+                
+                <div class="key-features">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔧</div>
+                            <h3>Modular Architecture</h3>
+                            <p>10 specialized modules handle different aspects of RLV functionality, from speech control to wardrobe management. Each module can be independently controlled.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <h3>Rich HUD Interfaces</h3>
+                            <p>MOAP-based HTML displays provide beautiful, interactive interfaces with real-time status updates and intuitive controls.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🔋</div>
+                            <h3>Power Management</h3>
+                            <p>Sophisticated battery simulation with automatic restriction adjustment based on power levels. Includes charging system integration.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Multi-Tier Security</h3>
+                            <p>Advanced permission system with administrator, trusted user, and wearer access levels. Configurable wearer admin mode available.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🎮</div>
+                            <h3>Complete RLV Coverage</h3>
+                            <p>8 specialized RLV modules cover speech, mobility, vision, interface, interaction, wardrobe, tether, and diagnostic functionality.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Ready to Use</h3>
+                            <p>Comes pre-built and fully configured. Simply unpack, attach, and begin using immediately with no complex setup required.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="components-section">
+                <h2>System Components</h2>
+                <p>The A.R.I.A. system consists of three main components that work together to provide a complete RLV experience:</p>
+                
+                <div class="components-grid">
+                    <div class="component-card primary-component">
+                        <div class="component-header">
+                            <h3>🤖 A.R.I.A. Controller</h3>
+                            <span class="badge badge-primary">Primary</span>
+                        </div>
+                        <div class="component-content">
+                            <p>The main wearable collar system containing all core functionality and RLV modules.</p>
+                            
+                            <h4>Included Modules:</h4>
+                            <div class="module-list">
+                                <span class="module-tag">⚙️ Main Module</span>
+                                <span class="module-tag">🛡️ Permissions</span>
+                                <span class="module-tag">🗣️ Speech RLV</span>
+                                <span class="module-tag">🚶 Mobility RLV</span>
+                                <span class="module-tag">👁️ Vision RLV</span>
+                                <span class="module-tag">🖥️ Interface RLV</span>
+                                <span class="module-tag">🤝 Interaction RLV</span>
+                                <span class="module-tag">👗 Wardrobe RLV</span>
+                                <span class="module-tag">🔗 Tether RLV</span>
+                                <span class="module-tag">🔧 Diagnostics RLV</span>
+                            </div>
+                            
+                            <div class="component-actions">
+                                <a href="setup.html" class="btn btn-primary">Setup Guide</a>
+                                <a href="modules.html" class="btn btn-outline">Module Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-header">
+                            <h3>📱 Wearer HUD</h3>
+                            <span class="badge badge-companion">Companion</span>
+                        </div>
+                        <div class="component-content">
+                            <p>Personal monitoring interface for the wearer with real-time status displays and basic controls.</p>
+                            
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Real-time A.R.I.A. unit monitoring</li>
+                                <li>Battery level and status indicators</li>
+                                <li>Interactive HTML/CSS interfaces</li>
+                                <li>Module status overview</li>
+                                <li>Emergency functions access</li>
+                            </ul>
+                            
+                            <div class="component-actions">
+                                <a href="../wearer-hud/setup.html" class="btn btn-primary">Setup Guide</a>
+                                <a href="../wearer-hud/index.html" class="btn btn-outline">Full Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-header">
+                            <h3>🎛️ Owner HUD</h3>
+                            <span class="badge badge-admin">Administrative</span>
+                        </div>
+                        <div class="component-content">
+                            <p>Comprehensive administrative interface for trusted users and administrators with advanced controls.</p>
+                            
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Advanced user management</li>
+                                <li>Module configuration controls</li>
+                                <li>Security and permissions management</li>
+                                <li>System diagnostics and monitoring</li>
+                                <li>Multi-unit management capabilities</li>
+                            </ul>
+                            
+                            <div class="component-actions">
+                                <a href="../owner-hud/setup.html" class="btn btn-primary">Setup Guide</a>
+                                <a href="../owner-hud/index.html" class="btn btn-outline">Full Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="technical-specs">
+                <h2>Technical Specifications</h2>
+                
+                <div class="specs-grid">
+                    <div class="spec-category">
+                        <h3>🔧 System Requirements</h3>
+                        <div class="spec-table">
+                            <div class="spec-row">
+                                <span class="spec-label">RLV Support:</span>
+                                <span class="spec-value">RLV 2.9.0+ or RLVa required</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Viewer:</span>
+                                <span class="spec-value">Firestorm recommended</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Script Memory:</span>
+                                <span class="spec-value">~2MB total for all modules</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Attachment Points:</span>
+                                <span class="spec-value">Neck (recommended) or any point</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-category">
+                        <h3>⚡ Performance Metrics</h3>
+                        <div class="spec-table">
+                            <div class="spec-row">
+                                <span class="spec-label">Script Time:</span>
+                                <span class="spec-value">&lt;0.5ms average per module</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Memory Usage:</span>
+                                <span class="spec-value">15-25KB per script</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Battery Life:</span>
+                                <span class="spec-value">2-24 hours (usage dependent)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Communication Range:</span>
+                                <span class="spec-value">20m default, 96m maximum</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-category">
+                        <h3>🛡️ Security Features</h3>
+                        <div class="spec-table">
+                            <div class="spec-row">
+                                <span class="spec-label">Access Levels:</span>
+                                <span class="spec-value">4-tier permission system</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Emergency Functions:</span>
+                                <span class="spec-value">SOS, manual detachment</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Safe Defaults:</span>
+                                <span class="spec-value">Starts in unrestricted state</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Audit Trail:</span>
+                                <span class="spec-value">All actions logged</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-category">
+                        <h3>🔗 Compatibility</h3>
+                        <div class="spec-table">
+                            <div class="spec-row">
+                                <span class="spec-label">RLV Viewers:</span>
+                                <span class="spec-value">All major RLV-enabled viewers</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Platform:</span>
+                                <span class="spec-value">Windows, Mac, Linux</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Legacy Support:</span>
+                                <span class="spec-value">OpenCollar command compatibility</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Integration:</span>
+                                <span class="spec-value">Standard LSL functions only</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="getting-started">
+                <h2>Getting Started</h2>
+                <p>Choose your path based on your experience level and needs:</p>
+                
+                <div class="path-cards">
+                    <div class="path-card">
+                        <div class="path-icon">🎯</div>
+                        <h3>New Users</h3>
+                        <p>First time using an RLV collar system? Start here for a guided introduction to the A.R.I.A. Controller.</p>
+                        <div class="path-steps">
+                            <div class="step">1. Read the setup guide</div>
+                            <div class="step">2. Unpack and attach your controller</div>
+                            <div class="step">3. Configure basic settings</div>
+                            <div class="step">4. Explore individual modules</div>
+                        </div>
+                        <a href="setup.html" class="btn btn-primary">Start Setup</a>
+                    </div>
+                    
+                    <div class="path-card">
+                        <h3>🔄 Experienced Users</h3>
+                        <p>Coming from other RLV systems? Jump straight to the module reference and advanced features.</p>
+                        <div class="path-steps">
+                            <div class="step">1. Review module capabilities</div>
+                            <div class="step">2. Configure advanced settings</div>
+                            <div class="step">3. Set up companion HUDs</div>
+                            <div class="step">4. Customize to your needs</div>
+                        </div>
+                        <a href="modules.html" class="btn btn-primary">View Modules</a>
+                    </div>
+                    
+                    <div class="path-card">
+                        <h3>👨‍💻 Administrators</h3>
+                        <p>Managing A.R.I.A. systems for others? Focus on security, permissions, and administrative features.</p>
+                        <div class="path-steps">
+                            <div class="step">1. Understand the permission system</div>
+                            <div class="step">2. Configure user access levels</div>
+                            <div class="step">3. Set up Owner HUD</div>
+                            <div class="step">4. Review security features</div>
+                        </div>
+                        <a href="security.html" class="btn btn-primary">Security Guide</a>
+                    </div>
+                    
+                    <div class="path-card">
+                        <h3>🛠️ Developers</h3>
+                        <p>Building integrations or custom modules? Explore the API documentation and development resources.</p>
+                        <div class="path-steps">
+                            <div class="step">1. Review system architecture</div>
+                            <div class="step">2. Study communication protocols</div>
+                            <div class="step">3. Access source code</div>
+                            <div class="step">4. Build custom integrations</div>
+                        </div>
+                        <a href="../api/index.html" class="btn btn-primary">API Docs</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="version-info">
+                <h2>Version Information</h2>
+                
+                <div class="version-details">
+                    <div class="current-version">
+                        <h3>Current Release: v10.3</h3>
+                        <span class="release-date">Released: September 5, 2025</span>
+                        <p>Enhanced wearer admin mode, improved HUD compatibility, and comprehensive module fixes.</p>
+                    </div>
+                    
+                    <div class="version-highlights">
+                        <h4>🎉 What's New in v10.3:</h4>
+                        <ul>
+                            <li><strong>Configurable Wearer Admin Mode:</strong> Wearers can now have full admin privileges when enabled</li>
+                            <li><strong>Fixed HUD Compatibility:</strong> Resolved MAIN_PRIM errors and improved MOAP display handling</li>
+                            <li><strong>Enhanced Diagnostics:</strong> Improved RLV relay management and system monitoring</li>
+                            <li><strong>Security Improvements:</strong> Better permission validation and access control</li>
+                            <li><strong>Module Stability:</strong> All 8 RLV modules fully tested and validated</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="version-actions">
+                        <a href="../changelog/index.html" class="btn btn-outline">Full Changelog</a>
+                        <a href="https://github.com/BrittRose-SL/aria-controller-scripts/releases" class="btn btn-secondary" target="_blank">Download Latest</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="support-section">
+                <h2>Support & Resources</h2>
+                
+                <div class="support-grid">
+                    <div class="support-card">
+                        <h3>📚 Documentation</h3>
+                        <p>Comprehensive guides covering every aspect of the A.R.I.A. system.</p>
+                        <ul>
+                            <li><a href="setup.html">Setup Guide</a></li>
+                            <li><a href="modules.html">Module Reference</a></li>
+                            <li><a href="configuration.html">Configuration</a></li>
+                            <li><a href="security.html">Security & Permissions</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <h3>🛠️ Troubleshooting</h3>
+                        <p>Common issues, solutions, and diagnostic procedures.</p>
+                        <ul>
+                            <li><a href="troubleshooting.html">Controller Issues</a></li>
+                            <li><a href="../troubleshooting/connectivity.html">Connection Problems</a></li>
+                            <li><a href="../troubleshooting/scripts.html">Script Errors</a></li>
+                            <li><a href="../faq/index.html">Frequently Asked Questions</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <h3>🌐 Community</h3>
+                        <p>Connect with other users and get community support.</p>
+                        <ul>
+                            <li><a href="../contact/index.html">Contact Information</a></li>
+                            <li><a href="https://github.com/BrittRose-SL" target="_blank">GitHub Profile</a></li>
+                            <li><a href="../contributing/index.html">Contributing Guidelines</a></li>
+                            <li><a href="../api/index.html">Developer Resources</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <h3>🔧 Development</h3>
+                        <p>Resources for developers and advanced users.</p>
+                        <ul>
+                            <li><a href="https://github.com/BrittRose-SL/aria-controller-scripts" target="_blank">Source Code</a></li>
+                            <li><a href="../api/index.html">API Documentation</a></li>
+                            <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                            <li><a href="../contributing/index.html">How to Contribute</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>A.R.I.A. Controller</h3>
+                    <ul>
+                        <li><a href="index.html">System Overview</a></li>
+                        <li><a href="setup.html">Setup Guide</a></li>
+                        <li><a href="modules.html">Module Reference</a></li>
+                        <li><a href="configuration.html">Configuration</a></li>
+                        <li><a href="security.html">Security & Permissions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Companion Systems</h3>
+                    <ul>
+                        <li><a href="../wearer-hud/index.html">Wearer HUD</a></li>
+                        <li><a href="../owner-hud/index.html">Owner HUD</a></li>
+                        <li><a href="../programmer-station/index.html">Programming Station</a></li>
+                        <li><a href="../charging-pad/index.html">Charging Pad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                        <li><a href="../troubleshooting/index.html">Troubleshooting</a></li>
+                        <li><a href="../faq/index.html">FAQ</a></li>
+                        <li><a href="../changelog/index.html">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Development</h3>
+                    <ul>
+                        <li><a href="https://github.com/BrittRose-SL/aria-controller-scripts">GitHub Repository</a></li>
+                        <li><a href="../api/index.html">API Documentation</a></li>
+                        <li><a href="../contributing/index.html">Contributing</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BrittRose-SL. A.R.I.A. Controller System Documentation.</p>
+                <p>Last updated: September 5, 2025 | Version 10.3</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
