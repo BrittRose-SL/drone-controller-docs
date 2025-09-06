@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.R.I.A. Controller Configuration Guide | BrittRose-SL Documentation</title>
+    <meta name="description" content="Complete configuration guide for the A.R.I.A. Controller system - advanced settings, customization options, and performance tuning.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="BrittRose-SL" class="logo">
+                    <span>BrittRose-SL Docs</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">A.R.I.A. System</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Controller Overview</a></li>
+                        <li><a href="setup.html">Quick Start</a></li>
+                        <li><a href="modules.html">Module Reference</a></li>
+                        <li><a href="../wearer-hud/index.html">Wearer HUD</a></li>
+                        <li><a href="../owner-hud/index.html">Owner HUD</a></li>
+                    </ul>
+                </li>
+                <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                <li><a href="../troubleshooting/index.html">Support</a></li>
+                <li><a href="../faq/index.html">FAQ</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>›</span>
+                <a href="index.html">A.R.I.A. Controller</a>
+                <span>›</span>
+                <span>Configuration</span>
+            </nav>
+
+            <div class="content-wrapper">
+                <aside class="sidebar">
+                    <div class="sidebar-content">
+                        <h3>A.R.I.A. Controller</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="index.html">Overview</a></li>
+                            <li><a href="setup.html">Setup Guide</a></li>
+                            <li><a href="modules.html">Module Reference</a></li>
+                            <li><a href="configuration.html" class="active">Configuration</a></li>
+                            <li><a href="security.html">Security & Permissions</a></li>
+                            <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                        </ul>
+                        
+                        <div class="sidebar-section">
+                            <h4>Quick Navigation</h4>
+                            <ul class="quick-links">
+                                <li><a href="#config-file">Config File</a></li>
+                                <li><a href="#user-management">User Management</a></li>
+                                <li><a href="#module-settings">Module Settings</a></li>
+                                <li><a href="#power-management">Power Management</a></li>
+                                <li><a href="#performance">Performance</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h4>Configuration Tools</h4>
+                            <ul class="config-tools">
+                                <li><a href="#backup-restore">Backup & Restore</a></li>
+                                <li><a href="#validation">Config Validation</a></li>
+                                <li><a href="#templates">Templates</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+                <article class="content">
+                    <header class="content-header">
+                        <h1>A.R.I.A. Controller Configuration</h1>
+                        <p class="lead">Advanced configuration and customization options for your A.R.I.A. Controller system</p>
+                        <div class="content-meta">
+                            <span class="version">System Version 10.3</span>
+                            <span class="config-version">Config Format v2.1</span>
+                            <span class="last-updated">Last updated: <span id="last-updated">September 5, 2025</span></span>
+                        </div>
+                    </header>
+
+                    <div class="alert alert-info">
+                        <strong>Before You Begin:</strong> Always create a backup of your current configuration before making changes. The A.R.I.A. system will reload configuration automatically when the notecard is updated.
+                    </div>
+
+                    <div class="table-of-contents">
+                        <h2>Configuration Topics</h2>
+                        <ul>
+                            <li><a href="#config-overview">Configuration Overview</a></li>
+                            <li><a href="#config-file">Configuration File Management</a></li>
+                            <li><a href="#user-management">User Lists & Permissions</a></li>
+                            <li><a href="#system-settings">System Settings</a></li>
+                            <li><a href="#module-settings">Module-Specific Configuration</a></li>
+                            <li><a href="#power-management">Power Management Tuning</a></li>
+                            <li><a href="#communication">Communication Settings</a></li>
+                            <li><a href="#performance">Performance Optimization</a></li>
+                            <li><a href="#backup-restore">Backup & Restore</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="config-overview" class="section">
+                        <h2>📋 Configuration Overview</h2>
+                        <p>The A.R.I.A. Controller uses a combination of notecard-based configuration and in-menu settings to provide flexible customization while maintaining security and ease of use.</p>
+                        
+                        <div class="config-methods">
+                            <div class="method-card">
+                                <h3>📄 Notecard Configuration</h3>
+                                <p>Primary configuration file <code>_config_aria.cfg</code> contains core system settings.</p>
+                                <ul>
+                                    <li>User lists (administrators, trusted users)</li>
+                                    <li>System behavior settings</li>
+                                    <li>Default module configurations</li>
+                                    <li>Power management parameters</li>
+                                </ul>
+                                <span class="method-badge">Persistent</span>
+                            </div>
+                            
+                            <div class="method-card">
+                                <h3>🎛️ Menu Configuration</h3>
+                                <p>Runtime settings accessible through module menus and admin interfaces.</p>
+                                <ul>
+                                    <li>Module-specific parameters</li>
+                                    <li>Temporary operational settings</li>
+                                    <li>User preference adjustments</li>
+                                    <li>Diagnostic configuration</li>
+                                </ul>
+                                <span class="method-badge">Runtime</span>
+                            </div>
+                            
+                            <div class="method-card">
+                                <h3>🔄 Automatic Configuration</h3>
+                                <p>Self-configuring settings that adapt based on usage and environment.</p>
+                                <ul>
+                                    <li>Performance optimizations</li>
+                                    <li>Battery usage patterns</li>
+                                    <li>Network adaptation</li>
+                                    <li>Error recovery settings</li>
+                                </ul>
+                                <span class="method-badge">Adaptive</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="config-file" class="section">
+                        <h2>📄 Configuration File Management</h2>
+                        <p>The <code>_config_aria.cfg</code> notecard is the primary configuration file for your A.R.I.A. system. It uses a simple key=value format for easy editing.</p>
+                        
+                        <h3>Configuration File Format</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>_config_aria.cfg</span>
+                                <button class="copy-btn" onclick="copyCode('config-example')">Copy</button>
+                            </div>
+                            <pre id="config-example"><code># A.R.I.A. Controller Configuration
+# Lines starting with # are comments
+# Format: KEY=VALUE (no spaces around =)
+
+# === BASIC SYSTEM SETTINGS ===
+UNIT_NAME=A.R.I.A. Unit
+HOME_LANDMARK=
+WEARER_ADMIN_MODE=0
+
+# === USER MANAGEMENT ===
+# UUIDs separated by commas (no spaces)
+ADMINISTRATORS=12345678-1234-1234-1234-123456789012
+TRUSTED_USERS=87654321-4321-4321-4321-210987654321,11111111-2222-3333-4444-555555555555
+
+# === POWER MANAGEMENT ===
+BATTERY_DRAIN_RATE=1.0
+LOW_BATTERY_THRESHOLD=25.0
+CRITICAL_BATTERY_THRESHOLD=5.0
+AUTO_SHUTDOWN_ENABLED=1
+
+# === COMMUNICATION ===
+HUD_CHANNEL=-18795462
+STATION_CHANNEL=-18795462
+VERBOSE_LOGGING=0
+
+# === MODULE DEFAULTS ===
+DEFAULT_RELAY_MODE=0
+AUTO_APPLY_RESTRICTIONS=0
+BATTERY_BASED_RESTRICTIONS=1
+
+# === PERFORMANCE TUNING ===
+TIMER_INTERVAL=60.0
+MEMORY_CLEANUP_INTERVAL=300.0
+MAX_HISTORY_ENTRIES=10</code></pre>
+                        </div>
+                        
+                        <h3>Editing the Configuration File</h3>
+                        <ol class="config-steps">
+                            <li>
+                                <strong>Open the Controller's Inventory</strong>
+                                <p>Right-click your A.R.I.A. Controller → Edit → Content tab</p>
+                            </li>
+                            
+                            <li>
+                                <strong>Find the Configuration Notecard</strong>
+                                <p>Look for <code>_config_aria.cfg</code> in the contents list</p>
+                            </li>
+                            
+                            <li>
+                                <strong>Edit the Notecard</strong>
+                                <p>Double-click the notecard to open it in the text editor</p>
+                                <div class="alert alert-warning">
+                                    <strong>Important:</strong> Use the exact format shown above. No spaces around the = sign, and UUIDs must be valid.
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Save and Close</strong>
+                                <p>Save the notecard and close the editor. The system will automatically reload the configuration.</p>
+                            </li>
+                            
+                            <li>
+                                <strong>Verify Changes</strong>
+                                <p>Touch the controller and check STATUS to confirm your changes were applied.</p>
+                            </li>
+                        </ol>
+                        
+                        <h3>Configuration Validation</h3>
+                        <p>The A.R.I.A. system includes automatic validation of configuration files:</p>
+                        <div class="validation-info">
+                            <div class="validation-item valid">
+                                <span class="validation-icon">✅</span>
+                                <span>Valid configuration loaded successfully</span>
+                            </div>
+                            <div class="validation-item warning">
+                                <span class="validation-icon">⚠️</span>
+                                <span>Invalid entries ignored, defaults used</span>
+                            </div>
+                            <div class="validation-item error">
+                                <span class="validation-icon">❌</span>
+                                <span>Critical errors prevent configuration loading</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="user-management" class="section">
+                        <h2>👥 User Lists & Permissions</h2>
+                        <p>Configure who can access and control your A.R.I.A. system through user lists and permission settings.</p>
+                        
+                        <h3>User Categories</h3>
+                        <div class="user-categories">
+                            <div class="user-category">
+                                <h4>🔴 Administrators</h4>
+                                <p>Full system control including power management and user list modification.</p>
+                                <div class="config-example">
+                                    <code>ADMINISTRATORS=uuid1,uuid2,uuid3</code>
+                                </div>
+                                <ul>
+                                    <li>Can power system on/off</li>
+                                    <li>Can modify user lists</li>
+                                    <li>Access to all modules and settings</li>
+                                    <li>Can access diagnostic functions</li>
+                                    <li>Emergency override capabilities</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="user-category">
+                                <h4>🟡 Trusted Users</h4>
+                                <p>Access to RLV modules and configuration viewing without system control.</p>
+                                <div class="config-example">
+                                    <code>TRUSTED_USERS=uuid1,uuid2,uuid3</code>
+                                </div>
+                                <ul>
+                                    <li>Can control RLV modules</li>
+                                    <li>Can view system status</li>
+                                    <li>Cannot modify power state</li>
+                                    <li>Cannot change user lists</li>
+                                    <li>Limited diagnostic access</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="user-category">
+                                <h4>🟢 Wearer</h4>
+                                <p>The person wearing the controller with configurable access levels.</p>
+                                <div class="config-example">
+                                    <code>WEARER_ADMIN_MODE=0 or 1</code>
+                                </div>
+                                <ul>
+                                    <li>Basic status access always available</li>
+                                    <li>SOS function always accessible</li>
+                                    <li>HOME teleport (if configured)</li>
+                                    <li>Admin mode: Full privileges when enabled</li>
+                                    <li>Can always detach the controller</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h3>Advanced User Management</h3>
+                        <div class="advanced-user-settings">
+                            <h4>Wearer Admin Mode Configuration</h4>
+                            <p>New in v10.3: Configure whether the wearer has administrative privileges.</p>
+                            
+                            <div class="setting-options">
+                                <div class="setting-option">
+                                    <strong>WEARER_ADMIN_MODE=0</strong>
+                                    <p>Standard mode: Wearer has basic access only</p>
+                                    <span class="recommend-badge">Recommended for shared control</span>
+                                </div>
+                                <div class="setting-option">
+                                    <strong>WEARER_ADMIN_MODE=1</strong>
+                                    <p>Admin mode: Wearer has full administrative privileges</p>
+                                    <span class="recommend-badge">Recommended for self-control</span>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <strong>Security Consideration:</strong> Wearer admin mode allows the wearer to modify user lists, power settings, and all system configurations. Enable only when appropriate.
+                            </div>
+                        </div>
+                        
+                        <h3>Finding User UUIDs</h3>
+                        <div class="uuid-methods">
+                            <div class="uuid-method">
+                                <h4>Method 1: Profile Inspection</h4>
+                                <ol>
+                                    <li>Right-click the person → Profile</li>
+                                    <li>In the profile window, look at the URL or inspect element</li>
+                                    <li>Copy the UUID from the profile data</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="uuid-method">
+                                <h4>Method 2: LSL Script Helper</h4>
+                                <p>Use a simple LSL script to get UUIDs:</p>
+                                <div class="code-example">
+                                    <code>llOwnerSay("My UUID: " + (string)llGetOwner());</code>
+                                </div>
+                            </div>
+                            
+                            <div class="uuid-method">
+                                <h4>Method 3: In-Menu Addition</h4>
+                                <p>Use the Permissions module menu to add users by name or proximity.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="system-settings" class="section">
+                        <h2>⚙️ System Settings</h2>
+                        <p>Core system behavior configuration options that affect overall operation.</p>
+                        
+                        <div class="settings-grid">
+                            <div class="setting-card">
+                                <h3>📝 Unit Identification</h3>
+                                <div class="setting-details">
+                                    <div class="setting-item">
+                                        <strong>UNIT_NAME</strong>
+                                        <p>Display name for the A.R.I.A. unit</p>
+                                        <div class="setting-example">
+                                            <code>UNIT_NAME=Sarah's A.R.I.A.</code>
+                                        </div>
+                                        <ul>
+                                            <li>Appears in status displays</li>
+                                            <li>Used in HUD interfaces</li>
+                                            <li>Shown in diagnostic reports</li>
+                                            <li>Maximum 32 characters</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-card">
+                                <h3>🏠 Home Location</h3>
+                                <div class="setting-details">
+                                    <div class="setting-item">
+                                        <strong>HOME_LANDMARK</strong>
+                                        <p>Default teleport destination for HOME command</p>
+                                        <div class="setting-example">
+                                            <code>HOME_LANDMARK=Region Name/128/128/22</code>
+                                        </div>
+                                        <ul>
+                                            <li>Format: Region/X/Y/Z coordinates</li>
+                                            <li>Leave empty to disable HOME function</li>
+                                            <li>Accessible to wearer and higher access levels</li>
+                                            <li>Validate coordinates before setting</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="setting-card">
+                                <h3>📢 Logging & Feedback</h3>
+                                <div class="setting-details">
+                                    <div class="setting-item">
+                                        <strong>VERBOSE_LOGGING</strong>
+                                        <p>Enable detailed operation logging</p>
+                                        <div class="setting-example">
+                                            <code>VERBOSE_LOGGING=0 or 1</code>
+                                        </div>
+                                        <ul>
+                                            <li>0: Standard messages only</li>
+                                            <li>1: Detailed debug information</li>
+                                            <li>Useful for troubleshooting</li>
+                                            <li>May increase chat spam when enabled</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="module-settings" class="section">
+                        <h2>🔧 Module-Specific Configuration</h2>
+                        <p>Default settings and behavior configuration for individual RLV modules.</p>
+                        
+                        <div class="module-config-grid">
+                            <div class="module-config-card">
+                                <h3>🔧 Diagnostics Module</h3>
+                                <div class="module-settings">
+                                    <div class="setting-item">
+                                        <strong>DEFAULT_RELAY_MODE</strong>
+                                        <p>Default RLV relay mode on startup</p>
+                                        <div class="setting-options">
+                                            <span class="option">0=Off (Secure)</span>
+                                            <span class="option">1=Ask</span>
+                                            <span class="option">2=Trusted</span>
+                                            <span class="option">3=Everyone</span>
+                                        </div>
+                                        <div class="alert alert-warning">
+                                            <strong>Security:</strong> Default is 0 (Off) for maximum security. Only change if you understand the implications.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="module-config-card">
+                                <h3>🎮 RLV Modules General</h3>
+                                <div class="module-settings">
+                                    <div class="setting-item">
+                                        <strong>AUTO_APPLY_RESTRICTIONS</strong>
+                                        <p>Automatically apply restrictions on attachment</p>
+                                        <div class="setting-example">
+                                            <code>AUTO_APPLY_RESTRICTIONS=0 or 1</code>
+                                        </div>
+                                        <ul>
+                                            <li>0: Start with no restrictions (recommended)</li>
+                                            <li>1: Apply default restrictions immediately</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="setting-item">
+                                        <strong>BATTERY_BASED_RESTRICTIONS</strong>
+                                        <p>Enable automatic restrictions based on battery level</p>
+                                        <div class="setting-example">
+                                            <code>BATTERY_BASED_RESTRICTIONS=1</code>
+                                        </div>
+                                        <ul>
+                                            <li>0: Disable battery-based restrictions</li>
+                                            <li>1: Enable progressive restrictions (recommended)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Runtime Module Configuration</h3>
+                        <p>Many module settings can also be configured at runtime through the module menus:</p>
+                        
+                        <div class="runtime-config">
+                            <div class="config-path">
+                                <h4>Speech Module Configuration</h4>
+                                <div class="path-steps">
+                                    <span class="step">Touch Controller</span>
+                                    <span class="arrow">→</span>
+                                    <span class="step">MODULES</span>
+                                    <span class="arrow">→</span>
+                                    <span class="step">Speech RLV</span>
+                                    <span class="arrow">→</span>
+                                    <span class="step">Configure Settings</span>
+                                </div>
+                            </div>
+                            
+                            <div class="config-path">
+                                <h4>Power Management Settings</h4>
+                                <div class="path-steps">
+                                    <span class="step">Touch Controller</span>
+                                    <span class="arrow">→</span>
+                                    <span class="step">STATUS</span>
+                                    <span class="arrow">→</span>
+                                    <span class="step">View Battery Settings</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="power-management" class="section">
+                        <h2>🔋 Power Management Tuning</h2>
+                        <p>Configure battery simulation behavior, drainage rates, and power-based restrictions.</p>
+                        
+                        <div class="power-settings">
+                            <div class="power-setting">
+                                <h3>⚡ Battery Drain Configuration</h3>
+                                <div class="setting-details">
+                                    <div class="setting-item">
+                                        <strong>BATTERY_DRAIN_RATE</strong>
+                                        <p>Base battery drain per minute</p>
+                                        <div class="setting-example">
+                                            <code>BATTERY_DRAIN_RATE=1.0</code>
+                                        </div>
+                                        <div class="setting-info">
+                                            <ul>
+                                                <li><strong>0.5:</strong> Slow drain (200 minutes = ~3.3 hours)</li>
+                                                <li><strong>1.0:</strong> Standard drain (100 minutes = ~1.7 hours)</li>
+                                                <li><strong>2.0:</strong> Fast drain (50 minutes)</li>
+                                                <li><strong>5.0:</strong> Very fast drain (20 minutes)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="power-setting">
+                                <h3>⚠️ Battery Thresholds</h3>
+                                <div class="threshold-settings">
+                                    <div class="threshold-item">
+                                        <strong>LOW_BATTERY_THRESHOLD</strong>
+                                        <p>Percentage when low battery warnings begin</p>
+                                        <div class="setting-example">
+                                            <code>LOW_BATTERY_THRESHOLD=25.0</code>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="threshold-item">
+                                        <strong>CRITICAL_BATTERY_THRESHOLD</strong>
+                                        <p>Percentage when critical restrictions apply</p>
+                                        <div class="setting-example">
+                                            <code>CRITICAL_BATTERY_THRESHOLD=5.0</code>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="threshold-item">
+                                        <strong>AUTO_SHUTDOWN_ENABLED</strong>
+                                        <p>Enable automatic shutdown at 0% battery</p>
+                                        <div class="setting-example">
+                                            <code>AUTO_SHUTDOWN_ENABLED=1</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="power-setting">
+                                <h3>🔄 Power-Based Restriction Levels</h3>
+                                <p>The system applies progressive restrictions based on battery level:</p>
+                                <div class="restriction-levels">
+                                    <div class="level-item level-high">
+                                        <h4>100-50% Battery</h4>
+                                        <p>Full functionality available</p>
+                                    </div>
+                                    <div class="level-item level-medium">
+                                        <h4>49-25% Battery</h4>
+                                        <p>Minor restrictions, low battery warnings</p>
+                                    </div>
+                                    <div class="level-item level-low">
+                                        <h4>24-5% Battery</h4>
+                                        <p>Significant restrictions, power saving mode</p>
+                                    </div>
+                                    <div class="level-item level-critical">
+                                        <h4>Below 5% Battery</h4>
+                                        <p>Emergency restrictions, essential functions only</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="performance" class="section">
+                        <h2>⚡ Performance Optimization</h2>
+                        <p>Configure system performance parameters to optimize script execution and memory usage.</p>
+                        
+                        <div class="performance-settings">
+                            <div class="perf-category">
+                                <h3>⏱️ Timing Configuration</h3>
+                                <div class="timing-settings">
+                                    <div class="timing-item">
+                                        <strong>TIMER_INTERVAL</strong>
+                                        <p>Main system timer interval in seconds</p>
+                                        <div class="setting-example">
+                                            <code>TIMER_INTERVAL=60.0</code>
+                                        </div>
+                                        <div class="timing-options">
+                                            <span class="option">30.0 = More responsive, higher script time</span>
+                                            <span class="option">60.0 = Balanced (recommended)</span>
+                                            <span class="option">120.0 = Less responsive, lower script time</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timing-item">
+                                        <strong>MEMORY_CLEANUP_INTERVAL</strong>
+                                        <p>Memory cleanup and garbage collection interval</p>
+                                        <div class="setting-example">
+                                            <code>MEMORY_CLEANUP_INTERVAL=300.0</code>
+                                        </div>
+                                        <ul>
+                                            <li>300.0 = 5 minutes (recommended)</li>
+                                            <li>Clears diagnostic history</li>
+                                            <li>Optimizes memory usage</li>
+                                            <li>Reduces script lag over time</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="perf-category">
+                                <h3>💾 Memory Management</h3>
+                                <div class="memory-settings">
+                                    <div class="memory-item">
+                                        <strong>MAX_HISTORY_ENTRIES</strong>
+                                        <p>Maximum diagnostic history entries to retain</p>
+                                        <div class="setting-example">
+                                            <code>MAX_HISTORY_ENTRIES=10</code>
+                                        </div>
+                                        <div class="memory-impact">
+                                            <ul>
+                                                <li><strong>5:</strong> Minimal memory usage</li>
+                                                <li><strong>10:</strong> Balanced (recommended)</li>
+                                                <li><strong>20:</strong> Extended history, higher memory usage</li>
+                                                <li><strong>50:</strong> Maximum history, may impact performance</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="perf-category">
+                                <h3>📊 Performance Monitoring</h3>
+                                <p>Built-in tools to monitor and optimize system performance:</p>
+                                <div class="monitoring-tools">
+                                    <div class="tool-item">
+                                        <h4>Script Time Analysis</h4>
+                                        <p>Access via Diagnostics module → System Scan</p>
+                                        <ul>
+                                            <li>Individual module script time</li>
+                                            <li>Total system script time</li>
+                                            <li>Performance bottleneck identification</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="tool-item">
+                                        <h4>Memory Usage Tracking</h4>
+                                        <p>Real-time memory monitoring per script</p>
+                                        <ul>
+                                            <li>Used vs. free memory ratios</li>
+                                            <li>Memory leak detection</li>
+                                            <li>Optimization recommendations</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="tool-item">
+                                        <h4>Communication Analysis</h4>
+                                        <p>Monitor linked message traffic and timing</p>
+                                        <ul>
+                                            <li>Message frequency analysis</li>
+                                            <li>Channel conflict detection</li>
+                                            <li>Response time measurement</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="performance-tips">
+                            <h3>💡 Performance Optimization Tips</h3>
+                            <div class="tips-grid">
+                                <div class="tip-card">
+                                    <h4>🔧 Script Distribution</h4>
+                                    <p>Distribute modules across multiple prims to reduce individual script memory pressure and improve parallel processing.</p>
+                                </div>
+                                
+                                <div class="tip-card">
+                                    <h4>⏱️ Timer Optimization</h4>
+                                    <p>Increase timer intervals if experiencing script time issues. The system is designed to work efficiently even with longer intervals.</p>
+                                </div>
+                                
+                                <div class="tip-card">
+                                    <h4>💾 Memory Cleanup</h4>
+                                    <p>Regular memory cleanup prevents script slowdown over time. Adjust cleanup interval based on usage patterns.</p>
+                                </div>
+                                
+                                <div class="tip-card">
+                                    <h4>📊 Regular Monitoring</h4>
+                                    <p>Use the diagnostic tools regularly to identify performance issues before they become problematic.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="backup-restore" class="section">
+                        <h2>💾 Backup & Restore</h2>
+                        <p>Protect your configuration and ensure easy recovery with proper backup and restore procedures.</p>
+                        
+                        <div class="backup-methods">
+                            <div class="backup-method">
+                                <h3>📋 Manual Configuration Backup</h3>
+                                <div class="backup-steps">
+                                    <ol>
+                                        <li>
+                                            <strong>Copy Configuration Notecard</strong>
+                                            <p>Right-click controller → Edit → Content → Copy <code>_config_aria.cfg</code> to inventory</p>
+                                        </li>
+                                        <li>
+                                            <strong>Rename with Date</strong>
+                                            <p>Rename copied notecard to include date: <code>_config_aria_backup_2025-09-05.cfg</code></p>
+                                        </li>
+                                        <li>
+                                            <strong>Store Safely</strong>
+                                            <p>Keep backup notecards in a dedicated inventory folder</p>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="backup-method">
+                                <h3>🤖 Complete System Backup</h3>
+                                <div class="backup-steps">
+                                    <ol>
+                                        <li>
+                                            <strong>Take Controller into Inventory</strong>
+                                            <p>Detach controller and copy the entire object to create a backup</p>
+                                        </li>
+                                        <li>
+                                            <strong>Create Backup Copy</strong>
+                                            <p>Right-click controller in inventory → Copy → Paste</p>
+                                        </li>
+                                        <li>
+                                            <strong>Rename Backup</strong>
+                                            <p>Name backup with date: <code>A.R.I.A. Controller BACKUP 2025-09-05</code></p>
+                                        </li>
+                                        <li>
+                                            <strong>Store in Safe Location</strong>
+                                            <p>Keep backups in a dedicated folder with clear organization</p>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="restore-procedures">
+                            <h3>🔄 Restore Procedures</h3>
+                            
+                            <div class="restore-method">
+                                <h4>Configuration Restore</h4>
+                                <div class="restore-steps">
+                                    <ol>
+                                        <li>Locate your backup configuration notecard</li>
+                                        <li>Copy the backup notecard to the controller's content</li>
+                                        <li>Rename it to <code>_config_aria.cfg</code> (replacing the current one)</li>
+                                        <li>The system will automatically reload the configuration</li>
+                                        <li>Verify settings through STATUS menu</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="restore-method">
+                                <h4>Complete System Restore</h4>
+                                <div class="restore-steps">
+                                    <ol>
+                                        <li>Detach current controller (if attached)</li>
+                                        <li>Delete current controller (if needed)</li>
+                                        <li>Rez backup controller from inventory</li>
+                                        <li>Verify all modules are functioning</li>
+                                        <li>Attach and test full functionality</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="backup-schedule">
+                            <h3>📅 Recommended Backup Schedule</h3>
+                            <div class="schedule-table">
+                                <div class="schedule-item">
+                                    <span class="frequency">Before Major Changes</span>
+                                    <span class="description">Always backup before modifying user lists or system settings</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="frequency">Weekly</span>
+                                    <span class="description">Regular configuration backups if actively customizing</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="frequency">Before Updates</span>
+                                    <span class="description">Complete system backup before installing new versions</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="frequency">Monthly</span>
+                                    <span class="description">Archive old backups and create fresh complete system backup</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="advanced-config" class="section">
+                        <h2>🚀 Advanced Configuration</h2>
+                        <p>Advanced configuration options for experienced users and developers.</p>
+                        
+                        <div class="advanced-options">
+                            <div class="advanced-category">
+                                <h3>🔧 Developer Settings</h3>
+                                <div class="developer-settings">
+                                    <div class="dev-setting">
+                                        <strong>DEBUG_MODE</strong>
+                                        <p>Enable comprehensive debugging output</p>
+                                        <div class="setting-example">
+                                            <code>DEBUG_MODE=0 or 1</code>
+                                        </div>
+                                        <div class="alert alert-warning">
+                                            <strong>Warning:</strong> Debug mode generates significant chat output and may impact performance.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="dev-setting">
+                                        <strong>CUSTOM_COMMANDS</strong>
+                                        <p>Enable experimental and custom command support</p>
+                                        <div class="setting-example">
+                                            <code>CUSTOM_COMMANDS=0 or 1</code>
+                                        </div>
+                                        <p>Allows loading of custom module extensions and experimental features.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="advanced-category">
+                                <h3>🔐 Security Hardening</h3>
+                                <div class="security-settings">
+                                    <div class="security-setting">
+                                        <strong>STRICT_PERMISSIONS</strong>
+                                        <p>Enable enhanced permission checking</p>
+                                        <div class="setting-example">
+                                            <code>STRICT_PERMISSIONS=1</code>
+                                        </div>
+                                        <ul>
+                                            <li>Additional validation of all user actions</li>
+                                            <li>Enhanced logging of permission checks</li>
+                                            <li>Stricter UUID validation</li>
+                                            <li>Recommended for high-security environments</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="security-setting">
+                                        <strong>AUDIT_LOGGING</strong>
+                                        <p>Enable comprehensive audit trail</p>
+                                        <div class="setting-example">
+                                            <code>AUDIT_LOGGING=0 or 1</code>
+                                        </div>
+                                        <p>Logs all significant actions for security review and compliance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="configuration-templates">
+                            <h3>📋 Configuration Templates</h3>
+                            <p>Pre-built configuration templates for common use cases:</p>
+                            
+                            <div class="template-grid">
+                                <div class="template-card">
+                                    <h4>🔒 High Security Template</h4>
+                                    <p>Maximum security settings for sensitive environments</p>
+                                    <div class="template-preview">
+                                        <code>WEARER_ADMIN_MODE=0<br>
+                                        DEFAULT_RELAY_MODE=0<br>
+                                        STRICT_PERMISSIONS=1<br>
+                                        AUDIT_LOGGING=1</code>
+                                    </div>
+                                </div>
+                                
+                                <div class="template-card">
+                                    <h4>⚡ Performance Optimized</h4>
+                                    <p>Optimized for maximum performance and efficiency</p>
+                                    <div class="template-preview">
+                                        <code>TIMER_INTERVAL=120.0<br>
+                                        MAX_HISTORY_ENTRIES=5<br>
+                                        VERBOSE_LOGGING=0<br>
+                                        MEMORY_CLEANUP_INTERVAL=180.0</code>
+                                    </div>
+                                </div>
+                                
+                                <div class="template-card">
+                                    <h4>🎮 User-Friendly</h4>
+                                    <p>Balanced settings for general use</p>
+                                    <div class="template-preview">
+                                        <code>WEARER_ADMIN_MODE=1<br>
+                                        BATTERY_DRAIN_RATE=0.5<br>
+                                        AUTO_APPLY_RESTRICTIONS=0<br>
+                                        VERBOSE_LOGGING=0</code>
+                                    </div>
+                                </div>
+                                
+                                <div class="template-card">
+                                    <h4>🔧 Development/Testing</h4>
+                                    <p>Settings for development and testing purposes</p>
+                                    <div class="template-preview">
+                                        <code>DEBUG_MODE=1<br>
+                                        VERBOSE_LOGGING=1<br>
+                                        BATTERY_DRAIN_RATE=10.0<br>
+                                        TIMER_INTERVAL=30.0</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="troubleshooting-config" class="section">
+                        <h2>🛠️ Configuration Troubleshooting</h2>
+                        <p>Common configuration issues and their solutions.</p>
+                        
+                        <div class="troubleshooting-grid">
+                            <div class="issue-card">
+                                <h3>❌ Configuration Not Loading</h3>
+                                <div class="issue-symptoms">
+                                    <h4>Symptoms:</h4>
+                                    <ul>
+                                        <li>Default settings despite custom notecard</li>
+                                        <li>"Configuration not found" messages</li>
+                                        <li>Changes not taking effect</li>
+                                    </ul>
+                                </div>
+                                <div class="issue-solutions">
+                                    <h4>Solutions:</h4>
+                                    <ul>
+                                        <li>Verify notecard name is exactly <code>_config_aria.cfg</code></li>
+                                        <li>Check notecard is in the root prim contents</li>
+                                        <li>Ensure notecard format follows key=value pattern</li>
+                                        <li>Look for syntax errors in the notecard</li>
+                                        <li>Reset the main module script if needed</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="issue-card">
+                                <h3>⚠️ Invalid User UUIDs</h3>
+                                <div class="issue-symptoms">
+                                    <h4>Symptoms:</h4>
+                                    <ul>
+                                        <li>Users not recognized despite being in list</li>
+                                        <li>"Invalid UUID" warnings</li>
+                                        <li>Permission errors for configured users</li>
+                                    </ul>
+                                </div>
+                                <div class="issue-solutions">
+                                    <h4>Solutions:</h4>
+                                    <ul>
+                                        <li>Verify UUIDs are in correct format (8-4-4-4-12 characters)</li>
+                                        <li>Check for extra spaces or characters</li>
+                                        <li>Use valid UUIDs only (not avatar names)</li>
+                                        <li>Separate multiple UUIDs with commas only</li>
+                                        <li>Test UUIDs in a simple script first</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="issue-card">
+                                <h3>🔋 Power Management Issues</h3>
+                                <div class="issue-symptoms">
+                                    <h4>Symptoms:</h4>
+                                    <ul>
+                                        <li>Battery draining too fast/slow</li>
+                                        <li>Restrictions not applying at thresholds</li>
+                                        <li>System not shutting down at 0%</li>
+                                    </ul>
+                                </div>
+                                <div class="issue-solutions">
+                                    <h4>Solutions:</h4>
+                                    <ul>
+                                        <li>Check BATTERY_DRAIN_RATE is reasonable (0.1-10.0)</li>
+                                        <li>Verify threshold values are logical (0-100)</li>
+                                        <li>Ensure BATTERY_BASED_RESTRICTIONS=1 if desired</li>
+                                        <li>Check AUTO_SHUTDOWN_ENABLED setting</li>
+                                        <li>Review module count impact on drain</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="issue-card">
+                                <h3>📡 Communication Problems</h3>
+                                <div class="issue-symptoms">
+                                    <h4>Symptoms:</h4>
+                                    <ul>
+                                        <li>HUDs not finding A.R.I.A. unit</li>
+                                        <li>Commands not working from HUDs</li>
+                                        <li>Intermittent connectivity issues</li>
+                                    </ul>
+                                </div>
+                                <div class="issue-solutions">
+                                    <h4>Solutions:</h4>
+                                    <ul>
+                                        <li>Verify all components use same channel</li>
+                                        <li>Check channel is negative number</li>
+                                        <li>Ensure components are within range (96m)</li>
+                                        <li>Look for channel conflicts with other objects</li>
+                                        <li>Reset all components if needed</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="diagnostic-tools">
+                            <h3>🔍 Diagnostic Tools</h3>
+                            <p>Use these built-in tools to diagnose configuration issues:</p>
+                            
+                            <div class="diagnostic-tool">
+                                <h4>Configuration Validator</h4>
+                                <p>Access: Touch Controller → MODULES → Diagnostics → System Scan</p>
+                                <ul>
+                                    <li>Validates all configuration entries</li>
+                                    <li>Reports syntax errors and warnings</li>
+                                    <li>Shows current loaded configuration</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="diagnostic-tool">
+                                <h4>Communication Test</h4>
+                                <p>Access: Touch Controller → STATUS</p>
+                                <ul>
+                                    <li>Shows current channel settings</li>
+                                    <li>Tests linked message communication</li>
+                                    <li>Verifies module registration</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="diagnostic-tool">
+                                <h4>Permission Checker</h4>
+                                <p>Access: Touch Controller → MODULES → Permissions</p>
+                                <ul>
+                                    <li>Shows current user lists</li>
+                                    <li>Tests permission levels</li>
+                                    <li>Validates UUID formats</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="next-steps">
+                        <h2>🎯 Next Steps</h2>
+                        <p>Now that you understand A.R.I.A. configuration, explore these advanced topics:</p>
+                        
+                        <div class="next-steps-grid">
+                            <a href="security.html" class="next-step-card">
+                                <h3>🛡️ Security & Permissions</h3>
+                                <p>Learn about the advanced security model and permission system</p>
+                            </a>
+                            <a href="troubleshooting.html" class="next-step-card">
+                                <h3>🛠️ Troubleshooting Guide</h3>
+                                <p>Detailed troubleshooting for specific A.R.I.A. issues</p>
+                            </a>
+                            <a href="../owner-hud/index.html" class="next-step-card">
+                                <h3>🎛️ Owner HUD Setup</h3>
+                                <p>Configure the administrative control interface</p>
+                            </a>
+                            <a href="../api/index.html" class="next-step-card">
+                                <h3>👨‍💻 API Documentation</h3>
+                                <p>Developer resources for custom integrations</p>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>A.R.I.A. Controller</h3>
+                    <ul>
+                        <li><a href="index.html">System Overview</a></li>
+                        <li><a href="setup.html">Setup Guide</a></li>
+                        <li><a href="modules.html">Module Reference</a></li>
+                        <li><a href="configuration.html">Configuration</a></li>
+                        <li><a href="security.html">Security & Permissions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Configuration Help</h3>
+                    <ul>
+                        <li><a href="#config-file">Config File Format</a></li>
+                        <li><a href="#user-management">User Management</a></li>
+                        <li><a href="#power-management">Power Settings</a></li>
+                        <li><a href="#backup-restore">Backup & Restore</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="../troubleshooting/index.html">Troubleshooting</a></li>
+                        <li><a href="../faq/index.html">FAQ</a></li>
+                        <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                        <li><a href="../changelog/index.html">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Development</h3>
+                    <ul>
+                        <li><a href="https://github.com/BrittRose-SL/aria-controller-scripts">GitHub Repository</a></li>
+                        <li><a href="../api/index.html">API Documentation</a></li>
+                        <li><a href="../contributing/index.html">Contributing</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BrittRose-SL. Configuration documentation for A.R.I.A. Controller System.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
