@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.R.I.A. Controller Security & Permissions Guide | BrittRose-SL Documentation</title>
+    <meta name="description" content="Comprehensive security guide for the A.R.I.A. Controller system - permissions, access control, safety features, and security best practices.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="BrittRose-SL" class="logo">
+                    <span>BrittRose-SL Docs</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">A.R.I.A. System</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Controller Overview</a></li>
+                        <li><a href="setup.html">Quick Start</a></li>
+                        <li><a href="modules.html">Module Reference</a></li>
+                        <li><a href="configuration.html">Configuration</a></li>
+                        <li><a href="security.html">Security & Permissions</a></li>
+                    </ul>
+                </li>
+                <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                <li><a href="../troubleshooting/index.html">Support</a></li>
+                <li><a href="../faq/index.html">FAQ</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>›</span>
+                <a href="index.html">A.R.I.A. Controller</a>
+                <span>›</span>
+                <span>Security & Permissions</span>
+            </nav>
+
+            <div class="content-wrapper">
+                <aside class="sidebar">
+                    <div class="sidebar-content">
+                        <h3>A.R.I.A. Controller</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="index.html">Overview</a></li>
+                            <li><a href="setup.html">Setup Guide</a></li>
+                            <li><a href="modules.html">Module Reference</a></li>
+                            <li><a href="configuration.html">Configuration</a></li>
+                            <li><a href="security.html" class="active">Security & Permissions</a></li>
+                            <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                        </ul>
+                        
+                        <div class="sidebar-section">
+                            <h4>Security Topics</h4>
+                            <ul class="quick-links">
+                                <li><a href="#security-model">Security Model</a></li>
+                                <li><a href="#permission-system">Permission System</a></li>
+                                <li><a href="#access-control">Access Control</a></li>
+                                <li><a href="#emergency-procedures">Emergency Procedures</a></li>
+                                <li><a href="#best-practices">Best Practices</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h4>Quick Security Check</h4>
+                            <ul class="security-checklist">
+                                <li><a href="#security-audit">Security Audit</a></li>
+                                <li><a href="#vulnerability-assessment">Vulnerability Assessment</a></li>
+                                <li><a href="#compliance">Compliance Guidelines</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+                <article class="content">
+                    <header class="content-header">
+                        <h1>A.R.I.A. Controller Security & Permissions</h1>
+                        <p class="lead">Comprehensive security model, access control, and safety features for the A.R.I.A. Controller system</p>
+                        <div class="content-meta">
+                            <span class="version">Security Model v2.1</span>
+                            <span class="security-level">Enterprise Grade</span>
+                            <span class="last-updated">Last updated: <span id="last-updated">September 5, 2025</span></span>
+                        </div>
+                    </header>
+
+                    <div class="alert alert-info">
+                        <strong>Security First:</strong> The A.R.I.A. Controller is designed with security as the highest priority. All systems start in the safest possible state and require explicit permission for any restrictions or controls.
+                    </div>
+
+                    <div class="table-of-contents">
+                        <h2>Security Framework</h2>
+                        <ul>
+                            <li><a href="#security-overview">Security Overview</a></li>
+                            <li><a href="#security-model">Security Model & Architecture</a></li>
+                            <li><a href="#permission-system">Permission System</a></li>
+                            <li><a href="#access-control">Access Control Mechanisms</a></li>
+                            <li><a href="#authentication">Authentication & Validation</a></li>
+                            <li><a href="#emergency-procedures">Emergency Procedures</a></li>
+                            <li><a href="#audit-logging">Audit & Logging</a></li>
+                            <li><a href="#vulnerability-management">Vulnerability Management</a></li>
+                            <li><a href="#best-practices">Security Best Practices</a></li>
+                            <li><a href="#compliance">Compliance & Guidelines</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="security-overview" class="section">
+                        <h2>🛡️ Security Overview</h2>
+                        <p>The A.R.I.A. Controller implements a comprehensive security framework designed to protect users while providing sophisticated functionality. Security is built into every aspect of the system.</p>
+                        
+                        <div class="security-principles">
+                            <h3>Core Security Principles</h3>
+                            <div class="principles-grid">
+                                <div class="principle-card">
+                                    <div class="principle-icon">🔒</div>
+                                    <h4>Default Deny</h4>
+                                    <p>All systems start in the most secure state. No restrictions are applied without explicit authorization.</p>
+                                </div>
+                                
+                                <div class="principle-card">
+                                    <div class="principle-icon">🎯</div>
+                                    <h4>Least Privilege</h4>
+                                    <p>Users receive only the minimum permissions necessary for their role and responsibilities.</p>
+                                </div>
+                                
+                                <div class="principle-card">
+                                    <div class="principle-icon">🔍</div>
+                                    <h4>Defense in Depth</h4>
+                                    <p>Multiple security layers protect against various attack vectors and failure modes.</p>
+                                </div>
+                                
+                                <div class="principle-card">
+                                    <div class="principle-icon">📊</div>
+                                    <h4>Audit Transparency</h4>
+                                    <p>All security-relevant actions are logged and can be reviewed for compliance.</p>
+                                </div>
+                                
+                                <div class="principle-card">
+                                    <div class="principle-icon">🆘</div>
+                                    <h4>Fail Safe</h4>
+                                    <p>System failures default to the safest possible state with emergency overrides available.</p>
+                                </div>
+                                
+                                <div class="principle-card">
+                                    <div class="principle-icon">👤</div>
+                                    <h4>User Consent</h4>
+                                    <p>All restrictions require informed consent and can be revoked by the wearer at any time.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="security-layers">
+                            <h3>Security Architecture Layers</h3>
+                            <div class="layers-diagram">
+                                <div class="security-layer layer-physical">
+                                    <h4>🔧 Physical Layer</h4>
+                                    <p>Manual detachment, viewer restart, emergency overrides</p>
+                                </div>
+                                <div class="security-layer layer-application">
+                                    <h4>🎮 Application Layer</h4>
+                                    <p>RLV commands, module restrictions, power management</p>
+                                </div>
+                                <div class="security-layer layer-access">
+                                    <h4>👥 Access Control Layer</h4>
+                                    <p>Permission validation, user authentication, role-based access</p>
+                                </div>
+                                <div class="security-layer layer-communication">
+                                    <h4>📡 Communication Layer</h4>
+                                    <p>Encrypted channels, message validation, secure protocols</p>
+                                </div>
+                                <div class="security-layer layer-data">
+                                    <h4>💾 Data Layer</h4>
+                                    <p>Configuration protection, secure storage, backup integrity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="security-model" class="section">
+                        <h2>🏗️ Security Model & Architecture</h2>
+                        <p>The A.R.I.A. security model is built on a foundation of trust relationships, explicit permissions, and multiple fail-safe mechanisms.</p>
+                        
+                        <div class="trust-model">
+                            <h3>Trust Relationship Model</h3>
+                            <div class="trust-diagram">
+                                <div class="trust-entity wearer-entity">
+                                    <h4>👤 Wearer</h4>
+                                    <p>Ultimate authority with physical override capability</p>
+                                    <div class="trust-privileges">
+                                        <span class="privilege">Manual Detachment</span>
+                                        <span class="privilege">SOS Functions</span>
+                                        <span class="privilege">Emergency Override</span>
+                                        <span class="privilege">Consent Control</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="trust-entity admin-entity">
+                                    <h4>🔴 Administrator</h4>
+                                    <p>Trusted with system control and user management</p>
+                                    <div class="trust-privileges">
+                                        <span class="privilege">Power Management</span>
+                                        <span class="privilege">User List Control</span>
+                                        <span class="privilege">Full Module Access</span>
+                                        <span class="privilege">Configuration Changes</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="trust-entity trusted-entity">
+                                    <h4>🟡 Trusted User</h4>
+                                    <p>Limited operational control without system administration</p>
+                                    <div class="trust-privileges">
+                                        <span class="privilege">Module Control</span>
+                                        <span class="privilege">Status Viewing</span>
+                                        <span class="privilege">Basic Configuration</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="trust-entity public-entity">
+                                    <h4>⚪ Public</h4>
+                                    <p>No access to system functions</p>
+                                    <div class="trust-privileges">
+                                        <span class="privilege no-access">No System Access</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="security-boundaries">
+                            <h3>Security Boundaries</h3>
+                            <div class="boundary-definition">
+                                <div class="boundary-item">
+                                    <h4>🏰 Administrative Boundary</h4>
+                                    <p>Separates system administration from operational use. Only administrators can modify core system settings, user lists, and security parameters.</p>
+                                    <div class="boundary-controls">
+                                        <span class="control">UUID Validation</span>
+                                        <span class="control">Role Verification</span>
+                                        <span class="control">Action Logging</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="boundary-item">
+                                    <h4>🎮 Operational Boundary</h4>
+                                    <p>Separates RLV control functions from system management. Trusted users can control restrictions but cannot modify security settings.</p>
+                                    <div class="boundary-controls">
+                                        <span class="control">Function Isolation</span>
+                                        <span class="control">Scope Limitation</span>
+                                        <span class="control">Override Protection</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="boundary-item">
+                                    <h4>👤 Personal Boundary</h4>
+                                    <p>Protects the wearer's fundamental rights and emergency capabilities. Cannot be overridden by any external user.</p>
+                                    <div class="boundary-controls">
+                                        <span class="control">Physical Override</span>
+                                        <span class="control">SOS Functions</span>
+                                        <span class="control">Consent Withdrawal</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="permission-system" class="section">
+                        <h2>🔐 Permission System</h2>
+                        <p>The A.R.I.A. permission system implements a hierarchical access control model with granular permissions and context-aware restrictions.</p>
+                        
+                        <div class="permission-hierarchy">
+                            <h3>Access Level Hierarchy</h3>
+                            <div class="hierarchy-table">
+                                <table class="permissions-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Access Level</th>
+                                            <th>Numeric Value</th>
+                                            <th>Key Capabilities</th>
+                                            <th>Restrictions</th>
+                                            <th>Security Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="access-admin">
+                                            <td><strong>🔴 Administrator</strong></td>
+                                            <td>4</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Power system control</li>
+                                                    <li>User list management</li>
+                                                    <li>All module access</li>
+                                                    <li>Configuration changes</li>
+                                                    <li>Diagnostic access</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Cannot override wearer's physical control</li>
+                                                    <li>Cannot force attachment</li>
+                                                    <li>Subject to audit logging</li>
+                                                </ul>
+                                            </td>
+                                            <td>Highest privilege level. Should be limited to most trusted individuals.</td>
+                                        </tr>
+                                        <tr class="access-trusted">
+                                            <td><strong>🟡 Trusted User</strong></td>
+                                            <td>3</td>
+                                            <td>
+                                                <ul>
+                                                    <li>RLV module control</li>
+                                                    <li>Status information access</li>
+                                                    <li>Basic configuration viewing</li>
+                                                    <li>Module menu access</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Cannot modify power state</li>
+                                                    <li>Cannot change user lists</li>
+                                                    <li>No diagnostic configuration</li>
+                                                    <li>Limited to operational functions</li>
+                                                </ul>
+                                            </td>
+                                            <td>Operational access without administrative privileges.</td>
+                                        </tr>
+                                        <tr class="access-wearer">
+                                            <td><strong>🟢 Wearer</strong></td>
+                                            <td>2 or 4*</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Basic status access</li>
+                                                    <li>SOS emergency functions</li>
+                                                    <li>HOME teleport</li>
+                                                    <li>Manual detachment</li>
+                                                    <li>*Admin mode: Full privileges</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Standard mode: Limited access</li>
+                                                    <li>Cannot be completely locked out</li>
+                                                    <li>Always retains emergency functions</li>
+                                                </ul>
+                                            </td>
+                                            <td>Configurable admin mode available. Emergency functions always preserved.</td>
+                                        </tr>
+                                        <tr class="access-public">
+                                            <td><strong>⚪ Public</strong></td>
+                                            <td>1</td>
+                                            <td>
+                                                <ul>
+                                                    <li>No system access</li>
+                                                    <li>Secured against unauthorized use</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Complete system lockout</li>
+                                                    <li>Cannot view system information</li>
+                                                    <li>Cannot execute any commands</li>
+                                                </ul>
+                                            </td>
+                                            <td>Default state for unknown users. Provides maximum security.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="permission-matrix">
+                            <h3>Detailed Permission Matrix</h3>
+                            <div class="matrix-table">
+                                <table class="function-permissions">
+                                    <thead>
+                                        <tr>
+                                            <th>Function Category</th>
+                                            <th>Specific Function</th>
+                                            <th>Admin</th>
+                                            <th>Trusted</th>
+                                            <th>Wearer</th>
+                                            <th>Public</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="3"><strong>System Control</strong></td>
+                                            <td>Power On/Off</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-conditional">🟡*</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>System Reset</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-conditional">🟡*</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Configuration Changes</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-conditional">🟡*</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3"><strong>User Management</strong></td>
+                                            <td>Add/Remove Administrators</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-conditional">🟡*</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Add/Remove Trusted Users</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-conditional">🟡*</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>View User Lists</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-view">👁️</td>
+                                            <td class="perm-view">👁️</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="4"><strong>RLV Modules</strong></td>
+                                            <td>Speech Control</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobility Control</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vision Control</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>All Other RLV Modules</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3"><strong>Information Access</strong></td>
+                                            <td>System Status</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Battery Information</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Diagnostic Data</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-deny">❌</td>
+                                            <td class="perm-conditional">🟡*</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2"><strong>Emergency Functions</strong></td>
+                                            <td>SOS Alert</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-allow">✅</td>
+                                            <td class="perm-always">⭐</td>
+                                            <td class="perm-deny">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Manual Detachment</td>
+                                            <td class="perm-na">N/A</td>
+                                            <td class="perm-na">N/A</td>
+                                            <td class="perm-always">⭐</td>
+                                            <td class="perm-na">N/A</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="permission-legend">
+                                <h4>Permission Legend</h4>
+                                <div class="legend-items">
+                                    <span class="legend-item"><span class="perm-allow">✅</span> Full Access</span>
+                                    <span class="legend-item"><span class="perm-view">👁️</span> View Only</span>
+                                    <span class="legend-item"><span class="perm-conditional">🟡*</span> Conditional (Wearer Admin Mode)</span>
+                                    <span class="legend-item"><span class="perm-always">⭐</span> Always Available</span>
+                                    <span class="legend-item"><span class="perm-deny">❌</span> No Access</span>
+                                    <span class="legend-item"><span class="perm-na">N/A</span> Not Applicable</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="access-control" class="section">
+                        <h2>🔒 Access Control Mechanisms</h2>
+                        <p>The A.R.I.A. system implements multiple access control mechanisms to ensure secure operation and prevent unauthorized access.</p>
+                        
+                        <div class="access-control-types">
+                            <div class="control-mechanism">
+                                <h3>🔐 Authentication Methods</h3>
+                                <div class="auth-methods">
+                                    <div class="auth-method">
+                                        <h4>UUID-Based Authentication</h4>
+                                        <p>Primary authentication method using Second Life UUIDs</p>
+                                        <div class="auth-details">
+                                            <ul>
+                                                <li><strong>Cryptographically Secure:</strong> UUIDs are cryptographically unique identifiers</li>
+                                                <li><strong>Non-Spoofable:</strong> Cannot be forged or impersonated within SL</li>
+                                                <li><strong>Persistent:</strong> UUID remains constant across sessions and locations</li>
+                                                <li><strong>Validation:</strong> System validates UUID format and existence</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="auth-method">
+                                        <h4>Role-Based Access Control (RBAC)</h4>
+                                        <p>Access permissions based on assigned roles rather than individual permissions</p>
+                                        <div class="auth-details">
+                                            <ul>
+                                                <li><strong>Hierarchical:</strong> Higher roles inherit lower role permissions</li>
+                                                <li><strong>Granular:</strong> Specific permissions for specific functions</li>
+                                                <li><strong>Centralized:</strong> Role definitions managed centrally</li>
+                                                <li><strong>Auditable:</strong> All role assignments and changes logged</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="control-mechanism">
+                                <h3>🛡️ Authorization Framework</h3>
+                                <div class="authorization-flow">
+                                    <div class="auth-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h4>Identity Verification</h4>
+                                            <p>System identifies the user via UUID and verifies existence</p>
+                                        </div>
+                                    </div>
+                                    <div class="auth-arrow">→</div>
+                                    <div class="auth-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h4>Role Assignment</h4>
+                                            <p>User's role is determined based on configured user lists</p>
+                                        </div>
+                                    </div>
+                                    <div class="auth-arrow">→</div>
+                                    <div class="auth-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h4>Permission Check</h4>
+                                            <p>Requested action is validated against role permissions</p>
+                                        </div>
+                                    </div>
+                                    <div class="auth-arrow">→</div>
+                                    <div class="auth-step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <h4>Action Authorization</h4>
+                                            <p>Action is allowed or denied based on permission check</p>
+                                        </div>
+                                    </div>
+                                    <div class="auth-arrow">→</div>
+                                    <div class="auth-step">
+                                        <div class="step-number">5</div>
+                                        <div class="step-content">
+                                            <h4>Audit Logging</h4>
+                                            <p>All authorization decisions are logged for review</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="control-mechanism">
+                                <h3>🔄 Session Management</h3>
+                                <div class="session-controls">
