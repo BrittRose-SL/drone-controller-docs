@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.R.I.A. Controller Unit - Troubleshooting Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #0f3460;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: -30px -30px 40px -30px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            margin: 15px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        .system-status {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .content {
+            display: grid;
+            gap: 30px;
+        }
+        
+        h2 {
+            color: #0f3460;
+            border-bottom: 2px solid #0f3460;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 2em;
+        }
+        
+        h3 {
+            color: #1a1a2e;
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+        
+        h4 {
+            color: #555;
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+        
+        .module-section {
+            background: #f8f9fa;
+            border: 2px solid #0f3460;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .module-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: -20px -20px 20px -20px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .troubleshoot-item {
+            background: #ffffff;
+            border-left: 5px solid #0f3460;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .critical-issue {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+        
+        .warning-issue {
+            border-left-color: #ffc107;
+            background: #fffbf0;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .alert-emergency {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: 2px solid #bd2130;
+        }
+        
+        .alert-warning {
+            background: linear-gradient(135deg, #ffc107, #e0a800);
+            color: #212529;
+            border: 2px solid #d39e00;
+        }
+        
+        .alert-info {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+            border: 2px solid #117a8b;
+        }
+        
+        .alert-success {
+            background: linear-gradient(135deg, #28a745, #218838);
+            color: white;
+            border: 2px solid #1e7e34;
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .code {
+            background: #2d3748;
+            color: #00ff88;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .nav-links a {
+            color: #00ff88;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: 1px solid #00ff88;
+        }
+        
+        .nav-links a:hover {
+            background: #00ff88;
+            color: #1a1a2e;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #0f3460;
+            text-align: center;
+            color: #666;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #0f3460, #1a1a2e);
+            color: #00ff88;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.1em;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-online { background-color: #28a745; }
+        .status-warning { background-color: #ffc107; }
+        .status-offline { background-color: #dc3545; }
+        
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .battery-status {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .battery-low {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+        
+        .battery-medium {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            color: #212529;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 A.R.I.A. Controller Unit</h1>
+            <p>Comprehensive Troubleshooting & Diagnostic Guide</p>
+            <p><em>Advanced Robotic Intelligence Avatar - Physical Controller System</em></p>
+        </div>
+        
+        <div class="system-status">
+            <h3>🔧 System Overview</h3>
+            <p>This guide covers troubleshooting for the main A.R.I.A. Controller Unit - the primary wearable collar device containing all core RLV modules and system functionality.</p>
+        </div>
+        
+        <div class="nav-links">
+            <strong>Quick Navigation:</strong>
+            <a href="#startup-issues">Startup Issues</a>
+            <a href="#module-problems">Module Problems</a>
+            <a href="#rlv-troubleshooting">RLV Issues</a>
+            <a href="#battery-power">Battery & Power</a>
+            <a href="#communication">Communication</a>
+            <a href="#emergency-procedures">Emergency</a>
+            <a href="#advanced-diagnostics">Diagnostics</a>
+        </div>
+
+        <div class="content">
+            <div class="alert alert-info">
+                <strong>🚀 Before You Begin:</strong> Ensure you have the latest firmware installed. Check the main documentation for current version information. The A.R.I.A. Controller requires Second Life viewer with RLV enabled.
+            </div>
+
+            <h2 id="startup-issues">⚡ Startup & Initialization Issues</h2>
+            
+            <h3>Controller Won't Start</h3>
+            <div class="troubleshoot-item critical-issue">
+                <p><strong>Symptoms:</strong> No startup messages, scripts appear inactive, no response to touch</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check script status: Right-click → Edit → Contents tab</li>
+                    <li>Verify all 10 modules are present: Main, Permissions, Speech, Mobility, Vision, Interface, Interaction, Wardrobe, Tether, Diagnostics</li>
+                    <li>Reset all scripts: Hold <span class="code">Ctrl+Shift</span> while touching the controller</li>
+                    <li>Check region script limits: Scripts may be disabled or at capacity</li>
+                    <li>Detach and re-attach the controller to your neck attachment point</li>
+                </ul>
+            </div>
+            
+            <h3>Partial Module Loading</h3>
+            <div class="troubleshoot-item warning-issue">
+                <p><strong>Symptoms:</strong> Some modules work, others don't respond, incomplete menu options</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check individual script status in the Contents tab</li>
+                    <li>Look for script errors in viewer console (Ctrl+Shift+L)</li>
+                    <li>Reset specific non-working modules individually</li>
+                    <li>Verify script memory usage (each should be under 64KB)</li>
+                    <li>Check for conflicting scripts from other attachments</li>
+                </ul>
+            </div>
+
+            <h3>User Permission Errors</h3>
+            <div class="troubleshoot-item critical-issue">
+                <p><strong>Symptoms:</strong> "Permission denied" messages, can't access admin functions</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Verify you're listed as the Primary Administrator in the Permissions module</li>
+                    <li>Check if administrator list was cleared during reset</li>
+                    <li>Use emergency reset: Touch controller while holding <span class="code">Ctrl+Alt+Shift</span></li>
+                    <li>Re-add yourself as admin through the Permissions module</li>
+                    <li>Ensure the controller is worn by the correct avatar</li>
+                </ul>
+            </div>
+
+            <h2 id="module-problems">🔧 Individual Module Problems</h2>
+            
+            <div class="module-grid">
+                <div class="module-section">
+                    <div class="module-header">🗣️ Speech RLV Module</div>
+                    <h4>Common Issues:</h4>
+                    <ul>
+                        <li><strong>Can't speak:</strong> Check RLV speech restrictions, verify @sendchat commands</li>
+                        <li><strong>Garbled output:</strong> Review persona settings and speech filters</li>
+                        <li><strong>Commands ignored:</strong> Verify command prefix settings and RLV status</li>
+                        <li><strong>No translation:</strong> Check translation persona mode activation</li>
+                    </ul>
+                    <div class="alert alert-warning">
+                        <strong>Debug Command:</strong> Say <span class="code">/1 aria speech test</span> to verify functionality
+                    </div>
+                </div>
+
+                <div class="module-section">
+                    <div class="module-header">🚶 Mobility RLV Module</div>
+                    <h4>Common Issues:</h4>
+                    <ul>
+                        <li><strong>Can't move:</strong> Check freeze status, verify @forwards commands</li>
+                        <li><strong>Flying disabled:</strong> Battery level may be too low (below 15%)</li>
+                        <li><strong>TP blocked:</strong> Check teleport restrictions and whitelist settings</li>
+                        <li><strong>Stuck sitting:</strong> Use @unsit command or reset mobility module</li>
+                    </ul>
+                    <div class="battery-status battery-medium">
+                        <strong>🔋 Power Level Impact:</strong> Mobility restrictions increase as battery drains
+                    </div>
+                </div>
+
+                <div class="module-section">
+                    <div class="module-header">👁️ Vision RLV Module</div>
+                    <h4>Common Issues:</h4>
+                    <ul>
+                        <li><strong>Overlay stuck:</strong> Reset vision module or use clear overlay command</li>
+                        <li><strong>Wrong color tint:</strong> Check persona vision settings</li>
+                        <li><strong>Blurred vision persistent:</strong> Restart viewer if @setdebug effects remain</li>
+                        <li><strong>Sphere vision not working:</strong> Verify RLV version supports @setsphere</li>
+                    </ul>
+                </div>
+
+                <div class="module-section">
+                    <div class="module-header">🖥️ Interface RLV Module</div>
+                    <h4>Common Issues:</h4>
+                    <ul>
+                        <li><strong>Can't open inventory:</strong> Check @showinv restrictions</li>
+                        <li><strong>Chat hidden:</strong> Verify @showchat and @shownames settings</li>
+                        <li><strong>Minimap disabled:</strong> Check @showminimap restrictions</li>
+                        <li><strong>Can't access world map:</strong> Verify @showworldmap status</li>
+                    </ul>
+                </div>
+
+                <div class="module-section">
+                    <div class="module-header">🤝 Interaction RLV Module</div>
+                    <h4>Common Issues:</h4>
+                    <ul>
+                        <li><strong>Can't touch objects:</strong> Check @touchall restrictions</li>
+                        <li><strong>Sitting blocked:</strong> Verify @sit restrictions and object permissions</li>
+                        <li><strong>Can't edit objects:</strong> Check @edit restrictions</li>
+                        <li><strong>Rezzing disabled:</strong> Verify @rez restrictions and inventory access</li>
+                    </ul>
+                </div>
+
+                <div class="module-section">
+                    <div class="module-header">👗 Wardrobe RLV Module</div>
+                    <h4>Common Issues:</h4>
+                    <ul>
+                        <li><strong>Can't change clothes:</strong> Check folder locks and @detach restrictions</li>
+                        <li><strong>Outfit won't load:</strong> Verify RLV folder structure and naming</li>
+                        <li><strong>Attachments locked:</strong> Check specific attachment point restrictions</li>
+                        <li><strong>Folder access denied:</strong> Verify @getinv and folder permissions</li>
+                    </ul>
+                </div>
+
+                <div class="module-section">
+                    <div class="module-header">🔗 Tether RLV Module</div>
+                    <h4>Common Issues:</h4>
+                    <ul>
+                        <li><strong>Following not working:</strong> Check @follow commands and target validity</li>
+                        <li><strong>Leash not visible:</strong> Verify particle system and distance settings</li>
+                        <li><strong>Can't break free:</strong> Check leash length and resistance settings</li>
+                        <li><strong>Target lost:</strong> Verify target is online and in range</li>
+                    </ul>
+                </div>
+
+                <div class="module-section">
+                    <div class="module-header">🔧 Diagnostics RLV Module</div>
+                    <h4>Common Issues:</h4>
+                    <ul>
+                        <li><strong>No RLV response:</strong> Check RLV is enabled in viewer</li>
+                        <li><strong>Scan results empty:</strong> Verify @getdetach and @getinv functionality</li>
+                        <li><strong>Relay not responding:</strong> Check relay configuration and permissions</li>
+                        <li><strong>Test commands fail:</strong> Verify RLV version compatibility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 id="rlv-troubleshooting">🔒 RLV Troubleshooting</h2>
+            
+            <h3>RLV Not Enabled</h3>
+            <div class="troubleshoot-item critical-issue">
+                <p><strong>Symptoms:</strong> All RLV commands fail, no restrictions applied, red RLV status</p>
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li><span class="step-number">1</span>Open viewer Preferences (Ctrl+P)</li>
+                    <li><span class="step-number">2</span>Navigate to Firestorm → RLV tab</li>
+                    <li><span class="step-number">3</span>Check "Enable Restrained Love Viewer (RLV)"</li>
+                    <li><span class="step-number">4</span>Restart your viewer completely</li>
+                    <li><span class="step-number">5</span>Test with <span class="code">@version</span> command in local chat</li>
+                </ol>
+            </div>
+
+            <h3>RLV Relay Issues</h3>
+            <div class="troubleshoot-item warning-issue">
+                <p><strong>Symptoms:</strong> External RLV objects can't control avatar</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Access Diagnostics Module → RLV Relay Settings</li>
+                    <li>Set relay mode to "Ask" or "Trusted" as appropriate</li>
+                    <li>Check blacklist for blocked objects</li>
+                    <li>Verify relay is enabled and responsive</li>
+                    <li>Test with known good RLV objects</li>
+                </ul>
+            </div>
+
+            <h3>Command Syntax Errors</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Symptoms:</strong> Specific RLV commands not working, partial functionality</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check RLV command syntax: commands must start with @</li>
+                    <li>Verify proper command structure: @command=value</li>
+                    <li>Check for typos in folder names (case sensitive)</li>
+                    <li>Ensure proper command termination and formatting</li>
+                    <li>Test individual commands in local chat for debugging</li>
+                </ul>
+            </div>
+
+            <h2 id="battery-power">🔋 Battery & Power Management</h2>
+            
+            <h3>Battery Drainage Issues</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Symptoms:</strong> Battery drains too quickly, inaccurate readings</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check for power-hungry modules and disable unnecessary ones</li>
+                    <li>Review activity levels - high interaction drains battery faster</li>
+                    <li>Verify battery module is functioning correctly</li>
+                    <li>Reset battery calibration through diagnostics</li>
+                    <li>Check for background processes consuming power</li>
+                </ul>
+            </div>
+
+            <div class="battery-status battery-low">
+                <h4>🚨 Critical Battery Levels & Auto-Restrictions</h4>
+                <ul style="text-align: left; margin: 10px 0;">
+                    <li><strong>15% Battery:</strong> Flying disabled, reduced mobility</li>
+                    <li><strong>10% Battery:</strong> Teleportation blocked</li>
+                    <li><strong>5% Battery:</strong> All movement frozen</li>
+                    <li><strong>0% Battery:</strong> Complete system shutdown</li>
+                </ul>
+            </div>
+
+            <h3>Charging Problems</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Symptoms:</strong> Won't charge, slow charging, charging interruptions</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Verify charging pad is rezzed and functioning</li>
+                    <li>Check positioning - controller must be within range</li>
+                    <li>Ensure charging pad has power and proper scripts</li>
+                    <li>Reset both controller and charging pad if needed</li>
+                    <li>Check for interference from other objects</li>
+                </ul>
+            </div>
+
+            <h2 id="communication">📡 Communication Issues</h2>
+            
+            <h3>Owner/Admin HUD Connection</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Symptoms:</strong> Can't connect to admin HUD, commands not received</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Ensure both controller and HUD are in the same region</li>
+                    <li>Verify communication channels match on both devices</li>
+                    <li>Check that both devices have scripts running</li>
+                    <li>Reset both controller and HUD simultaneously</li>
+                    <li>Verify administrator permissions are properly set</li>
+                </ul>
+            </div>
+
+            <h3>Programming Station Issues</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Symptoms:</strong> Can't connect to programming station, upload failures</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Verify controller is within 10 meters of programming station</li>
+                    <li>Check that both devices are using correct link channels</li>
+                    <li>Ensure programming station has power and is online</li>
+                    <li>Verify security permissions for programming access</li>
+                    <li>Reset connection and retry programming sequence</li>
+                </ul>
+            </div>
+
+            <h2 id="emergency-procedures">🚨 Emergency Procedures</h2>
+            
+            <div class="alert alert-emergency">
+                <h3>🆘 Emergency Shutdown</h3>
+                <p><strong>If the controller becomes unresponsive or causes problems:</strong></p>
+                <ol style="margin: 10px 0;">
+                    <li>Use safeword if configured: Say your safeword in local chat</li>
+                    <li>Emergency detach: Right-click controller → Detach</li>
+                    <li>Force script reset: Hold <span class="code">Ctrl+Alt+Shift</span> while touching</li>
+                    <li>If completely frozen: Use viewer's "Stop All Animations" feature</li>
+                    <li>Last resort: Relog to Second Life</li>
+                </ol>
+            </div>
+
+            <h3>Safeword Configuration</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Setting up emergency safeword:</strong></p>
+                <ol>
+                    <li><span class="step-number">1</span>Access Main Menu → Settings → Security</li>
+                    <li><span class="step-number">2</span>Set a memorable safeword (avoid common words)</li>
+                    <li><span class="step-number">3</span>Test safeword functionality: say it in local chat</li>
+                    <li><span class="step-number">4</span>Verify all restrictions are released when used</li>
+                    <li><span class="step-number">5</span>Document safeword in a secure location</li>
+                </ol>
+            </div>
+
+            <h3>Factory Reset Procedures</h3>
+            
+            <h4>Soft Reset (Preserves User Data)</h4>
+            <div class="alert alert-warning">
+                <strong>⚠️ Note:</strong> This resets configuration but keeps administrator lists and personas
+            </div>
+            <ol>
+                <li><span class="step-number">1</span>Access Main Menu → Settings → Advanced → Reset Options</li>
+                <li><span class="step-number">2</span>Select "Soft Reset Configuration"</li>
+                <li><span class="step-number">3</span>Confirm reset operation</li>
+                <li><span class="step-number">4</span>Wait for automatic restart (30-60 seconds)</li>
+                <li><span class="step-number">5</span>Reconfigure basic settings and preferences</li>
+            </ol>
+
+            <h4>Hard Reset (Complete Factory Restore)</h4>
+            <div class="alert alert-emergency">
+                <strong>🚨 WARNING:</strong> This completely erases all settings, user lists, and customizations!
+            </div>
+            <ol>
+                <li><span class="step-number">1</span>Hold <span class="code">Ctrl+Shift+Alt</span> while touching controller</li>
+                <li><span class="step-number">2</span>Select "FACTORY RESET" from emergency menu</li>
+                <li><span class="step-number">3</span>Type the displayed confirmation code exactly</li>
+                <li><span class="step-number">4</span>Wait for complete system rebuild (2-5 minutes)</li>
+                <li><span class="step-number">5</span>Perform complete initial setup again</li>
+            </ol>
+
+            <h2 id="advanced-diagnostics">🔬 Advanced Diagnostics</h2>
+            
+            <h3>Built-in Diagnostic Tools</h3>
+            <p>Access through <strong>Main Menu → Diagnostics:</strong></p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Diagnostic Tool</th>
+                        <th>Function</th>
+                        <th>What It Checks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="code">System Status</span></td>
+                        <td>Overall health check</td>
+                        <td>All modules, memory usage, communication</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">Module Status</span></td>
+                        <td>Individual module diagnostics</td>
+                        <td>Script status, memory, linked messages</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">RLV Test Suite</span></td>
+                        <td>RLV functionality verification</td>
+                        <td>Command response, version, capabilities</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">Communication Test</span></td>
+                        <td>Network connectivity check</td>
+                        <td>HUD connection, station links, channels</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">Battery Analysis</span></td>
+                        <td>Power system diagnostics</td>
+                        <td>Charge level, drain rate, charging status</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">Memory Profiler</span></td>
+                        <td>Script resource analysis</td>
+                        <td>Memory usage per module, optimization suggestions</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Error Code Reference</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th
