@@ -661,4 +661,240 @@
                 <thead>
                     <tr>
                         <th>Error Code</th>
-                        <th
+                        <th>Module</th>
+                        <th>Description</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="code">ARIA_001</span></td>
+                        <td>Main Module</td>
+                        <td>Core initialization failure</td>
+                        <td>Reset all scripts, check for conflicts</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_002</span></td>
+                        <td>Permissions</td>
+                        <td>Administrator list corruption</td>
+                        <td>Emergency reset, re-add administrators</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_003</span></td>
+                        <td>Speech RLV</td>
+                        <td>RLV communication timeout</td>
+                        <td>Enable RLV, restart viewer, check relay</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_004</span></td>
+                        <td>Mobility RLV</td>
+                        <td>Movement command failure</td>
+                        <td>Reset mobility module, check RLV status</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_005</span></td>
+                        <td>Vision RLV</td>
+                        <td>Overlay render error</td>
+                        <td>Clear overlays, restart viewer if needed</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_006</span></td>
+                        <td>Interface RLV</td>
+                        <td>UI restriction failure</td>
+                        <td>Reset interface module, verify RLV version</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_007</span></td>
+                        <td>Interaction RLV</td>
+                        <td>Touch/sit command error</td>
+                        <td>Check object permissions, reset module</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_008</span></td>
+                        <td>Wardrobe RLV</td>
+                        <td>Outfit folder access denied</td>
+                        <td>Fix RLV folder structure, check permissions</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_009</span></td>
+                        <td>Tether RLV</td>
+                        <td>Following/leash system failure</td>
+                        <td>Reset tether, verify target validity</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_010</span></td>
+                        <td>Diagnostics RLV</td>
+                        <td>Diagnostic scan timeout</td>
+                        <td>Check RLV relay, restart diagnostics</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_011</span></td>
+                        <td>Battery System</td>
+                        <td>Power management malfunction</td>
+                        <td>Reset battery module, check charging pad</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ARIA_012</span></td>
+                        <td>Communication</td>
+                        <td>HUD connection lost</td>
+                        <td>Move closer to HUD, verify channels</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Script Memory Monitoring</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Memory Usage Guidelines:</strong></p>
+                <ul>
+                    <li><strong>Normal Operation:</strong> Each module should use 40-55KB</li>
+                    <li><strong>Warning Level:</strong> 55-60KB (may cause slowdowns)</li>
+                    <li><strong>Critical Level:</strong> 60-64KB (risk of script failure)</li>
+                    <li><strong>Overload:</strong> 64KB+ (script will fail or crash)</li>
+                </ul>
+                
+                <div class="alert alert-warning">
+                    <strong>Memory Optimization Tips:</strong>
+                    <ul style="margin: 10px 0;">
+                        <li>Clear diagnostic logs regularly</li>
+                        <li>Limit stored user lists to essential personnel</li>
+                        <li>Reduce history cache sizes in modules</li>
+                        <li>Disable unused module features</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Network Performance Testing</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Communication Channel Testing:</strong></p>
+                <ul>
+                    <li>Test primary communication channel: <span class="code">-18795462</span></li>
+                    <li>Verify no interference from other devices on same channel</li>
+                    <li>Check region script performance and limits</li>
+                    <li>Monitor packet loss and response times</li>
+                    <li>Test backup communication methods</li>
+                </ul>
+            </div>
+
+            <h2>🔧 Maintenance & Optimization</h2>
+            
+            <h3>Regular Maintenance Schedule</h3>
+            <div class="module-section">
+                <div class="module-header">📅 Recommended Maintenance Tasks</div>
+                
+                <h4>Daily (If Used Regularly):</h4>
+                <ul>
+                    <li>Check battery level and charge if below 50%</li>
+                    <li>Verify all modules are responding normally</li>
+                    <li>Clear any error messages or diagnostic alerts</li>
+                </ul>
+                
+                <h4>Weekly:</h4>
+                <ul>
+                    <li>Run full system diagnostics</li>
+                    <li>Clean diagnostic logs and cached data</li>
+                    <li>Verify administrator and trusted user lists</li>
+                    <li>Test emergency procedures and safeword</li>
+                </ul>
+                
+                <h4>Monthly:</h4>
+                <ul>
+                    <li>Perform soft reset to clear accumulated data</li>
+                    <li>Update to latest firmware if available</li>
+                    <li>Review and optimize settings for performance</li>
+                    <li>Backup critical configuration settings</li>
+                </ul>
+            </div>
+
+            <h3>Performance Optimization</h3>
+            <div class="troubleshoot-item">
+                <p><strong>Optimizing Controller Performance:</strong></p>
+                <ul>
+                    <li><strong>Reduce Script Load:</strong> Disable unused modules temporarily</li>
+                    <li><strong>Optimize Settings:</strong> Use lower frequency updates for status displays</li>
+                    <li><strong>Memory Management:</strong> Clear logs and caches regularly</li>
+                    <li><strong>Network Efficiency:</strong> Minimize chat spam and unnecessary communications</li>
+                    <li><strong>Region Selection:</strong> Use regions with good script performance when possible</li>
+                </ul>
+            </div>
+
+            <h2>🆘 Getting Help & Support</h2>
+            
+            <h3>Documentation Resources</h3>
+            <div class="nav-links">
+                <a href="../index.html">📚 Main Documentation</a>
+                <a href="setup.html">🚀 Setup Guide</a>
+                <a href="modules.html">🔧 Module Reference</a>
+                <a href="../owner-hud/index.html">📱 Owner HUD Guide</a>
+                <a href="../wearer-hud/index.html">💻 Wearer HUD Guide</a>
+                <a href="../rlv-reference/index.html">🔒 RLV Commands</a>
+            </div>
+            
+            <h3>Self-Help Tools</h3>
+            <ul>
+                <li><strong>Built-in Help:</strong> Access through Main Menu → Help</li>
+                <li><strong>Tutorial Mode:</strong> Guided walkthrough of basic functions</li>
+                <li><strong>Interactive Diagnostics:</strong> Step-by-step problem solving</li>
+                <li><strong>Configuration Backup:</strong> Save/restore working configurations</li>
+            </ul>
+            
+            <h3>Community Support</h3>
+            <ul>
+                <li><strong>User Manual:</strong> Complete documentation in-world</li>
+                <li><strong>Support Group:</strong> In-world user community</li>
+                <li><strong>Help Desk:</strong> Staffed support center</li>
+                <li><strong>Video Tutorials:</strong> Visual guides for common procedures</li>
+            </ul>
+
+            <h3>Emergency Contact Procedures</h3>
+            <div class="alert alert-emergency">
+                <h4>🚨 Critical Issues Requiring Immediate Assistance:</h4>
+                <ul style="margin: 10px 0;">
+                    <li><strong>Controller completely unresponsive</strong> - Contact administrator immediately</li>
+                    <li><strong>Unable to remove restrictions</strong> - Use emergency detach procedures</li>
+                    <li><strong>Safeword not working</strong> - Manual detach and contact support</li>
+                    <li><strong>Potential security breach</strong> - Immediate factory reset may be required</li>
+                </ul>
+                <p><strong>Emergency Protocol:</strong> Document all error messages, take screenshots, and preserve logs before attempting fixes.</p>
+            </div>
+
+            <h2>📋 Quick Reference Checklist</h2>
+            
+            <div class="module-section">
+                <div class="module-header">✅ Pre-Operation Checklist</div>
+                <ul>
+                    <li>☑️ RLV enabled in viewer</li>
+                    <li>☑️ Controller attached to neck attachment point</li>
+                    <li>☑️ All 10 modules loaded and responding</li>
+                    <li>☑️ Battery level above 25%</li>
+                    <li>☑️ Administrator permissions correctly set</li>
+                    <li>☑️ Safeword configured and tested</li>
+                    <li>☑️ Emergency procedures understood</li>
+                </ul>
+            </div>
+
+            <div class="module-section">
+                <div class="module-header">🔍 Troubleshooting Quick Steps</div>
+                <ol>
+                    <li><strong>Identify the Problem:</strong> Which module or function is affected?</li>
+                    <li><strong>Check RLV Status:</strong> Is RLV enabled and responding?</li>
+                    <li><strong>Verify Permissions:</strong> Do you have appropriate access rights?</li>
+                    <li><strong>Check Battery:</strong> Is power level sufficient for operation?</li>
+                    <li><strong>Run Diagnostics:</strong> Use built-in diagnostic tools</li>
+                    <li><strong>Reset if Needed:</strong> Module reset → Soft reset → Hard reset</li>
+                    <li><strong>Test Functionality:</strong> Verify fix worked correctly</li>
+                    <li><strong>Document Issues:</strong> Note any recurring problems</li>
+                </ol>
+            </div>
+
+            <footer>
+                <div class="alert alert-success">
+                    <p><strong>💡 Remember:</strong> The A.R.I.A. Controller Unit is a sophisticated system with multiple interacting components. When troubleshooting, start with the simplest solutions first and gradually work toward more complex fixes.</p>
+                </div>
+                <p>This troubleshooting guide covers comprehensive diagnosis and repair procedures for the A.R.I.A. Controller Unit. For additional technical support, consult the complete documentation suite or contact your system administrator.</p>
+                <p><strong>Document Version:</strong> 2.0 - September 2025 | <strong>Controller Version:</strong> A.R.I.A. v10.3</p>
+                <p><strong>Compatible RLV Versions:</strong> 2.9.0+ | <strong>Recommended Viewers:</strong> Firestorm, Phoenix, Cool VL Viewer</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
