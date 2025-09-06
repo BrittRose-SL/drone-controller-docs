@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.R.I.A. Controller Module Reference | BrittRose-SL Documentation</title>
+    <meta name="description" content="Complete reference guide for all A.R.I.A. Controller modules including RLV functionality, configuration options, and usage examples.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="BrittRose-SL" class="logo">
+                    <span>BrittRose-SL Docs</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">A.R.I.A. System</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Controller Overview</a></li>
+                        <li><a href="setup.html">Quick Start</a></li>
+                        <li><a href="modules.html">Module Reference</a></li>
+                        <li><a href="../wearer-hud/index.html">Wearer HUD</a></li>
+                        <li><a href="../owner-hud/index.html">Owner HUD</a></li>
+                    </ul>
+                </li>
+                <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                <li><a href="../troubleshooting/index.html">Support</a></li>
+                <li><a href="../faq/index.html">FAQ</a></li>
+                <li><a href="../contact/index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>›</span>
+                <a href="index.html">A.R.I.A. Controller</a>
+                <span>›</span>
+                <span>Module Reference</span>
+            </nav>
+
+            <div class="content-wrapper">
+                <aside class="sidebar">
+                    <div class="sidebar-content">
+                        <h3>A.R.I.A. Controller</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="index.html">Overview</a></li>
+                            <li><a href="setup.html">Setup Guide</a></li>
+                            <li><a href="modules.html" class="active">Module Reference</a></li>
+                            <li><a href="configuration.html">Configuration</a></li>
+                            <li><a href="security.html">Security & Permissions</a></li>
+                            <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                        </ul>
+                        
+                        <div class="sidebar-section">
+                            <h4>Quick Navigation</h4>
+                            <ul class="quick-links">
+                                <li><a href="#core-modules">Core Modules</a></li>
+                                <li><a href="#rlv-modules">RLV Modules</a></li>
+                                <li><a href="#module-commands">Commands Reference</a></li>
+                                <li><a href="#advanced-usage">Advanced Usage</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h4>Module Quick Links</h4>
+                            <ul class="module-quick-nav">
+                                <li><a href="#speech-rlv">🗣️ Speech</a></li>
+                                <li><a href="#mobility-rlv">🚶 Mobility</a></li>
+                                <li><a href="#vision-rlv">👁️ Vision</a></li>
+                                <li><a href="#interface-rlv">🖥️ Interface</a></li>
+                                <li><a href="#interaction-rlv">🤝 Interaction</a></li>
+                                <li><a href="#wardrobe-rlv">👗 Wardrobe</a></li>
+                                <li><a href="#tether-rlv">🔗 Tether</a></li>
+                                <li><a href="#diagnostics-rlv">🔧 Diagnostics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+                <article class="content">
+                    <header class="content-header">
+                        <h1>A.R.I.A. Controller Module Reference</h1>
+                        <p class="lead">Comprehensive guide to all A.R.I.A. Controller modules, their capabilities, and configuration options</p>
+                        <div class="content-meta">
+                            <span class="version">System Version 10.3</span>
+                            <span class="module-count">10 Total Modules</span>
+                            <span class="last-updated">Last updated: <span id="last-updated">September 5, 2025</span></span>
+                        </div>
+                    </header>
+
+                    <div class="alert alert-info">
+                        <strong>Module System Overview:</strong> The A.R.I.A. Controller uses a modular architecture where each module handles specific functionality. Modules communicate via linked messages and can be individually controlled.
+                    </div>
+
+                    <div class="table-of-contents">
+                        <h2>Module Categories</h2>
+                        <div class="toc-grid">
+                            <div class="toc-section">
+                                <h3><a href="#core-modules">🔧 Core Modules (2)</a></h3>
+                                <ul>
+                                    <li><a href="#main-module">Main Module</a></li>
+                                    <li><a href="#permissions-module">Permissions Module</a></li>
+                                </ul>
+                            </div>
+                            <div class="toc-section">
+                                <h3><a href="#rlv-modules">🎮 RLV Modules (8)</a></h3>
+                                <ul>
+                                    <li><a href="#speech-rlv">Speech RLV</a></li>
+                                    <li><a href="#mobility-rlv">Mobility RLV</a></li>
+                                    <li><a href="#vision-rlv">Vision RLV</a></li>
+                                    <li><a href="#interface-rlv">Interface RLV</a></li>
+                                    <li><a href="#interaction-rlv">Interaction RLV</a></li>
+                                    <li><a href="#wardrobe-rlv">Wardrobe RLV</a></li>
+                                    <li><a href="#tether-rlv">Tether RLV</a></li>
+                                    <li><a href="#diagnostics-rlv">Diagnostics RLV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section id="core-modules" class="section">
+                        <h2>🔧 Core System Modules</h2>
+                        <p>The core modules provide the foundation for the A.R.I.A. system, handling basic functionality, communication, and access control.</p>
+
+                        <div id="main-module" class="module-card core-module">
+                            <div class="module-header">
+                                <h3>⚙️ Main Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-core">Core</span>
+                                    <span class="badge badge-version">v10.3</span>
+                                    <span class="badge badge-required">Required</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> The system kernel that coordinates all other modules, handles power management, and provides the main user interface.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>🎛️ Interaction Controls</h4>
+                                        <div class="control-grid">
+                                            <div class="control-item">
+                                                <strong>Touch Restrictions</strong>
+                                                <p>Limits object touching</p>
+                                                <span class="rlv-command">@touch=n, @touchthis=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Edit Prevention</strong>
+                                                <p>Blocks object editing</p>
+                                                <span class="rlv-command">@edit=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Rez Blocking</strong>
+                                                <p>Prevents object rezzing</p>
+                                                <span class="rlv-command">@rez=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Script Limitations</strong>
+                                                <p>Restricts script interactions</p>
+                                                <span class="rlv-command">Context-based restrictions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎯 Smart Interaction Management</h4>
+                                        <p>Advanced interaction control features:</p>
+                                        <ul>
+                                            <li><strong>Selective Blocking:</strong> Block specific object types while allowing others</li>
+                                            <li><strong>Distance-Based:</strong> Restrictions based on proximity to controller</li>
+                                            <li><strong>Owner Integration:</strong> Special permissions for owned objects</li>
+                                            <li><strong>Emergency Override:</strong> Always allow emergency object interaction</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>BLOCK TOUCH</strong>
+                                                <span>Prevent object touching</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>EDIT LOCK</strong>
+                                                <span>Disable editing capabilities</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>REZ BLOCK</strong>
+                                                <span>Prevent object creation</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>INTERACTION LOCKDOWN</strong>
+                                                <span>Maximum interaction restrictions</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>RESTORE INTERACTION</strong>
+                                                <span>Remove all interaction limits</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="wardrobe-rlv" class="module-card rlv-module">
+                            <div class="module-header">
+                                <h3>👗 Wardrobe RLV Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-rlv">RLV</span>
+                                    <span class="badge badge-version">v2.0</span>
+                                    <span class="badge badge-wardrobe">Wardrobe</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> Advanced outfit and attachment management with automatic wardrobe switching and conflict resolution.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>🎛️ Wardrobe Controls</h4>
+                                        <div class="control-grid">
+                                            <div class="control-item">
+                                                <strong>Outfit Locking</strong>
+                                                <p>Prevents outfit changes</p>
+                                                <span class="rlv-command">@addoutfit=n, @remoutfit=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Attachment Control</strong>
+                                                <p>Manages attachment permissions</p>
+                                                <span class="rlv-command">@attach=n, @detach=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Forced Outfits</strong>
+                                                <p>Automatically applies outfits</p>
+                                                <span class="rlv-command">@addoutfit=force</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Conflict Resolution</strong>
+                                                <p>Handles attachment conflicts</p>
+                                                <span class="rlv-command">Intelligent conflict management</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>👕 Advanced Wardrobe Features</h4>
+                                        <ul>
+                                            <li><strong>Outfit Presets:</strong> Store and recall complete outfit configurations</li>
+                                            <li><strong>Automatic Switching:</strong> Context-based outfit changes</li>
+                                            <li><strong>Attachment Tracking:</strong> Monitor and manage all attachments</li>
+                                            <li><strong>Backup Systems:</strong> Save current outfit before changes</li>
+                                            <li><strong>Conflict Prevention:</strong> Automatically resolve attachment point conflicts</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>LOCK OUTFIT</strong>
+                                                <span>Prevent outfit modifications</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>FORCE OUTFIT</strong>
+                                                <span>Apply specific outfit configuration</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>SAVE CURRENT</strong>
+                                                <span>Store current outfit as preset</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>MANAGE ATTACHMENTS</strong>
+                                                <span>Control individual attachments</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>RESTORE WARDROBE</strong>
+                                                <span>Remove all wardrobe restrictions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tether-rlv" class="module-card rlv-module">
+                            <div class="module-header">
+                                <h3>🔗 Tether RLV Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-rlv">RLV</span>
+                                    <span class="badge badge-version">v2.0</span>
+                                    <span class="badge badge-following">Following</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> Provides following and leash functionality with target management and visual effects.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>🎛️ Tether Controls</h4>
+                                        <div class="control-grid">
+                                            <div class="control-item">
+                                                <strong>Auto-Follow</strong>
+                                                <p>Automatic following behavior</p>
+                                                <span class="rlv-command">@follow=target</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Distance Control</strong>
+                                                <p>Configurable follow distance</p>
+                                                <span class="rlv-command">1.0-20.0m range</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Visual Leash</strong>
+                                                <p>Particle-based leash display</p>
+                                                <span class="rlv-command">Particle system management</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Target Management</strong>
+                                                <p>Multiple target support</p>
+                                                <span class="rlv-command">UUID and name-based targeting</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎯 Advanced Tether Features</h4>
+                                        <ul>
+                                            <li><strong>Smart Following:</strong> Adapts to target movement patterns</li>
+                                            <li><strong>Obstacle Avoidance:</strong> Navigates around barriers</li>
+                                            <li><strong>Multiple Targets:</strong> Can follow different people in sequence</li>
+                                            <li><strong>Range Detection:</strong> Automatic target scanning within range</li>
+                                            <li><strong>Battery Integration:</strong> Following disabled when battery is low</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>SET TARGET</strong>
+                                                <span>Configure follow target</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>SET DISTANCE</strong>
+                                                <span>Adjust follow distance</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>TOGGLE LEASH</strong>
+                                                <span>Show/hide visual leash</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>AUTO FOLLOW</strong>
+                                                <span>Enable automatic following</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>RELEASE</strong>
+                                                <span>Stop all following behavior</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="diagnostics-rlv" class="module-card rlv-module">
+                            <div class="module-header">
+                                <h3>🔧 Diagnostics RLV Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-rlv">RLV</span>
+                                    <span class="badge badge-version">v2.0</span>
+                                    <span class="badge badge-diagnostic">Diagnostic</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> System diagnostics, RLV relay management, and comprehensive system health monitoring.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>🎛️ Diagnostic Controls</h4>
+                                        <div class="control-grid">
+                                            <div class="control-item">
+                                                <strong>System Scan</strong>
+                                                <p>Complete system health check</p>
+                                                <span class="rlv-command">Memory, scripts, performance</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>RLV Queries</strong>
+                                                <p>Test RLV functionality</p>
+                                                <span class="rlv-command">@version, @getattach, @getstatus</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Relay Management</strong>
+                                                <p>Configure RLV relay modes</p>
+                                                <span class="rlv-command">Off/Ask/Trusted/Everyone</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Performance Monitor</strong>
+                                                <p>Real-time performance tracking</p>
+                                                <span class="rlv-command">Script time, memory usage</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🛡️ Security Features</h4>
+                                        <ul>
+                                            <li><strong>Admin-Only Access:</strong> Diagnostics restricted to administrators</li>
+                                            <li><strong>Secure Relay Defaults:</strong> Starts with relay disabled for security</li>
+                                            <li><strong>Response Validation:</strong> Ensures RLV responses are captured correctly</li>
+                                            <li><strong>Timeout Detection:</strong> Alerts if RLV doesn't respond within expected timeframe</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>SYSTEM SCAN</strong>
+                                                <span>Comprehensive system diagnostic</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>RLV VERSION</strong>
+                                                <span>Query RLV version information</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>RELAY MODE</strong>
+                                                <span>Configure RLV relay settings</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>VERBOSE MODE</strong>
+                                                <span>Enable detailed logging</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>CLEAR HISTORY</strong>
+                                                <span>Reset diagnostic history</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="module-commands" class="section">
+                        <h2>📋 Module Commands Reference</h2>
+                        <p>Quick reference for accessing and controlling individual modules through the main interface.</p>
+                        
+                        <div class="command-reference">
+                            <h3>Basic Module Access</h3>
+                            <div class="command-sequence">
+                                <div class="step">1. Touch A.R.I.A. Controller</div>
+                                <div class="arrow">→</div>
+                                <div class="step">2. Select "MODULES"</div>
+                                <div class="arrow">→</div>
+                                <div class="step">3. Choose specific module</div>
+                                <div class="arrow">→</div>
+                                <div class="step">4. Access module controls</div>
+                            </div>
+                        </div>
+                        
+                        <div class="permissions-table">
+                            <h3>Module Access Permissions</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Module</th>
+                                        <th>Admin</th>
+                                        <th>Trusted</th>
+                                        <th>Wearer</th>
+                                        <th>Public</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Main Module</td>
+                                        <td>✅ Full Access</td>
+                                        <td>✅ Limited</td>
+                                        <td>✅ Basic</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Permissions</td>
+                                        <td>✅ Full Access</td>
+                                        <td>👁️ View Only</td>
+                                        <td>👁️ View Only</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Speech RLV</td>
+                                        <td>✅ Full Control</td>
+                                        <td>✅ Full Control</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobility RLV</td>
+                                        <td>✅ Full Control</td>
+                                        <td>✅ Full Control</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vision RLV</td>
+                                        <td>✅ Full Control</td>
+                                        <td>✅ Full Control</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interface RLV</td>
+                                        <td>✅ Full Control</td>
+                                        <td>✅ Full Control</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interaction RLV</td>
+                                        <td>✅ Full Control</td>
+                                        <td>✅ Full Control</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wardrobe RLV</td>
+                                        <td>✅ Full Control</td>
+                                        <td>✅ Full Control</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tether RLV</td>
+                                        <td>✅ Full Control</td>
+                                        <td>✅ Limited</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diagnostics RLV</td>
+                                        <td>✅ Full Access</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                        <td>❌ None</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="advanced-usage" class="section">
+                        <h2>🚀 Advanced Module Usage</h2>
+                        
+                        <div class="advanced-topics">
+                            <div class="topic-card">
+                                <h3>🔄 Module Communication</h3>
+                                <p>All modules communicate through the main module using linked messages. This ensures coordinated behavior and prevents conflicts between modules.</p>
+                                <ul>
+                                    <li><strong>Message Protocol:</strong> Standardized linked message codes</li>
+                                    <li><strong>State Synchronization:</strong> Modules share state information</li>
+                                    <li><strong>Conflict Resolution:</strong> Automatic handling of conflicting commands</li>
+                                    <li><strong>Error Handling:</strong> Graceful failure and recovery mechanisms</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="topic-card">
+                                <h3>⚡ Power Management Integration</h3>
+                                <p>All RLV modules integrate with the power management system, automatically adjusting their behavior based on battery levels.</p>
+                                <ul>
+                                    <li><strong>High Battery (75-100%):</strong> Full functionality available</li>
+                                    <li><strong>Medium Battery (50-74%):</strong> Standard operation</li>
+                                    <li><strong>Low Battery (25-49%):</strong> Power-saving features activated</li>
+                                    <li><strong>Critical Battery (5-24%):</strong> Essential functions only</li>
+                                    <li><strong>Emergency (0-4%):</strong> Automatic safety shutdown</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="topic-card">
+                                <h3>🛡️ Security Considerations</h3>
+                                <p>The modular design includes multiple security layers to ensure safe operation.</p>
+                                <ul>
+                                    <li><strong>Access Control:</strong> Strict permission checking on all module functions</li>
+                                    <li><strong>Safe Defaults:</strong> All modules start in the safest possible state</li>
+                                    <li><strong>Emergency Override:</strong> Critical safety functions always available</li>
+                                    <li><strong>Audit Trail:</strong> All significant actions are logged</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="topic-card">
+                                <h3>🔧 Customization Options</h3>
+                                <p>Advanced users can customize module behavior through configuration settings.</p>
+                                <ul>
+                                    <li><strong>Timing Adjustments:</strong> Modify restriction application delays</li>
+                                    <li><strong>Custom Commands:</strong> Add specialized RLV commands</li>
+                                    <li><strong>Integration Hooks:</strong> Connect with external systems</li>
+                                    <li><strong>Behavior Profiles:</strong> Create situation-specific configurations</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-warning">
+                            <strong>Important:</strong> Advanced customization requires understanding of LSL scripting and RLV protocols. Improper modifications can affect system stability and security.
+                        </div>
+                    </section>
+
+                    <div class="next-steps">
+                        <h2>📚 Continue Learning</h2>
+                        <p>Now that you understand the A.R.I.A. module system, explore these related topics:</p>
+                        
+                        <div class="next-steps-grid">
+                            <a href="configuration.html" class="next-step-card">
+                                <h3>⚙️ Configuration Guide</h3>
+                                <p>Learn how to configure and customize your A.R.I.A. system</p>
+                            </a>
+                            <a href="security.html" class="next-step-card">
+                                <h3>🛡️ Security & Permissions</h3>
+                                <p>Understand the security model and permission system</p>
+                            </a>
+                            <a href="../wearer-hud/index.html" class="next-step-card">
+                                <h3>📱 Wearer HUD</h3>
+                                <p>Set up the companion monitoring interface</p>
+                            </a>
+                            <a href="../rlv-reference/index.html" class="next-step-card">
+                                <h3>📖 RLV Reference</h3>
+                                <p>Complete RLV command reference and examples</p>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>A.R.I.A. System</h3>
+                    <ul>
+                        <li><a href="index.html">Controller Overview</a></li>
+                        <li><a href="setup.html">Setup Guide</a></li>
+                        <li><a href="modules.html">Module Reference</a></li>
+                        <li><a href="configuration.html">Configuration</a></li>
+                        <li><a href="security.html">Security & Permissions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="../rlv-reference/index.html">RLV Reference</a></li>
+                        <li><a href="../troubleshooting/index.html">Troubleshooting</a></li>
+                        <li><a href="../faq/index.html">FAQ</a></li>
+                        <li><a href="../changelog/index.html">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Development</h3>
+                    <ul>
+                        <li><a href="https://github.com/BrittRose-SL/aria-controller-scripts">GitHub Repository</a></li>
+                        <li><a href="../api/index.html">API Documentation</a></li>
+                        <li><a href="../contributing/index.html">Contributing</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>Questions about specific modules? Check our detailed guides!</p>
+                    <a href="../contact/index.html" class="btn btn-outline">Get Support</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BrittRose-SL. Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>section">
+                                        <h4>📋 Key Functions</h4>
+                                        <ul>
+                                            <li>Module registration and coordination</li>
+                                            <li>Power and battery management system</li>
+                                            <li>Main menu interface and navigation</li>
+                                            <li>Configuration loading and broadcasting</li>
+                                            <li>User access control integration</li>
+                                            <li>SOS emergency functionality</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>POWER ON/OFF</strong>
+                                                <span>System power control (Admin only)</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>STATUS</strong>
+                                                <span>System status and information</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>MODULES</strong>
+                                                <span>Access individual module menus</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>SOS</strong>
+                                                <span>Emergency alert to administrators</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>HOME</strong>
+                                                <span>Teleport to configured home location</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>⚡ Power Management</h4>
+                                        <p>The main module handles battery simulation with automatic drain based on active modules and usage patterns. Battery levels affect system capabilities:</p>
+                                        <ul>
+                                            <li><strong>100-50%:</strong> Full functionality</li>
+                                            <li><strong>49-25%:</strong> Minor restrictions applied</li>
+                                            <li><strong>24-10%:</strong> Power-saving mode activated</li>
+                                            <li><strong>9-5%:</strong> Critical restrictions applied</li>
+                                            <li><strong>Below 5%:</strong> Emergency shutdown</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="permissions-module" class="module-card core-module">
+                            <div class="module-header">
+                                <h3>🛡️ Permissions Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-core">Core</span>
+                                    <span class="badge badge-version">v2.1</span>
+                                    <span class="badge badge-security">Security</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> Manages user access control, administrator lists, and wearer permissions throughout the system.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>👥 Access Levels</h4>
+                                        <div class="access-levels">
+                                            <div class="access-level">
+                                                <h5>🔴 Admin (Level 4)</h5>
+                                                <p>Full system control, power management, user management</p>
+                                            </div>
+                                            <div class="access-level">
+                                                <h5>🟡 Trusted (Level 3)</h5>
+                                                <p>Module access, configuration viewing, limited controls</p>
+                                            </div>
+                                            <div class="access-level">
+                                                <h5>🟢 Wearer (Level 2)</h5>
+                                                <p>Basic status, SOS function, home teleport</p>
+                                            </div>
+                                            <div class="access-level">
+                                                <h5>⚪ Public (Level 1)</h5>
+                                                <p>No access (secured system)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>⚙️ Wearer Admin Mode</h4>
+                                        <p>New in v2.1: Configurable wearer admin mode allows the wearer to have full administrative privileges when enabled.</p>
+                                        <div class="alert alert-warning">
+                                            <strong>Security Note:</strong> Wearer admin mode should only be enabled when the wearer requires full self-control capabilities.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Permission Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>Add Admin</strong>
+                                                <span>Add new administrator (Admin only)</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>Remove Admin</strong>
+                                                <span>Remove administrator (Admin only)</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>Add Trusted</strong>
+                                                <span>Add trusted user (Admin only)</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>Toggle Wearer Admin</strong>
+                                                <span>Enable/disable wearer admin mode</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>List Users</strong>
+                                                <span>View all configured users</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="rlv-modules" class="section">
+                        <h2>🎮 RLV Functionality Modules</h2>
+                        <p>The RLV modules provide specialized control over different aspects of the avatar's capabilities and restrictions. Each module can be independently controlled and configured.</p>
+
+                        <div class="alert alert-warning">
+                            <strong>RLV Requirement:</strong> All RLV modules require an RLV-enabled viewer and the wearer's consent to RLV commands. Modules will not function without proper RLV setup.
+                        </div>
+
+                        <div id="speech-rlv" class="module-card rlv-module">
+                            <div class="module-header">
+                                <h3>🗣️ Speech RLV Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-rlv">RLV</span>
+                                    <span class="badge badge-version">v2.0</span>
+                                    <span class="badge badge-communication">Communication</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> Controls communication capabilities including local chat, instant messages, and emotes.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>🎛️ Control Options</h4>
+                                        <div class="control-grid">
+                                            <div class="control-item">
+                                                <strong>Mute Control</strong>
+                                                <p>Restricts local chat and emotes</p>
+                                                <span class="rlv-command">@sendchat=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Gag Effect</strong>
+                                                <p>Garbles speech output</p>
+                                                <span class="rlv-command">Custom speech filtering</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>IM Blocking</strong>
+                                                <p>Restricts instant messaging</p>
+                                                <span class="rlv-command">@sendim=n, @recvim=n</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>⚡ Battery-Based Restrictions</h4>
+                                        <p>Speech restrictions automatically increase as battery level decreases:</p>
+                                        <ul>
+                                            <li><strong>Below 15%:</strong> Emotes restricted</li>
+                                            <li><strong>Below 10%:</strong> Local chat limited</li>
+                                            <li><strong>Below 5%:</strong> All communication except emergency channels blocked</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>MUTE ON/OFF</strong>
+                                                <span>Toggle local chat restrictions</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>GAG ON/OFF</strong>
+                                                <span>Toggle speech filtering</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>BLOCK IM</strong>
+                                                <span>Toggle instant message blocking</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>SILENCE ALL</strong>
+                                                <span>Enable all speech restrictions</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>RESTORE ALL</strong>
+                                                <span>Remove all speech restrictions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="mobility-rlv" class="module-card rlv-module">
+                            <div class="module-header">
+                                <h3>🚶 Mobility RLV Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-rlv">RLV</span>
+                                    <span class="badge badge-version">v2.0</span>
+                                    <span class="badge badge-movement">Movement</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> Manages movement restrictions, teleportation controls, and location-based limitations.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>🎛️ Movement Controls</h4>
+                                        <div class="control-grid">
+                                            <div class="control-item">
+                                                <strong>Movement Lock</strong>
+                                                <p>Prevents walking and running</p>
+                                                <span class="rlv-command">@move=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Teleport Block</strong>
+                                                <p>Restricts teleportation</p>
+                                                <span class="rlv-command">@tpto=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Sit/Stand Control</strong>
+                                                <p>Controls sitting and standing</p>
+                                                <span class="rlv-command">@sit=n, @unsit=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Flying Restriction</strong>
+                                                <p>Prevents flight capability</p>
+                                                <span class="rlv-command">@fly=n</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🗺️ Location Management</h4>
+                                        <ul>
+                                            <li><strong>Region Locking:</strong> Restrict to current region</li>
+                                            <li><strong>Parcel Boundaries:</strong> Limit to current parcel</li>
+                                            <li><strong>Distance Limits:</strong> Maximum distance from set point</li>
+                                            <li><strong>Safe Zones:</strong> Define unrestricted areas</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>LOCK MOVEMENT</strong>
+                                                <span>Prevent all movement</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>BLOCK TELEPORT</strong>
+                                                <span>Disable teleportation</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>FORCE SIT</strong>
+                                                <span>Force sitting position</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>REGION LOCK</strong>
+                                                <span>Restrict to current region</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>RESTORE MOBILITY</strong>
+                                                <span>Remove all movement restrictions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="vision-rlv" class="module-card rlv-module">
+                            <div class="module-header">
+                                <h3>👁️ Vision RLV Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-rlv">RLV</span>
+                                    <span class="badge badge-version">v2.0</span>
+                                    <span class="badge badge-visual">Visual</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> Controls visual restrictions, overlay effects, and sight-based limitations.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>🎛️ Visual Controls</h4>
+                                        <div class="control-grid">
+                                            <div class="control-item">
+                                                <strong>Blindfold Effect</strong>
+                                                <p>Complete vision blocking</p>
+                                                <span class="rlv-command">@setdebug_renderresolutiondivisor=32</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Vision Blur</strong>
+                                                <p>Partial vision impairment</p>
+                                                <span class="rlv-command">Custom blur effects</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Overlay Management</strong>
+                                                <p>Visual overlay attachments</p>
+                                                <span class="rlv-command">Automated overlay handling</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🖼️ Overlay System</h4>
+                                        <p>The vision module includes an advanced overlay management system that can automatically attach and detach visual overlays based on restrictions:</p>
+                                        <ul>
+                                            <li><strong>Blindfold Overlays:</strong> Automatically managed based on blindfold state</li>
+                                            <li><strong>Custom Overlays:</strong> Configurable visual effects</li>
+                                            <li><strong>Battery Integration:</strong> Overlays flicker when battery is low</li>
+                                            <li><strong>Conflict Resolution:</strong> Prevents overlay conflicts</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>BLINDFOLD ON/OFF</strong>
+                                                <span>Toggle complete vision blocking</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>BLUR VISION</strong>
+                                                <span>Apply vision blur effects</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>MANAGE OVERLAYS</strong>
+                                                <span>Control visual overlay attachments</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>CLEAR VISION</strong>
+                                                <span>Remove all visual restrictions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="interface-rlv" class="module-card rlv-module">
+                            <div class="module-header">
+                                <h3>🖥️ Interface RLV Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-rlv">RLV</span>
+                                    <span class="badge badge-version">v2.0</span>
+                                    <span class="badge badge-ui">User Interface</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> Manages viewer interface restrictions including inventory access, map usage, and menu availability.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-section">
+                                        <h4>🎛️ Interface Controls</h4>
+                                        <div class="control-grid">
+                                            <div class="control-item">
+                                                <strong>Inventory Block</strong>
+                                                <p>Restricts inventory access</p>
+                                                <span class="rlv-command">@showinv=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>World Map Block</strong>
+                                                <p>Disables world map</p>
+                                                <span class="rlv-command">@showworldmap=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Mini-Map Block</strong>
+                                                <p>Hides mini-map display</p>
+                                                <span class="rlv-command">@showminimap=n</span>
+                                            </div>
+                                            <div class="control-item">
+                                                <strong>Menu Restrictions</strong>
+                                                <p>Limits menu access</p>
+                                                <span class="rlv-command">Various menu restrictions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>📱 Smart Interface Management</h4>
+                                        <p>The interface module includes intelligent management features:</p>
+                                        <ul>
+                                            <li><strong>Progressive Restrictions:</strong> Restrictions increase with battery drain</li>
+                                            <li><strong>Essential Access:</strong> Emergency functions always available</li>
+                                            <li><strong>Contextual Blocking:</strong> Restrictions adapt to current situation</li>
+                                            <li><strong>Restoration Protocols:</strong> Automatic restoration on power-off</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="detail-section">
+                                        <h4>🎮 Available Commands</h4>
+                                        <div class="command-grid">
+                                            <div class="command-item">
+                                                <strong>BLOCK INVENTORY</strong>
+                                                <span>Restrict inventory access</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>HIDE MAPS</strong>
+                                                <span>Disable map displays</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>LIMIT MENUS</strong>
+                                                <span>Restrict menu access</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>LOCKDOWN MODE</strong>
+                                                <span>Enable maximum interface restrictions</span>
+                                            </div>
+                                            <div class="command-item">
+                                                <strong>RESTORE INTERFACE</strong>
+                                                <span>Remove all interface restrictions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="interaction-rlv" class="module-card rlv-module">
+                            <div class="module-header">
+                                <h3>🤝 Interaction RLV Module</h3>
+                                <div class="module-badges">
+                                    <span class="badge badge-rlv">RLV</span>
+                                    <span class="badge badge-version">v2.0</span>
+                                    <span class="badge badge-interaction">Interaction</span>
+                                </div>
+                            </div>
+                            
+                            <div class="module-content">
+                                <p><strong>Purpose:</strong> Controls object interaction, touch permissions, and world manipulation capabilities.</p>
+                                
+                                <div class="module-details">
+                                    <div class="detail-
